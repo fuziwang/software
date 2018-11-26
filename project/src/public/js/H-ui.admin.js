@@ -1,12 +1,3 @@
-/* -----------H-ui前端框架-------------
-* H-ui.admin.js v3.1
-* http://www.h-ui.net/
-* Created & Modified by guojunhui
-* Date modified 2017.02.03
-* Copyright 2013-2017 北京颖杰联创科技有限公司 All rights reserved.
-* Licensed under MIT license.
-* http://opensource.org/licenses/MIT
-*/
 var num=0,oUl=$("#min_title_list"),hide_nav=$("#Hui-tabNav");
 
 /*获取顶部选项卡总长度*/
@@ -41,7 +32,7 @@ function getskincookie(){
 	var v = $.cookie("Huiskin");
 	var hrefStr=$("#skin").attr("href");
 	if(v==null||v==""){
-		v="default";
+		v="green";
 	}
 	if(hrefStr!=undefined){
 		var hrefRes=hrefStr.substring(0,hrefStr.lastIndexOf('skin/'))+'skin/'+v+'/skin.css';
@@ -307,11 +298,11 @@ $(function(){
 	}
 	
 	/*换肤*/
-	$("#Hui-skin .dropDown-menu a").click(function(){
-		var v = $(this).attr("data-val");
-		$.cookie("Huiskin", v);
-		var hrefStr=$("#skin").attr("href");
-		var hrefRes=hrefStr.substring(0,hrefStr.lastIndexOf('skin/'))+'skin/'+v+'/skin.css';
-		$(window.frames.document).contents().find("#skin").attr("href",hrefRes);
-	});
+	// $("#Hui-skin .dropDown-menu a").click(function(){
+	// 	var v = $(this).attr("data-val");
+	// 	$.cookie("Huiskin", v);
+	// 	var hrefStr=$("#skin").attr("href");
+	// 	var hrefRes=hrefStr.substring(0,hrefStr.lastIndexOf('skin/'))+'skin/'+v+'/skin.css';
+	// 	$(window.frames.document).contents().find("#skin").attr("href",hrefRes);
+	// });
 }); 
