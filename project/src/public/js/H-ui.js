@@ -1,62 +1,4 @@
-/*-----------H-ui前端框架-------------
-* H-ui.js v3.1.3
-* http://www.h-ui.net/
-* Created & Modified by guojunhui
-* Date modified 2017.05.26
-*
-* Copyright 2013-2017 北京颖杰联创科技有限公司 All rights reserved.
-* Licensed under MIT license.
-* http://opensource.org/licenses/MIT
-*/
-/*
-Includes：
-jQuery.IEMobileHack.js
-jQuery.cookie.js v1.4.1
-jQuery.form.js v3.51.0
-jQuery.lazyload.js v1.9.3
-jQuery.responsive-nav.js v1.0.39
-jQuery.placeholder.js
-jQuery.emailsuggest.js v1.0
-jQuery.format.js
-jQuery.togglePassword.js
-jQuery.iCheck.js
-jQuery.raty.js v2.4.5
-jQuery.onePageNav.js
-jQuery.stickUp.js
-jQuery.ColorPicker.js
 
-jQuery.HuiaddFavorite.js
-jQuery.Huisethome.js
-jQuery.Huisidenav.js
-jQuery.Huihover.js v2.0
-jQuery.Huifocusblur.js V2.0
-jQuery.Huiselect.js
-jQuery.Huitab.js v2.0
-jQuery.Huifold.js v2.0
-jQuery.Huitags.js v2.0
-jQuery.Huitagsmixed.js
-jQuery.Huitextarealength.js v2.0
-jQuery.Huipreview.js v2.0
-jQuery.Huimodalalert.js
-jQuery.Huialert.js
-jQuery.Huitotop.js v2.0
-jQuery.Huimarquee.js
-jQuery.Huispinner.js v2.0
-
-Bootstrap.modal.js v3.3.0
-Bootstrap.dropdown.js v3.3.0
-Bootstrap.transition.js v3.3.0
-Bootstrap.tooltip.js v3.3.0
-Bootstrap.popover.js v3.3.0
-Bootstrap.alert.js v3.3.0
-Bootstrap.slider.js v1.0.1
-Bootstrap.datetimepicker.js
-Bootstrap.Switch v1.3
-
-*/
-/* =======================================================================
- * jQuery.IEMobileHack.js判断浏览器
- * ======================================================================== */
 !function(){
 	if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 		var msViewportStyle = document.createElement("style");
@@ -2763,16 +2705,6 @@ function stopDefault(e) {
 	}
 } (window.jQuery);
 
-/* =======================================================================
- * jQuery.Huispinner.js v2.1.2 微调器
- * http://www.h-ui.net/
- * Created & Modified by guojunhui
- * Date modified 2017.06.26
- *
- * Copyright 2017 北京颖杰联创科技有限公司 All rights reserved.
- * Licensed under MIT license.
- * http://opensource.org/licenses/MIT
- * ========================================================================*/
 !function($) {	
 	$.fn.Huispinner = function(options, callback) {
 		var defaults = {
@@ -2919,10 +2851,6 @@ function stopDefault(e) {
 	});
 } (window.jQuery);
 
-/* =======================================================================
- * jquery.togglePassword.js 隐藏显示密码
- * type="password"
- * ========================================================================*/
 !function($) {
 	$.fn.togglePassword = function(options) {
 		var s = $.extend($.fn.togglePassword.defaults, options),
@@ -3449,23 +3377,6 @@ function stopDefault(e) {
 	}
 })(window.jQuery || window.Zepto);
 
-/* =======================================================================
- * jQuery.raty.js v2.4.5- A Star Rating Plugin
- * -------------------------------------------------------------------
- * jQuery Raty is a plugin that generates a customizable star rating.
- * Licensed under The MIT License
- *
- * @version        2.4.5
- * @since          2010.06.11
- * @author         Washington Botelho
- * @documentation  wbotelhos.com/raty
- * @twitter        twitter.com/wbotelhos
- *
- * Usage:
- * -------------------------------------------------------------------
- * $('#star').raty();
- * <div id="star"></div>
- * ======================================================================== */
 !(function($) {
 	var methods = {
 		init: function(settings) {
