@@ -19,8 +19,8 @@
 
 	<div class="page-container">
 	  <div class="text-c">
-	  	<form action="/users" method="post">
-	  		<input type="text" class="input-text" style="width:250px" placeholder="输入用户名" id="" name="uname">
+	  	<form action="/article" method="post">
+	  		<input type="text" class="input-text" style="width:250px" placeholder="输入文章名" id="" name="uname">
 	    	<button type="submit" class="btn btn-success"><i class="Hui-iconfont">&#xe665;</i> 搜文章</button>
 	  	</form>
 	  </div>
@@ -29,12 +29,12 @@
 	  		<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
 	  		<a href="javascript:;" onclick="admin_add('添加用户','/usersadd','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加文章</a>
 	  	</span>
-	  	<span class="r" style="position: relative;right:5px;top:5px;">共有数据：<strong></strong> 条</span>
+	  	<span class="r" style="position: relative;right:5px;top:5px;">共有数据：<strong><%- obj.length -%></strong> 条</span>
 	  </div>
 	  <table class="table table-border table-bordered table-bg">
 	    <thead>
 	      <tr>
-	        <th scope="col" colspan="10">文章列表</th>
+	        <th scope="col" colspan="11">文章列表</th>
 	      </tr>
 	      <tr class="text-c">
 	        <th width="25"><input type="checkbox" name="" value=""/></th>
@@ -45,12 +45,41 @@
 	        <th width="150">内容图片</th>
 	        <th width="130">文章发布时间</th>
 	        <th width="130">文章所属栏目</th>
+	        <th width="100">是否已公开</th>
 	        <th width="100">是否已发布</th>
 	        <th width="100">操作</th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	    	
+	    	<% for(var item in obj){ %>
+	    		<tr class="text-c" id="<%= obj[item].aid %>">
+					<td><input type="checkbox" value="" name="" class="check"/></td>
+        			<td><%= obj[item].aid %></td>
+					<td><%= obj[item].atitle %></td>
+        			<td><%= obj[item].acontent %></td>
+        			<td><%= obj[item].acomment %></td>
+        			<td><%= obj[item].aimage %></td>
+        			<td><%= obj[item].atime %></td>
+        			<td><%= obj[item]['GROUP_CONCAT(acloumn)'] %></td>
+        			<td><%= (obj[item].aprivate==1?'公开':'私密') %></td>
+        			<td class="td-status"><%= (obj[item].astatus==1?'已启用':'已停用') %></td>
+        			<td class="td-manage">
+        				<a style="text-decoration:none" onClick="<%= obj[item].astatus==1?'admin_stop(this)':'admin_start(this)' %>" href="javascript:;" title="<%= (obj[item].astatus==1?'停用':'启用') %>">
+        					<% if(obj[item].astatus == 1){ %>
+        						<i class="Hui-iconfont">&#xe631;</i>
+        					<% } else {%>
+        						<i class="Hui-iconfont">&#xe615;</i>
+        					<% }%>
+        				</a>
+        				<a title="编辑" href="javascript:;" onclick="admin_edit('编辑用户','/usersadd','<%= obj[item].aid %>',800,500)" class="ml-5" style="text-decoration:none">
+        					<i class="Hui-iconfont">&#xe6df;</i>
+        				</a>
+        				<a title="删除" href="javascript:;" onclick="admin_del('<%= obj[item].aid %>')" class="ml-5" style="text-decoration:none">
+        					<i class="Hui-iconfont">&#xe6e2;</i>
+        				</a>
+        			</td>
+	    		</tr>
+	    	<% } %>
 	    </tbody>
 	  </table>
 	</div>
@@ -87,7 +116,7 @@
 				        }
 				    }
 				};
-				xhr.open("get", "/users?data=" + data, true);
+				xhr.open("get", "/article?data=" + data, true);
 				xhr.send();
 		  	});
 		}
@@ -110,7 +139,7 @@
 			        }
 			    }
 			};
-			xhr.open("get", "/users?id=" + id, true);
+			xhr.open("get", "/article?id=" + id, true);
 			xhr.send();
 		  });
 		}
@@ -135,7 +164,7 @@
 				        }
 				    }
 				};
-				xhr.open("get", "/users?status=2&id=" + id, true);
+				xhr.open("get", "/article?status=2&id=" + id, true);
 				xhr.send();
 		  	});
 		}
@@ -156,7 +185,7 @@
 				        }
 				    }
 				};
-				xhr.open("get", "/users?status=1&id=" + id, true);
+				xhr.open("get", "/article?status=1&id=" + id, true);
 				xhr.send();
 		  	});
 		}
