@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CommunityPage } from '../community/community';
 import { ChoosePage } from '../choose/choose';
+import { ContactPage } from '../contact/contact';
 
 /**
  * Generated class for the CameraPage page.
@@ -21,7 +22,7 @@ export class CameraPage {
   }
 
   edit(){
-    this.navCtrl.push(CommunityPage);
+    this.navCtrl.push(ContactPage);
   }
   goChoose(){
     this.navCtrl.push(ChoosePage);

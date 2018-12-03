@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the PicturePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CommunityPage } from '../community/community';
+import { ChoosePage } from '../choose/choose';
+import { ContactPage } from '../contact/contact';
 
 @IonicPage()
 @Component({
@@ -17,9 +13,13 @@ export class PicturePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PicturePage');
+  edit(){
+    this.navCtrl.push(ContactPage);
   }
-
+  goChoose(){
+    this.navCtrl.push(ChoosePage);
+  }
+  chengGong(){
+    this.navCtrl.push(CommunityPage);
+  }
 }

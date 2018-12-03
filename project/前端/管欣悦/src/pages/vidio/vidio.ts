@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ContactPage } from '../contact/contact';
+import { ChoosePage } from '../choose/choose';
+import { CommunityPage } from '../community/community';
 
 /**
  * Generated class for the VidioPage page.
@@ -17,9 +20,14 @@ export class VidioPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad VidioPage');
+  edit(){
+    this.navCtrl.push(ContactPage);
+  }
+  goChoose(){
+    this.navCtrl.push(ChoosePage);
+  }
+  chengGong(){
+    this.navCtrl.push(CommunityPage);
   }
 
 }

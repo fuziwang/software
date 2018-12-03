@@ -17,6 +17,11 @@ import { CameraPage } from '../pages/camera/camera';
 import { ChoosePage } from '../pages/choose/choose';
 import { AuthoritPage } from '../pages/authorit/authorit';
 import { SharePage } from '../pages/share/share';
+import { PicturePage } from '../pages/picture/picture';
+import { ChoopicturePage } from '../pages/choopicture/choopicture';
+import { VidioPage } from '../pages/vidio/vidio';
+import { ArticlePage } from '../pages/article/article';
+import { AutharticlePage } from '../pages/autharticle/autharticle';
 
 @NgModule({
   declarations: [
@@ -29,6 +34,11 @@ import { SharePage } from '../pages/share/share';
     ChoosePage,
     AuthoritPage,
     SharePage,
+    PicturePage,
+    ChoopicturePage,
+    VidioPage,
+    ArticlePage,
+    AutharticlePage,
     // 
     HomePage,
     CommunityPage,
@@ -50,11 +60,16 @@ import { SharePage } from '../pages/share/share';
     ChoosePage,
     AuthoritPage,
     SharePage,
+    PicturePage,
+    ChoopicturePage,
+    VidioPage,
+    ArticlePage,
+    AutharticlePage,
     //
     HomePage,
     TabsPage,
     CommunityPage,
-    MyPage,
+    MyPage
   ],
   providers: [
     StatusBar,
