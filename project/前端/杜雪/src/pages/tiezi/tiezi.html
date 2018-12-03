@@ -1,0 +1,44 @@
+
+    <div class="al">
+        <div class="img">
+          <img src="../../assets/imgs/lunbo1.png">
+          <i class="iconfont icon-2fanhui" color="primary" (click)="last()"></i>
+          <i class="iconfont icon-fenxiang" color="primary" (click)="fenxiang()"></i>
+        </div>
+        <div class="content">
+          <ul>
+            <li>标题</li>
+            <li>作者</li>
+            <li>时间</li>
+            <li id="neirong">内容</li>
+          </ul>
+        </div>
+        <div class="bottom">
+          <div>所有评论</div>
+            <ul class="tiezi">
+                <li *ngFor='let item of arr;let idx=index'>
+                  <div>
+                      <ul>
+                        <li>头像</li>
+                        <li>作者</li>
+                        <li>时间</li>
+                        <li><ion-icon name="md-eye"></ion-icon><span>12</span></li>
+                        <li><ion-icon name="md-eye"></ion-icon><span>12</span></li>
+                      </ul>
+                  </div>
+                  <div>
+                    评论文字
+                  </div>
+                </li>
+            </ul>
+        </div>
+        <div class="fenxiang" [ngStyle]="{'display': isCheck== 1  ? 'block' : 'none'}">
+          <p>分享到...</p>
+          <ul>
+            <li ><i class="iconfont icon-pengyouquan1 first"></i><span>朋友圈</span></li>
+            <li><i class="iconfont icon-weixin-copy"></i><span>微 信</span></li>
+            <li><i class="iconfont icon-kongjian"></i><span>空 间</span></li>
+            <li><i class="iconfont icon-qq"></i><span> Q Q</span></li>
+          </ul>
+        </div>
+      </div>
