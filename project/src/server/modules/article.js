@@ -24,6 +24,29 @@ Article.prototype.selectArticle = function(name,cb){
     cb(false,result);
   });
 }
+
+Article.prototype.addColumn = function(id,column,cb){
+  const sql = 'insert into ArticleColumn values(?,?)';
+  db.query(sql,[id,column],function(err,result){
+    if(err){
+      cb(true);
+      return;
+    }
+    cb(false,result);
+  });
+}
+
+Article.prototype.addArticle = function(obj,cb){
+  const sql = 'insert into Article values(?,?,?,?,?,?,?,?,?)';
+  db.query(sql,[obj.aid,obj.atitle,obj.acontent,Date().slice(0,24),obj.acomment,obj.aimage,1,1,obj.uid],function(err,result){
+    if(err){
+      cb(true);
+      return;
+    }
+    cb(false,result);
+  });
+}
+
 Article.prototype.updateItem = function(status,id,cb){
   const sql = 'update Article set astatus = ? where aid = ?';
   db.query(sql,[status,id],function(err,result){
