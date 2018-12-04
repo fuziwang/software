@@ -37,11 +37,17 @@ router.post('/',upload.single('uimage'),function(req,res,next){
   console.log(obj);
   if(obj !== ''){
     //console.log(id);
-    req.body.topic.forEach((e)=>{
-      user.addTopic(obj.uid,e,(err,result)=>{
+    if(typeof req.body.topic == 'string'){
+      user.addTopic(obj.uid,obj.topic,(err,result)=>{
         if(err) res.statusCode = 500;
       })
-    });
+    }else{
+      req.body.topic.forEach((e)=>{
+        user.addTopic(obj.uid,e,(err,result)=>{
+          if(err) res.statusCode = 500;
+        })
+      });
+    }
     user.addItem(obj,(err)=>{
       var html = '<h3 style="font-weight:normal;font-size:16px;text-align:center;margin-top:30px;">'+ (err?'添加失败':'添加成功') + ',请关闭</h3>';
       if(err){
