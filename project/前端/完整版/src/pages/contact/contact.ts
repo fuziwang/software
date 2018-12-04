@@ -19,7 +19,7 @@ export class ContactPage {
     this.app.getRootNav().push(FeelPage);
   }
   goPicture(){
-    this.navCtrl.push(PicturePage);
+    this.app.getRootNav().push(PicturePage);
   }
   goVidio(){
    this.app.getRootNav().push(VidioPage);

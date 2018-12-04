@@ -21,7 +21,7 @@ export class VidioPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   edit(){
-    this.navCtrl.push(ContactPage);
+    this.navCtrl.pop();
   }
   goChoose(){
     this.navCtrl.push(ChoosePage);
