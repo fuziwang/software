@@ -1,0 +1,84 @@
+page-my {
+    ion-content{
+        nav{
+            background-color: #2ebd7a;
+            width:375px; 
+            height:160px;
+            div{
+                .img1{
+                    width: 21px;
+                    height: 21px;
+                    position: absolute;
+                    top: 17px;
+                    left: 315px;
+                }
+                .img2{
+                    width: 85px;
+                    height: 85px;
+                    position: absolute;
+                    top: 40px;
+                    left: 30px;
+                }
+                .img3{
+                    width: 25px;
+                    height: 25px;
+                    position: absolute;
+                    top: 70px;
+                    left: 280px;
+                }
+                .p1{
+                    color: white;
+                    font-size: 14px;
+                    position: absolute;
+                    top: 62px;
+                    left: 128px;
+                }
+                .p2{
+                    color: white;
+                    font-size: 14px;
+                    position: absolute;
+                    top: 85px;
+                    left: 125px;
+                }
+            }  
+        }
+        ion-grid{
+            padding: 1px!important;
+            ion-row{
+            
+                ion-col{
+                    border: darkgray 0.1px solid;
+                    height: 100px;
+                    position: relative;
+                    img{
+                        width: 25px;
+                        height: 25px;
+                        margin: auto;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                    }
+                    p{
+                        margin: auto;
+                        position: absolute;
+                        left: 0;
+                        bottom: 15px;
+                        right: 0;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        
+        ion-list{
+            border: darkgrey 0.1px solid;
+            button{
+                .item2{
+                    color: darkgrey;
+                }
+            }
+        }  
+    }
+}
