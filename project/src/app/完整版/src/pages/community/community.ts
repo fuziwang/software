@@ -15,7 +15,7 @@ import { SharePage } from '../share/share';
   templateUrl: 'community.html',
 })
 export class CommunityPage {
-
+  arr=[1,2,3,4,5];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

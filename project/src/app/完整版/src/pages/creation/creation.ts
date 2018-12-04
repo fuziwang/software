@@ -14,6 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'creation.html',
 })
 export class CreationPage {
+  arr=[1,2,3,4,5];
   isActive=true;
   isClick(i){
     this.isActive=i;

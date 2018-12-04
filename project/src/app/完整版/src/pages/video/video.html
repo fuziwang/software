@@ -7,7 +7,7 @@
 <ion-content>
   <button ion-button block outline><span>上传视频</span></button>
 <ion-grid>
-  <ion-row>
+  <ion-row  *ngFor='let item of arr;let idx=index'>
     <ion-col col-4>
       <img class="st" src="../../assets/imgs/hot01.png">
       <p>00:05</p>
@@ -21,33 +21,6 @@
       <p>00:05</p>
     </ion-col>
   </ion-row>
-  <ion-row>
-    <ion-col col-4>
-      <img src="../../assets/imgs/hot01.png">
-      <p>00:05</p>
-    </ion-col>
-    <ion-col col-4>
-      <img src="../../assets/imgs/hot02.png">
-      <p>00:05</p>
-    </ion-col>
-    <ion-col col-4>
-      <img src="../../assets/imgs/hot03.png" alt="">
-      <p>00:05</p>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col col-4>
-      <img src="../../assets/imgs/hot04.png" alt="">
-      <p>00:05</p>
-    </ion-col>
-    <ion-col col-4>
-      <img src="../../assets/imgs/hot05.png" alt="">
-      <p>00:05</p>
-    </ion-col>
-    <ion-col col-4>
-      <img src="../../assets/imgs/hot06.png" alt="">
-      <p>00:05</p>
-    </ion-col>
-  </ion-row>
+  
 </ion-grid>
 </ion-content>

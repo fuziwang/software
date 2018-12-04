@@ -17,7 +17,7 @@
 
 <ion-content padding>
 <ion-list>
-  <button ion-item>
+  <button ion-item  *ngFor='let item of arr;let idx=index'>
     <img class="imgs" src="../../assets/imgs/xiangce.jpg">
     <div class="out">
       <span class="item1">相册1</span>

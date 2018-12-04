@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'fans.html',
 })
 export class FansPage {
-
+  arr=[1,2,3,4,5];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

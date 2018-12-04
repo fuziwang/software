@@ -17,7 +17,7 @@ import { ContactPage } from '../contact/contact';
   templateUrl: 'camera.html',
 })
 export class CameraPage {
-
+  arr=[1,2,3,4,5];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

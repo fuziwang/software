@@ -17,7 +17,7 @@
 </ul>
 <div [ngSwitch]="isActive">
   <div *ngSwitchCase="1" class="ss">
-    <div>
+    <div  *ngFor='let item of arr;let idx=index'>
       <img class="img1" src="../../assets/imgs/girl_02.png">
       <div>
         <p><span class="name">悦成长</span></p>
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div *ngSwitchCase="0" class="wz">
-    <div>
+    <div  *ngFor='let item of arr;let idx=index'>
       <img class="img1" src="../../assets/imgs/girl_02.png">
       <div>
         <p><span class="name">悦成长</span></p>

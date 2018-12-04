@@ -6,7 +6,7 @@
      (ionCancel)="onCancel($event)" class="search">
    </ion-searchbar>
  
-   <div class="out">
+   <div class="out"  *ngFor='let item of arr;let idx=index'>
      <div class="inside1">
          <div class="com1"></div> <!-- img-->
          <div class="com2">
