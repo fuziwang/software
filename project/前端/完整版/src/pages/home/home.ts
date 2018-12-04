@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { TieziPage } from '../tiezi/tiezi';
 import { XingquPage } from '../xingqu/xingqu';
 import { App } from 'ionic-angular';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'page-home',
@@ -16,8 +16,16 @@ export class HomePage {
   }
 
   arr=[1,2,3,4];
-  constructor(public navCtrl: NavController,private app:App) {
+  constructor(public navCtrl: NavController,private app:App,) {
   
+  }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad HomePage');
+    // this.http.get('/api/courses').subscribe((data)=>{
+    //   this.text=data;
+    //   console.log(data);
+    // })
+
   }
   last(){
     this.app.getRootNav().push(XingquPage);

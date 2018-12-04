@@ -44,6 +44,6 @@ export class XingquPage {
      this.app.getRootNav().push(TouxiangPage);
    }
  shouye(){
-   this.navCtrl.push(TabsPage);
+  this.app.getRootNavs()[0].setRoot(TabsPage);
  }
 }

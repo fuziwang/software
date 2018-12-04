@@ -16,15 +16,15 @@ export class ContactPage {
 
   }
  goSub(){
-    this.app.getRootNav().push(FeelPage);
+    this.navCtrl.push(FeelPage);
   }
   goPicture(){
-    this.app.getRootNav().push(PicturePage);
+    this.navCtrl.push(PicturePage);
   }
   goVidio(){
-   this.app.getRootNav().push(VidioPage);
+   this.navCtrl.push(VidioPage);
   }
   goArticle(){
-    this.app.getRootNav().push(ArticlePage);
+    this.navCtrl.push(ArticlePage);
   }
 } 

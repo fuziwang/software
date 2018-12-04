@@ -82,6 +82,7 @@ import { ArticlePage } from '../pages/article/article';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
+      tabsHideOnSubPages: 'true',
       backButtonText: '',
       iconMode: 'ios',
       modalEnter: 'modal-slide-in',

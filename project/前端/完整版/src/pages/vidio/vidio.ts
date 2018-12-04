@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ContactPage } from '../contact/contact';
 import { ChoosePage } from '../choose/choose';
 import { CommunityPage } from '../community/community';
-
+import { App } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
 /**
  * Generated class for the VidioPage page.
  *
@@ -18,7 +19,7 @@ import { CommunityPage } from '../community/community';
 })
 export class VidioPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private app:App) {
   }
   edit(){
     this.navCtrl.pop();

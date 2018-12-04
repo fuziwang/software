@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CommunityPage } from '../community/community';
 import { ChoosePage } from '../choose/choose';
 import { ContactPage } from '../contact/contact';
-
+import { App } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
 @IonicPage()
 @Component({
   selector: 'page-picture',
@@ -11,7 +12,7 @@ import { ContactPage } from '../contact/contact';
 })
 export class PicturePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private app:App) {
   }
   edit(){
     this.navCtrl.pop();
