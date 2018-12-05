@@ -1,4 +1,8 @@
 page-edit {
+    textarea{
+        background-color:#FEFEFE;
+        border-color:#FEFEFE;
+    }
     ion-header{
         ion-title{
             position: absolute;
@@ -23,38 +27,100 @@ page-edit {
         .text2{
             color: #2FBC7B;
             position: absolute;
-            top: 190px;
+            top: 200px;
             left: 30px;
         }
         .text3{
-            span{
-                font-size: 14px;
+            .con1{
+                p{
+                    float: left;
+                    font-size: 14px;
+                }
+                position: absolute;
+                top: 225px;
+                left: 30px;
+                textarea{
+                    margin-top: 11px;
+                    margin-left:30px;
+                    float: left;
+                    position: absolute;
+                    width:250px;
+                    height:50px;
+                }
             }
-            position: absolute;
-            top: 225px;
-            left: 30px;
+            .con2{
+                p{
+                    float: left;
+                    font-size: 14px;
+                }
+                position: absolute;
+                top: 255px;
+                left: 30px;
+                textarea{
+                    margin-top: 11px;
+                    margin-left:30px;
+                    float: left;
+                    position: absolute;
+                    width:250px;
+                    height:50px;
+                }
+            }
+            .con3{
+                p{
+                    float: left;
+                    font-size: 14px;
+                }
+                position: absolute;
+                top: 285px;
+                left: 30px;
+                textarea{
+                    margin-top: 11px;
+                    margin-left:30px;
+                    float: left;
+                    position: absolute;
+                    width:250px;
+                    height:50px;
+                }
+            }
         }
         .text4{
             color: #2FBC7B;
             position: absolute;
-            top: 350px;
+            top: 360px;
             left: 30px;
+            
         }
         .text5{
-            span{
-                font-size: 14px;
-            }
             position: absolute;
-            top: 385px;
+            top: 383px;
             left: 30px;
+            .con4{
+                margin-left: -5px;
+                position: absolute;
+                textarea{
+                    float: left;
+                    position: absolute;
+                    width:300px;
+                    height:100px;
+                }
+            }
         }
         .text6{
-            span{
+            position: absolute;
+            top: 420px;
+            left: 30px;
+            p{
+                float: left;
                 font-size: 14px;
             }
-            position: absolute;
-            top: 435px;
-            left: 30px;
+            textarea{
+                margin-top: 12px;
+                margin-left:30px;
+                float: left;
+                position: absolute;
+                width:260px;
+                height:50px;
+            }
         }
     }
 }

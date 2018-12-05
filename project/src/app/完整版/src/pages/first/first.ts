@@ -18,10 +18,6 @@ export class FirstPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
    
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FirstPage');
-  }
   next(){
     this.navCtrl.push(LoginPage);
   }
