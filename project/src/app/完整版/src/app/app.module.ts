@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+
+
+
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -40,10 +43,14 @@ import { ChoosePage } from '../pages/choose/choose';
 import { AuthoritPage } from '../pages/authorit/authorit';
 import { VidioPage } from '../pages/vidio/vidio';
 import { ArticlePage } from '../pages/article/article';
+import { ApiProvider } from '../providers/api/api';
+import { HttpModule }from '@angular/http';
 
 @NgModule({
   declarations: [
     MyApp,
+    
+   
     AboutPage,
     ContactPage,
     HomePage,
@@ -81,6 +88,7 @@ import { ArticlePage } from '../pages/article/article';
   ],
   imports: [
     BrowserModule,
+   HttpModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: 'true',
       backButtonText: '',
@@ -132,7 +140,8 @@ import { ArticlePage } from '../pages/article/article';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ApiProvider,
   ]
 })
 export class AppModule {}
