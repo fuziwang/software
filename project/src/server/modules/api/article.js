@@ -26,7 +26,7 @@ Article.prototype.getAll = function(cb){
 
 Article.prototype.getArtile = function(obj,cb){
   const sql = 'select aid,atitle,acontent,atime,acomment,aimage,uname from Article,User where Article.uid = User.uid and aid = ?';
-  db.query(sql,(err,result)=>{
+  db.query(sql,[obj.aid],(err,result)=>{
     if(err){
       cb(true);
       return;
