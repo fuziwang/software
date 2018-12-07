@@ -13,7 +13,26 @@ var usersadd = require('./routes/usersadd');
 var articleadd = require('./routes/articleadd');
 var say = require('./routes/say');
 var sayadd = require('./routes/sayadd');
-
+var saycomment = require('./routes/saycomment');
+var saycommentadd = require('./routes/saycommentadd');
+var articlecomment = require('./routes/articlecomment');
+var articlecommentadd = require('./routes/articlecommentadd');
+var back = require('./routes/back');
+var backadd = require('./routes/backadd');
+var photos = require('./routes/photos');
+var photosadd = require('./routes/photosadd');
+var photo = require('./routes/photo');
+var photoadd = require('./routes/photoadd');
+var video = require('./routes/video');
+var videoadd = require('./routes/videoadd');
+var tree = require('./routes/tree');
+var treeadd = require('./routes/treeadd');
+var fruit = require('./routes/fruit');
+var fruitadd = require('./routes/fruitadd');
+var apiarticle = require('./routes/api/article');
+var apiuser = require('./routes/api/user');
+var apiback = require('./routes/api/back');
+var apisay = require('./routes/api/say');
 var app = express();
 
 // view engine setup
@@ -36,6 +55,27 @@ app.use('/article',article);
 app.use('/articleadd',articleadd);
 app.use('/say',say);
 app.use('/sayadd',sayadd);
+app.use('/saycomment',saycomment);
+app.use('/saycommentadd',saycommentadd);
+app.use('/articlecomment',articlecomment);
+app.use('/articlecommentadd',articlecommentadd);
+app.use('/back',back);
+app.use('/backadd',backadd);
+app.use('/photos',photos);
+app.use('/photosadd',photosadd);
+app.use('/photo',photo);
+app.use('/photoadd',photoadd);
+app.use('/video',video);
+app.use('/videoadd',videoadd);
+app.use('/tree',tree);
+app.use('/treeadd',treeadd);
+app.use('/fruit',fruit);
+app.use('/fruitadd',fruitadd);
+app.use('/api/article',apiarticle);
+app.use('/api/user',apiuser);
+app.use('/api/back',apiback);
+app.use('/api/say',apisay);
+app.use(express.static('./public/static'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -54,5 +94,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+app.listen(8080);
 module.exports = app;
