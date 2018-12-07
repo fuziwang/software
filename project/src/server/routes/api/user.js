@@ -42,7 +42,7 @@ router.get('/sexhobby',(req,res,next)=>{
 });
 
 router.get('/myarticle:uid',(req,res,next)=>{
-  var obj = req.query;
+  var obj = req.params;
   user.getArticle(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;
@@ -53,7 +53,7 @@ router.get('/myarticle:uid',(req,res,next)=>{
 });
 
 router.get('/mysay:uid',(req,res,next)=>{
-  var obj = req.query;
+  var obj = req.params;
   user.getSay(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;
@@ -64,7 +64,7 @@ router.get('/mysay:uid',(req,res,next)=>{
 })
 
 router.get('/myhobby:uid',(req,res,next)=>{
-  var obj = req.query;
+  var obj = req.params;
   user.getHobby(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;
@@ -75,7 +75,7 @@ router.get('/myhobby:uid',(req,res,next)=>{
 })
 
 router.get('/myconcern:uid',(req,res,next)=>{
-  var obj = req.query;
+  var obj = req.params;
   user.getConcern(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;
@@ -86,7 +86,7 @@ router.get('/myconcern:uid',(req,res,next)=>{
 })
 
 router.get('/myfans:uid',(req,res,next)=>{
-  var obj = req.query;
+  var obj = req.params;
   user.getFans(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;
@@ -96,13 +96,9 @@ router.get('/myfans:uid',(req,res,next)=>{
   })
 })
 
-router.get('/',(req,res,next)=>{
-  console.log('abc');
-  res.send('ok!');
-});
 
 router.get('/:uid',(req,res,next)=>{
-  var obj = req.query;
+  var obj = req.params;
   user.getAll(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;
