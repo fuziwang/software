@@ -5,19 +5,34 @@ var multer = require('multer');
 var article = new Article();
 
 router.get('/',(req,res,next)=>{
-  article.getAll((err,result)=>{
-    if(err){res.statusCode = 500;}
-    else{
-      //console.log(result);
-      var obj = JSON.parse(JSON.stringify(result));
-      //console.log(obj);
-      res.json(obj);
-    }
-  });
+  if(req.query.aid){
+    var o = req.query;
+    console.log(obj);
+    artile.getArticle(obj,(err,result)=>{
+      if(err) {
+        res.statusCode = 500;
+      } else {
+        var re = JSON.parse(JSON.stringify(result));
+        res.json(re);
+      }
+    });
+  } else {
+    article.getAll((err,result)=>{
+      if(err){res.statusCode = 500;}
+      else{
+        //console.log(result);
+        var obj = JSON.parse(JSON.stringify(result));
+        //console.log(obj);
+        res.json(obj);
+      }
+    });
+  }
 });
 
+/*
 router.get('/:aid',(req,res,next)=>{
   var obj = req.query;
+  console.log(obj);
   artile.getArticle(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;
@@ -27,7 +42,7 @@ router.get('/:aid',(req,res,next)=>{
     }
   });
 });
-
+*/
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/static/content');

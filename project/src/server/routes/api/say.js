@@ -30,7 +30,7 @@ router.get('/:sid',(req,res,next)=>{
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/static/content');
+    cb(null, 'public/static/say');
   },
   filename: function (req, file, cb) {
     cb(null, req.body.aid + "-" + file.originalname);            
@@ -39,7 +39,7 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage    });
 
-router.post('/',upload.single('aimage'),(req,res,next)=>{
+router.post('/',upload.single('simage'),(req,res,next)=>{
     var obj = {};
     say.selectSid((err,result)=>{
       if(err){
