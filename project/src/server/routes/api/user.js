@@ -41,7 +41,7 @@ router.get('/sexhobby',(req,res,next)=>{
   });
 });
 
-router.get('/myarticle:uid',(req,res,next)=>{
+router.get('/myarticle/:uid',(req,res,next)=>{
   var obj = req.params;
   user.getArticle(obj,(err,result)=>{
     if(err){
@@ -52,7 +52,7 @@ router.get('/myarticle:uid',(req,res,next)=>{
   });
 });
 
-router.get('/mysay:uid',(req,res,next)=>{
+router.get('/mysay/:uid',(req,res,next)=>{
   var obj = req.params;
   user.getSay(obj,(err,result)=>{
     if(err){
@@ -63,7 +63,7 @@ router.get('/mysay:uid',(req,res,next)=>{
   })
 })
 
-router.get('/myhobby:uid',(req,res,next)=>{
+router.get('/myhobby/:uid',(req,res,next)=>{
   var obj = req.params;
   user.getHobby(obj,(err,result)=>{
     if(err){
@@ -74,7 +74,7 @@ router.get('/myhobby:uid',(req,res,next)=>{
   })
 })
 
-router.get('/myconcern:uid',(req,res,next)=>{
+router.get('/myconcern/:uid',(req,res,next)=>{
   var obj = req.params;
   user.getConcern(obj,(err,result)=>{
     if(err){
@@ -85,7 +85,7 @@ router.get('/myconcern:uid',(req,res,next)=>{
   })
 })
 
-router.get('/myfans:uid',(req,res,next)=>{
+router.get('/myfans/:uid',(req,res,next)=>{
   var obj = req.params;
   user.getFans(obj,(err,result)=>{
     if(err){

@@ -17,7 +17,8 @@ router.get('/',(req,res,next)=>{
 });
 
 router.get('/:sid',(req,res,next)=>{
-  var obj = req.query;
+  var obj = req.params;
+  console.log(obj);
   say.getSay(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;
