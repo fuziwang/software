@@ -19,6 +19,7 @@ import { ResetPwdPage}  from '../pages/reset-pwd/reset-pwd';
 import { XieyiPage} from '../pages/xieyi/xieyi';
 import { TouxiangPage } from '../pages/touxiang/touxiang';
 import { XingquPage } from '../pages/xingqu/xingqu';
+import { TieziPageModule } from '../pages/tiezi/tiezi.module';
 
 import { ShequPage } from '../pages/shequ/shequ';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -65,7 +66,7 @@ import { HttpModule }from '@angular/http';
     XieyiPage,
     TouxiangPage,
     XingquPage,
-    TieziPage,
+    //TieziPage,
     AccountPage,
     AlbumPage,
     VideoPage,
@@ -89,6 +90,7 @@ import { HttpModule }from '@angular/http';
   imports: [
     BrowserModule,
    HttpModule,
+   TieziPageModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: 'true',
       backButtonText: '',

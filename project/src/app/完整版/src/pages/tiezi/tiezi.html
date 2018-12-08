@@ -1,20 +1,20 @@
-
+<ion-content>
     <div class="al">
         <div class="img">
-          <img src="../../assets/imgs/lunbo1.png">
+          <img id="img" src="{{'http://192.168.140.144:8080/content/'+list[0]?.aimage}}">
           <i class="iconfont icon-2fanhui" color="primary" (click)="last()"></i>
           <i class="iconfont icon-fenxiang" color="primary" (click)="fenxiang()"></i>
         </div>
         <div class="content">
           <ul>
-            <li>标题</li>
-            <li>作者</li>
-            <li>时间</li>
-            <li id="neirong">内容</li>
+            <li class="atitle">{{list[0]?.atitle}}</li>
+            <li>{{list[0]?.uname}}</li>
+            <li class="atime">{{list[0]?.atime}}</li>
+            <li id="neirong">{{list[0]?.acontent}}</li>
           </ul>
         </div>
         <div class="bottom">
-          <div>所有评论</div>
+          <div class="pl">所有评论</div>
             <ul class="tiezi">
                 <li *ngFor='let item of arr;let idx=index'>
                   <div>
@@ -42,3 +42,4 @@
           </ul>
         </div>
       </div>
+    </ion-content>

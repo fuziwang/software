@@ -28,3 +28,15 @@
 .ion-md-add:before{
     font-size:55px;
 }
+.tab-button.activated .tab-button-icon{ color:#2ebd7a;}
+.tabs-md .tab-button[aria-selected=true],.tabs-md .tab-button[aria-selected=true] .tab-button-icon{
+    color:#2ebd7a;
+}
+ion-header{
+    ion-navbar {
+        ion-title{
+            font-size: 20px!important;
+        }
+    }
+}
+    

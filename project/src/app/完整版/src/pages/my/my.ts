@@ -12,6 +12,7 @@ import { HomepagePage } from '../homepage/homepage';
 import { EditPage } from '../edit/edit';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { App } from 'ionic-angular';
+import { ApiProvider } from '../../providers/api/api';
 // import { ModalPage } from './ModalPage';
 /**
  * Generated class for the MyPage page.
@@ -20,6 +21,21 @@ import { App } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
+interface user{
+  uid:number;
+  uname:string;
+  uimage:string;
+  usex:string;
+  uage:number;
+  uwhere:string;
+  utel:string;
+  upass:string;
+  ufans:number;
+  uconcern:number;
+  udescribe:string;
+  ustatus:number;
+}
+
 @IonicPage()
 @Component({
   selector: 'page-my',
@@ -27,7 +43,20 @@ import { App } from 'ionic-angular';
 })
 export class MyPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private app:App) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public api:ApiProvider,private app:App) {
+   
+    this.getList();
+    
+  }
+  list:Array<user>=[];
+  getList(){
+    //获取list用于显示
+    this.api.getMy().then(data=>{
+      //console.dir(data);
+      this.list=<any>data;
+      //console.dir(this.list);
+    });
+    
   }
   account(){
     this.app.getRootNav().push(AccountPage);

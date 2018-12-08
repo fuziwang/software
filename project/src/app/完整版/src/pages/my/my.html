@@ -1,13 +1,16 @@
 <ion-content>
-  <nav>
-    <div><img class="img1"src="../../assets/imgs/message.png" alt=""></div>
-    <div (click)="homepage()"><img class="img2" src="../../assets/imgs/girl_02.png" alt=""></div>
-    <div (click)="edit()"><img class="img3" src="../../assets/imgs/edit.png" alt=""></div>
-    <div>
-      <span class="p1">181***4180</span>
-      <span class="p2">女 河北石家庄</span>
+ <div class="top">
+   <div class="message"><img class="img1"src="../../assets/imgs/message.png" alt=""></div>
+   <div class="touxiang" (click)="homepage()">
+     <img src="{{'http://192.168.140.144:8080/user/'+list[0]?.uimage}}">
+   </div>
+   <div class="xinxi">
+     <span>152****2345</span>
+     <span class="where"><div>男    河北石家庄</div></span>
     </div>
-  </nav>
+    <div (click)="edit()"><img class="img3" src="../../assets/imgs/edit.png" alt=""></div>
+    
+ </div>
   <ion-grid>
     <ion-row>
       <ion-col (click)="creation()">
