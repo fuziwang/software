@@ -6,15 +6,15 @@
 
 
 <ion-content>
-  <div><img class="img1" src="../../assets/imgs/girl_02.png" alt=""></div>
-  <div class="text1"><span>关注：23</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>粉丝：32</span></div>
+  <div> <img class="img1" src="{{'http://192.168.140.144:8080/user/'+list[0]?.uimage}}"></div>
+  <div class="text1"><span>关注：23</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>粉丝：{{list[0]?.ufans}}</span></div>
   <div class="text1"><p>简介：我的孩子已经出生36天了</p></div>
   
   <div class="text2">基本资料</div>
   <div class="text">
-    <div class="text3"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>性别：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>女</span></p></div>
-    <div class="text3"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>年龄：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>28岁</span></p></div>
-    <div class="text3"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>所在地：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>河北省石家庄市</span></p></div>
+    <div class="text3"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>性别：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{list[0]?.usex}}</span></p></div>
+    <div class="text3"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>年龄：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{list[0]?.uage}}</span></p></div>
+    <div class="text3"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>所在地：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{list[0]?.uwhere}}</span></p></div>
     <div class="text3"><p><span>该兴趣话题：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>健康 旅游 学习</span></p></div>
   </div>
   <div>
