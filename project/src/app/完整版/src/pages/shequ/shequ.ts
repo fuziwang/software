@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiProvider } from "../../providers/api/api";//引入服务
+import { ContentPage } from "../content/content";
+import { HomepagePage } from "../homepage/homepage";
+import { SharePage} from "../share/share";
 /**
  * Generated class for the ShequPage page.
  *
@@ -14,6 +17,8 @@ interface Say{
   simage:string;
   status:number;
   uid:number;
+  uname:string;
+  uimage:string;
 }
 
 
@@ -28,7 +33,7 @@ export class ShequPage {
     this.getList();
   }
   list:Array<Say>=[];
-
+  arr=[1,2,3];
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShequPage');
   }
@@ -40,6 +45,14 @@ export class ShequPage {
     });
 
   }
-  
+  goShare(){
+    this.navCtrl.push(SharePage);
+  }
+  goHomeage(){
+    this.navCtrl.push(HomepagePage);
+  }
+  goContent(){
+    this.navCtrl.push(ContentPage);
+  }
 
 }

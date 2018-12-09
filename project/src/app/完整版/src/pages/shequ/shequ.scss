@@ -42,6 +42,10 @@ page-shequ{
                 float: left;
                 margin-left:20px;
                 margin-top:10px; 
+                #img{
+                    width: 200px;
+                    height: 150px;
+                }
                 .com3{
                     width:260px;
                     height:auto;
@@ -50,10 +54,10 @@ page-shequ{
                     max-width: 90%;
                     margin-top:5px; 
                     min-width:100px;
-                    height:200px;
+                   
                     max-height:400px;
                     overflow:hidden;
-                    background-color:#F2F2F2;
+                   
                 }
             }
             .inside3{

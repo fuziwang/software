@@ -36,7 +36,7 @@ interface  ArticleComment{
 export class TieziPage {
 
   isCheck=0;
-  arr=[1,2,3,4];
+  arr=[1];
   id;
   constructor(public navCtrl: NavController, public navParams: NavParams, public api:ApiProvider) {
     this.id=navParams.get('id');
