@@ -9,14 +9,13 @@
 <ion-content padding>
 <div class="out" *ngFor='let item of arr;let idx=index'>
   <div class="came">
-      
-    
+    <input type="checkbox" (click)="checkBox()"> 
   </div>
   <div class="came">
-      
+    <input type="checkbox" (click)='checkBox()'> 
   </div>
   <div class="came">
-
+    <input type="checkbox" (click)='checkBox()'> 
   </div>
 </div>
 <ion-list>
@@ -28,5 +27,7 @@
 </ion-content>
 
 <ion-footer class="foo" >
-<button class="button button-positive"  (click)="chengGong()"><span>确定</span></button> 
+<button class="button button-positive"  (click)="chengGong()" [ngStyle]="{'background':check===1?'#2FBD7A':'#E9EBEC'}">
+  <span [ngStyle]="{'color':check===1?'#fff':'#B3B4B4'}">确定</span>
+</button> 
 </ion-footer>

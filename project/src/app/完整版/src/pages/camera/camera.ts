@@ -18,9 +18,13 @@ import { ContactPage } from '../contact/contact';
 })
 export class CameraPage {
   arr=[1,2,3,4,5];
+  check:number=0;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  checkBox(){
+    this.check=1;
+  }
   edit(){
     this.navCtrl.push(ContactPage);
   }
@@ -30,4 +34,5 @@ export class CameraPage {
   chengGong(){
     this.navCtrl.push(CommunityPage);
   }
+  
 }

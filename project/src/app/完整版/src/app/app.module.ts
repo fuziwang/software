@@ -50,7 +50,7 @@ import { HttpModule }from '@angular/http';
 @NgModule({
   declarations: [
     MyApp,
-    
+    ContactPage,
    
     AboutPage,
     ContactPage,
