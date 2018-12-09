@@ -47,6 +47,7 @@ page-community {
                     height:auto;
                 }
                 .com4{
+                    max-width: 90%;
                     margin-top:5px; 
                     min-width:100px;
                     height:200px;
@@ -66,9 +67,12 @@ page-community {
                     width: 60px;
                     height: 30px;
                     float: left;
-                    color: #000 !important;
+                    color: #000;
                 }
-                
+                // ion-icon:hover{
+                //     color:#2FBD7A;
+                // }
+
                 .com6{
                     margin-right:15px;
                     width: 60px;
@@ -89,18 +93,6 @@ page-community {
                 }
             }
         }
-    .kuang{
-        border-radius:2px; 
-        height:20px;
-        width:75px;
-        background-color:#686868;
-        // border:1px solid #000;
-        position: fixed;
-        top: 105%;
-        left: 40%;
-        text-align: center;
-        color:#fff;
-    }
 
     }
 }
