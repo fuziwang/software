@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SharePage } from '../share/share';
+import { HomepagePage } from '../homepage/homepage';
+import { ContentPage } from '../content/content';
 
-/**
- * Generated class for the CommunityPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,12 +11,18 @@ import { SharePage } from '../share/share';
   templateUrl: 'community.html',
 })
 export class CommunityPage {
-
+  arr=[1,2,3,4,5];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   goShare(){
     this.navCtrl.push(SharePage);
+  }
+  goHomeage(){
+    this.navCtrl.push(HomepagePage);
+  }
+  goContent(){
+    this.navCtrl.push(ContentPage);
   }
 
 }

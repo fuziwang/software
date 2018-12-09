@@ -1,17 +1,88 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-header text-center no-border>
+    <ion-navbar color="zhuti">
+        
+        
+      
+     
+      <ion-title>首页</ion-title>
+     
+    </ion-navbar>
+    
+  </ion-header>
+  
+  <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+   
+    <!-- 导航栏 -->
+    <ul class="navList">
+      <!-- 如果数组比较多，需要请求过来的时候就要用循环 -->
+      <!-- <li *ngFor="let item of arr;let idx=index" (click)="isClick(idx)" [class.first]="isActive==idx">推荐</li>     -->
+      <li (click)="isClick(1)" [class.first]="isActive==1">推荐</li>
+      <li (click)="isClick(0)" [class.first]="isActive==0">最新</li>
+    </ul>
+    <div [ngSwitch]="isActive">
+        <div *ngSwitchCase="1">
+          <!-- 轮播图 -->
+          <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
+          <ion-slide>
+            <img src="../../assets/imgs/lunbo1.png" alt="">
+          </ion-slide>
+          <ion-slide>
+            <img src="../../assets/imgs/lunbo2.png" alt="">
+          </ion-slide>
+          <ion-slide>
+            <img src="../../assets/imgs/lunbo3.png" alt="">
+          </ion-slide>
+          </ion-slides>
+          <div>
+            <ul class="tiezi">
+              <li *ngFor='let item of list;let idx=index'>
+                <div class="all" (click)="tiezi()">
+                  <div class="text">
+                    <div id="title">{{item?.title}}</div>
+                    <div>作者{{item?.id}}</div>
+                    <div id="pinglun">
+                      <ul>
+                        <li><ion-icon name="md-eye"></ion-icon><span>12</span></li>
+                        <li><ion-icon name="md-text"></ion-icon><span>12</span></li>
+                        <li><ion-icon name="md-heart-outline"></ion-icon><span>12</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="img"><img [src]="item?.url"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-</ion-content>
+
+        <div *ngSwitchCase="0">
+          
+          <div>
+            <ul class="tiezi">
+              <li *ngFor='let item of list;let idx=index'>
+                <div class="all" (click)="tiezi()">
+                  <div class="text">
+                    <div id="title">{{item?.title}}</div>
+                    <div>作者{{item?.id}}</div>
+                    <div id="pinglun">
+                      <ul>
+                        <li><ion-icon name="md-eye"></ion-icon><span>12</span></li>
+                        <li><ion-icon name="md-text"></ion-icon><span>12</span></li>
+                        <li><ion-icon name="md-heart-outline"></ion-icon><span>12</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="img">图片<img [src]="item?.url"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+   
+  </ion-content>
+  

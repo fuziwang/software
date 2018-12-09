@@ -4,13 +4,15 @@ import { FeelPage } from '../feel/feel';
 import { PicturePage } from '../picture/picture';
 import { VidioPage } from '../vidio/vidio';
 import { ArticlePage } from '../article/article';
+import { App } from 'ionic-angular';
+
 @Component({
   selector: 'page-contact',
   templateUrl: 'contact.html'
 })
 export class ContactPage {
  
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,private app:App) {
 
   }
  goSub(){
@@ -20,7 +22,7 @@ export class ContactPage {
     this.navCtrl.push(PicturePage);
   }
   goVidio(){
-    this.navCtrl.push(VidioPage);
+   this.navCtrl.push(VidioPage);
   }
   goArticle(){
     this.navCtrl.push(ArticlePage);

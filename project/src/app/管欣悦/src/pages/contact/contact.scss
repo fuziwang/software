@@ -1,6 +1,8 @@
 page-contact {
+    font-size: 12px!important;
     ion-navbar{
         box-shadow: black 0 2 3px;
+        text-align: center;
     }
     ion-content {
       background-color: #F9F9F9 !important;
@@ -26,23 +28,28 @@ page-contact {
           align-items: center;
           
           li {
-            width: 40%;
-            height: 45%;
+              //border: 1px solid yellow;
+            width: 45%;
+            height: 50%;
             display: flex;
+            margin-bottom: 10px;
+            
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
             .tubiao {
+                background-color: #2FBC7B;
               width: 100px;
               height: 100px;
               border-radius: 50%;
               display: flex;
               align-items: center;
               justify-content: center;
-              background-color: #EDEDED;
+             
+             // border: 1px solid red;
               ion-icon {
                 font-size: 5rem;
-                color: black;
+                color: #fff;
               }
             }
             .main {
@@ -53,7 +60,7 @@ page-contact {
             }
           }
           .c1 {
-            font-size: 2rem;
+            font-size: 14px;
           }
           .c2 {
             color: rgba(136, 117, 21, 0.8);

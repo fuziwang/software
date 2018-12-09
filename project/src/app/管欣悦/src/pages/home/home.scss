@@ -1,3 +1,105 @@
 page-home {
-
+    ion-header{
+       .left{
+        position:absolute;
+        top: 13px;
+        left: 10px;
+       }
+        background: #ffdb2c!important;
+    }
+    .navList{
+        padding-left: 0px!important;
+        margin:0px!important;
+        height:44px;
+        .first{
+            border-bottom:2px solid #ffdb2c;
+        }
+        li{
+            height:44px;
+            text-align: center;
+            float: left;
+            //display:inline-block;
+            width:50%;
+            font-size: 16px;
+            line-height: 44px;
+        }
+    }
+    .tiezi{
+        margin: 0px;
+             padding: 0px;
+        
+         li{
+             margin-bottom: 5px;
+             .all{
+                 width: 100%;
+                 height: 130px;
+             }
+            div{
+                   border: 1px solid red;
+                   .text{
+                       float: left;
+                       width: 60%;
+                       height: 130px;
+                       #title{
+                           height: 50px;
+                           margin-top: 15px;
+                           margin-bottom: 20px;
+                           font-size: 18px;
+                           font-weight: 500;
+                       }
+                       #pinglun{
+                           height: 20px;
+                           position: relative;
+                           top:5px;
+                           ul{
+                               padding: 0px;
+                               li{
+                                   float: left;
+                                   margin-right: 10px;
+                                   margin-left: 5px;
+                                   span{
+                                       padding-left: 3px;
+                                   }
+                                   ion-icon{
+                                       color: rgb(131, 138, 145);
+                                       margin-top: 3px;
+                                   }
+                               }
+                           }
+                       }
+                   }
+                   .img{
+                       float: left;
+                       width: 40%;
+                       height: 130px;
+                   }
+              }
+           
+        }
+    }
+    .sli{
+        height: auto;
+        img{
+            width:100%;
+            height: 200px;
+        }
+    }
+    .subtitle{
+        letter-spacing:5px;
+    }
+    .three{
+        padding:0px;
+        img{
+            width:100%;
+        }
+        li{
+            position: relative;
+            width:27%;
+            float:left;
+            margin:5px 0 15px 5%;
+        }
+    }
+    .subtitle{
+        letter-spacing:5px;
+    }
 }

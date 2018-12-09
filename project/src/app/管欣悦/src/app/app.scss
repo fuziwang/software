@@ -14,3 +14,17 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+*{
+    font-size: 13px;
+    list-style: none;
+}
+.ion-ios-add,.ion-ios-add-outline{
+    height:40px!important;
+}
+.ion-ios-add:before,.ion-ios-add-outline:before{
+    font-size: 45px;
+    margin-top:-5px;
+}
+.ion-md-add:before{
+    font-size:55px;
+}

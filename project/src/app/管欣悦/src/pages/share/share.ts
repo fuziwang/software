@@ -14,15 +14,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'share.html',
 })
 export class SharePage {
-  
- 
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-isCheck=0;
-  fenxiang(){
-       console.log(this.isCheck);
-      this.isCheck=1;
-      console.log(this.isCheck);
-     }
-  
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SharePage');
+  }
+
 }
