@@ -1,0 +1,44 @@
+<!-- 头部开始 -->
+<!-- title为传进去的标题，也可以传其他参数进去 -->
+<%- include('templet/_blank_header', {title: "空白页"}) %>
+<!-- 头部结束 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style>
+      /* #img1{
+        width:500px;
+        height:500px;
+        text-align: center;
+      } */
+      #div1{
+        border:solid 1px red;
+        text-align: center;
+      }
+      #img1{
+        width:200px;
+      }
+    </style>
+  </head>
+  <body>
+      <link rel="stylesheet" type="text/css" href="/css/H-ui.min.css" />
+      <link rel="stylesheet" type="text/css" href="/css/H-ui.admin.css" />
+      <link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.8/iconfont.css" />
+      <link rel="stylesheet" type="text/css" href="/skin/default/skin.css" id="skin" />
+      <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <div class="container" id="div1">
+      <img src="/images/112.png" id="img1">
+    </div>
+  </body>
+</html>
+
+<!-- <div class="pd-20">
+  //这是一个空白页,如果想添加页面，可以直接考走这个文件，替换掉这里的文代码
+  <img src="/images/11.jpg">
+</div> -->
+
+<!-- 尾部开始 -->
+<%- include templet/_blank_footer %>
+<!-- 尾部结束 -->
