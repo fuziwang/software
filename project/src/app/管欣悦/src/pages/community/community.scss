@@ -66,12 +66,9 @@ page-community {
                     width: 60px;
                     height: 30px;
                     float: left;
-                    color: #000;
+                    color: #000 !important;
                 }
-                // ion-icon:hover{
-                //     color:#2FBD7A;
-                // }
-
+                
                 .com6{
                     margin-right:15px;
                     width: 60px;
@@ -92,6 +89,18 @@ page-community {
                 }
             }
         }
+    .kuang{
+        border-radius:2px; 
+        height:20px;
+        width:75px;
+        background-color:#686868;
+        // border:1px solid #000;
+        position: fixed;
+        top: 105%;
+        left: 40%;
+        text-align: center;
+        color:#fff;
+    }
 
     }
 }

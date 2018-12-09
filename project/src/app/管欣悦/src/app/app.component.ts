@@ -11,12 +11,14 @@ import { HomePage } from '../pages/home/home';
 import { ContactPage } from '../pages/contact/contact';
 import { CommunityPage } from '../pages/community/community';
 import { ContentPage } from '../pages/content/content';
+import { CameraPage } from '../pages/camera/camera';
+import { XingquPage } from '../pages/xingqu/xingqu';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any =ContentPage;
+  rootPage:any =FirstPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
