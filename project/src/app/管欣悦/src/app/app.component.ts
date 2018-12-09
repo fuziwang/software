@@ -7,12 +7,6 @@ import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { FirstPage } from '../pages/first/first';
 import { AboutPage } from '../pages/about/about';
-import { HomePage } from '../pages/home/home';
-import { ContactPage } from '../pages/contact/contact';
-import { CommunityPage } from '../pages/community/community';
-import { ContentPage } from '../pages/content/content';
-import { CameraPage } from '../pages/camera/camera';
-import { XingquPage } from '../pages/xingqu/xingqu';
 
 @Component({
   templateUrl: 'app.html'

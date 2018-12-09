@@ -1,34 +1,32 @@
 <ion-header>
-    <ion-navbar color="gre" hideBackButton="true">
-      <ion-title>最近视频</ion-title><span class="shipin" (click)="goChoose()">相册</span><span class="qx" (click)="edit()">取消</span>
-    </ion-navbar>
-  </ion-header>
-  
-  
-  
-  <ion-content padding>
-  <div class="out" *ngFor='let item of arr;let idx=index'>
+  <ion-navbar color="gre" hideBackButton="true">
+    <ion-title>最近视频</ion-title><span class="shipin" (click)="goChoose()">相册</span><span class="qx" (click)="edit()">取消</span>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+<div class="out" *ngFor='let item of arr;let idx=index'>
     <div class="came">
-      <input type="checkbox" (click)="checkBox()"> 
+        <img class="img1" src="../../assets/imgs/hot04.png" alt="" style="overflow:hidden">
     </div>
     <div class="came">
-      <input type="checkbox" (click)='checkBox()'> 
+        <img class="img1" src="../../assets/imgs/hot03.png" alt="" style="overflow:hidden">
     </div>
     <div class="came">
-      <input type="checkbox" (click)='checkBox()'> 
+        <img class="img1" src="../../assets/imgs/hot06.png" alt="" style="overflow:hidden">
     </div>
-  </div>
-  <ion-list>
-  <ion-item>
-      <ion-label>Pepperoni</ion-label>
-      <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
-    </ion-item>
-  </ion-list>
-  </ion-content>
-  
-  <ion-footer class="foo" >
-  <button class="button button-positive"  (click)="chengGong()" [ngStyle]="{'background':check===1?'#2FBD7A':'#E9EBEC'}">
-    <span [ngStyle]="{'color':check===1?'#fff':'#B3B4B4'}">确定</span>
-  </button> 
-  </ion-footer>
-  
+    
+</div>
+<ion-list>
+<ion-item>
+    <ion-label>Pepperoni</ion-label>
+    <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+  </ion-item>
+</ion-list>
+</ion-content>
+
+<ion-footer class="foo" >
+<button class="button button-positive"  (click)="chengGong()"><span>确定</span></button> 
+</ion-footer>

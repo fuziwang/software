@@ -15,8 +15,8 @@ page-community {
             margin-left:-8px;
             margin-top: 15px;
             width: 360px;
-            height: auto;
-            min-height:235px;
+            height:235px;
+            border-bottom: 1px solid #DDDDDD;
             .inside1{
                 float: left;
                 margin-left:20px;
@@ -40,28 +40,24 @@ page-community {
             }
             .inside2{
                 float: left;
-                margin-left:20px;
+                margin-left:80px;
                 margin-top:10px; 
                 .com3{
                     width:260px;
                     height:auto;
                 }
                 .com4{
-                    max-width: 90%;
                     margin-top:5px; 
-                    min-width:100px;
-                    height:200px;
-                    max-height:400px;
-                    overflow:hidden;
+                    width:135px;
+                    height:85px;
                     background-color:#F2F2F2;
                 }
             }
             .inside3{
                 float: left;
-                padding-left:30px;
+                margin-left:30px;
                 margin-top:23px;
-                border-bottom: 1px solid #DDDDDD;
-                width: 95%;
+             
                 .com5{
                     margin-right:15px;
                     width: 60px;
@@ -69,9 +65,10 @@ page-community {
                     float: left;
                     color: #000;
                 }
-                // ion-icon:hover{
-                //     color:#2FBD7A;
-                // }
+                ion-icon:hover{
+                    color:#2FBD7A;
+                }
+
 
                 .com6{
                     margin-right:15px;
