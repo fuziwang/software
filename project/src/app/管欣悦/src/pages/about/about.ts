@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { VideoPage } from '../video/video';
+import { PicturePage } from '../picture/picture';
 
 @Component({
   selector: 'page-about',
@@ -27,5 +29,11 @@ export class AboutPage {
     console.log(this.arr);
     this.isCheck=0;
     this.num=this.arr.length;
+  }
+  goPicture(){
+    this.navCtrl.push(PicturePage);
+  }
+  goVidio(){
+    this.navCtrl.push(VideoPage);
   }
 }
