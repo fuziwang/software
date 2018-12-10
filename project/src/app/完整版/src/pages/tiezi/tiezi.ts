@@ -45,7 +45,7 @@ export class TieziPage {
   }
   list:Array<Tiezi>=[];
 
-
+  content;
   getList(){
     //获取list用于显示
     this.api.getList_next(this.id).then(data=>{
@@ -53,7 +53,8 @@ export class TieziPage {
       console.dir(data);
       this.list=<any>data;
       console.dir(this.list);
-
+      this.content=this.list[0].acontent.split('|').join("\n");
+      console.log(this.content);
     });
     
   }

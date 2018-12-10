@@ -122,8 +122,14 @@ page-tiezi {
                     margin-top: 15px;
                 }
                 #neirong{
-                    
+                    pre{
+                        white-space:pre-wrap;
+                        word-wrap:break-word;
+                       
+                    }
                     height: auto;
+                    text-align: left;
+                    text-indent: 2rem;
                     //border: 3px solid rgb(8, 8, 8);
                 }
                 li{
@@ -132,9 +138,7 @@ page-tiezi {
                 }
             }
         }
-        div{
-            //border: 1px solid red;
-        }
+       
     }
    
 }
