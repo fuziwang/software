@@ -1,3 +1,30 @@
 @charset "utf-8";
 /* 你自己的样式 */
-
+#change1{
+    width:0 auto;
+    height:160px;
+  }
+  #imgs{
+    width:30%;
+    margin:2% 0% 0% 2.5%;
+  }
+  #change2{
+    width:0 auto;
+  }
+  #art{
+    float: left;
+    width:32%;
+    margin:2% 2% 0% 3.5%;
+  }
+  #article{
+    border:solid 1px #eee;
+    margin-bottom:20px;
+  }
+  #say{
+    border:solid 1px #eee;
+  }
+  #users{
+    float: left;
+    width:61%;
+    margin:2% 0% 0% 0%;
+  }
