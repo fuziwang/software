@@ -72,35 +72,44 @@ function myselfinfo(){
 	});
 }
 
-/*资讯-添加*/
-function article_add(title,url){
-	var index = layer.open({
-		type: 2,
-		title: title,
-		content: url
-	});
-	layer.full(index);
+/*文章-添加*/
+// function article_add(title,url){
+// 	var index = layer.open({
+// 		type: 2,
+// 		title: title,
+// 		content: url
+// 	});
+// 	layer.full(index);
+// }
+function article_add(title,url,w,h){
+	layer_show(title,url,w,h);
 }
 /*图片-添加*/
-function picture_add(title,url){
-	var index = layer.open({
-		type: 2,
-		title: title,
-		content: url
-	});
-	layer.full(index);
+// function picture_add(title,url){
+// 	var index = layer.open({
+// 		type: 2,
+// 		title: title,
+// 		content: url
+// 	});
+// 	layer.full(index);
+// }
+function picture_add(title,url,w,h){
+	layer_show(title,url,w,h);
 }
-/*产品-添加*/
-function product_add(title,url){
-	var index = layer.open({
-		type: 2,
-		title: title,
-		content: url
-	});
-	layer.full(index);
+/*说说-添加*/
+// function say_add(title,url){
+// 	var index = layer.open({
+// 		type: 2,
+// 		title: title,
+// 		content: url
+// 	});
+// 	layer.full(index);
+// }
+function say_add(title,url,w,h){
+	layer_show(title,url,w,h);
 }
 /*用户-添加*/
-function member_add(title,url,w,h){
+function user_add(title,url,w,h){
 	layer_show(title,url,w,h);
 }
 
