@@ -4,6 +4,7 @@ import { ApiProvider } from "../../providers/api/api";//引入服务
 import { ContentPage } from "../content/content";
 import { HomepagePage } from "../homepage/homepage";
 import { SharePage} from "../share/share";
+import { TransmitPage } from '../transmit/transmit';
 /**
  * Generated class for the ShequPage page.
  *
@@ -28,7 +29,8 @@ interface Say{
   templateUrl: 'shequ.html',
 })
 export class ShequPage {
-
+  isCheck=0;
+  isPl=0;
   constructor(public navCtrl: NavController, public navParams: NavParams,public api:ApiProvider) {
     this.getList();
   }
@@ -37,6 +39,12 @@ export class ShequPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShequPage');
   }
+  fenXiang(){
+    this.isCheck=1;
+   }
+   pL(){
+     this.isPl=1;
+    }
   getList(){
     //获取list用于显示
     this.api.getSay().then(data=>{
@@ -53,6 +61,9 @@ export class ShequPage {
   }
   goContent(){
     this.navCtrl.push(ContentPage);
+  }
+  goTransmit(){
+    this.navCtrl.push(TransmitPage);
   }
 
 }

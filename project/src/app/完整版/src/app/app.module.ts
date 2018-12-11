@@ -50,6 +50,8 @@ import { HttpModule }from '@angular/http';
 import { StorageProvider } from '../providers/storage/storage';
 import { SeetouxiangPage } from '../pages/seetouxiang/seetouxiang';
 import { PhotoPage } from '../pages/photo/photo';
+import { TransmitPage } from '../pages/transmit/transmit';
+
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { PhotoPage } from '../pages/photo/photo';
     AboutPage,
     ContactPage,
     HomePage,
+    TransmitPage,
     TabsPage,
     MyPage,
     ShequPage,
@@ -119,6 +122,7 @@ import { PhotoPage } from '../pages/photo/photo';
     ShequPage,
     LoginPage,
     ZhucePage ,
+    TransmitPage,
     FirstPage,
     SetPwdPage,
     ResetPwdPage,

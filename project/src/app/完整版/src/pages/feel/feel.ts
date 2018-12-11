@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CameraPage } from '../camera/camera';
 import { AuthoritPage } from '../authorit/authorit';
+import { ShequPage } from '../shequ/shequ';
 
 /**
  * Generated class for the FeelPage page.
@@ -25,5 +26,8 @@ export class FeelPage {
   }
   goAuthority(){
     this.navCtrl.push(AuthoritPage);
+  }
+  openModal(){
+    this.navCtrl.push(ShequPage);
   }
 }
