@@ -14,7 +14,7 @@ Video.prototype.selectVid = function(cb){
 }
 
 Video.prototype.getAll = function(cb){
-  const sql = 'select vid,vname,vtype,vtime,uname from Video,User where Video.uid = User.uid';
+  const sql = 'select vid,vname,vtype,vtime,Video.uid,uname from Video,User where Video.uid = User.uid';
   db.query(sql,(err,result)=>{
     if(err){
       cb(true);
@@ -25,7 +25,7 @@ Video.prototype.getAll = function(cb){
 }
 
 Video.prototype.getVideo = function(obj,cb){
-  const sql = 'select vid,vname,vtype,vtime,uname from Video,User where Video.uid = User.uid and vid = ?';
+  const sql = 'select vid,vname,vtype,vtime,Video.uid,uname from Video,User where Video.uid = User.uid and vid = ?';
   db.query(sql,[obj.vid],(err,result)=>{
     if(err){
       cb(true);
