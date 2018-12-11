@@ -85,7 +85,7 @@ router.get('/myconcern/:uid',(req,res,next)=>{
   })
 })
 
-router.get('/myfans/:uid',(req,res,next)=>{
+router.get('/myfans/:upid',(req,res,next)=>{
   var obj = req.params;
   user.getFans(obj,(err,result)=>{
     if(err){

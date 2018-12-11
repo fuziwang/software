@@ -14,7 +14,7 @@ Photos.prototype.selectAid = function(cb){
 }
 
 Photos.prototype.getAll = function(cb){
-  const sql = 'select xid,xname,xcount,xtime,uname from Photos,User where Photos.uid = User.uid';
+  const sql = 'select xid,xname,xcount,xtime,uname,Photos.uid from Photos,User where Photos.uid = User.uid';
   db.query(sql,(err,result)=>{
     if(err){
       cb(true);
@@ -25,7 +25,7 @@ Photos.prototype.getAll = function(cb){
 }
 
 Photos.prototype.getPhotos = function(obj,cb){
-  const sql = 'select xid,xname,xcount,xtime,uname from Photos,User where Photos.uid = User.uid and xid = ?';
+  const sql = 'select xid,xname,xcount,xtime,uname,Photos.uid from Photos,User where Photos.uid = User.uid and xid = ?';
   db.query(sql,[obj.xid],(err,result)=>{
     if(err){
       cb(true);

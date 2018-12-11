@@ -58,13 +58,13 @@ User.prototype.getConcern = function(obj,cb){
 }
 
 User.prototype.getFans = function(obj,cb){
-    const sql = 'aelect *from UserConcern where upid = ?';
+    const sql = 'select * from UserConcern where upid = ?';
     db.query(sql,[obj.upid],(err,result)=>{
       if(err){
         cb(true);
         return;
       }
-      cb(false,reslt);
+      cb(false,result);
     })
 }
 
