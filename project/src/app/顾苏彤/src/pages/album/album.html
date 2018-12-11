@@ -11,17 +11,17 @@
       <button ion-button block outline><span>新建相册</span></button>
     </ion-col>
     <ion-col col-6>
-      <img src="../../assets/imgs/hot02.png">
+      <img src="../../assets/imgs/hot02.png" (click)="photo()">
       <p>吃饭--20张</p>
     </ion-col>
   </ion-row>
   <ion-row *ngFor='let item of arr;let idx = index'>
     <ion-col col-6 >
-      <img src="../../assets/imgs/hot03.png" alt="">
+      <img src="../../assets/imgs/hot03.png" alt="" (click)="photo()">
       <p>吃饭--20张</p>
     </ion-col>
     <ion-col col-6>
-      <img src="../../assets/imgs/hot04.png" alt="">
+      <img src="../../assets/imgs/hot04.png" alt="" (click)="photo()">
       <p>吃饭--20张</p>
     </ion-col>
   </ion-row>
