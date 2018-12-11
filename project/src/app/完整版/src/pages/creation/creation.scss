@@ -3,7 +3,7 @@ page-creation{
         ion-title{
             position: absolute;
             top: 16px;
-            left: 145px;
+            left: 125px;
         }
     }
     ion-content{
@@ -26,55 +26,67 @@ page-creation{
             }
         }
         .ss{
+            width: 360px;
+            height: 110px;
+            border: darkgray 1px solid;
             .img1{
                 width: 85px;
                 height: 85px;
-                position: absolute;
-                top: 50px;
+                position: relative;
+                top: 10px;
                 left: 10px;
             }
-            .name{
-                position: absolute;
-                top: 70px;
-                left: 100px;
+            .name{ 
+                position: relative;
+                top: -82px;
+                left: 110px;
             }
             .time{
                 color: darkgray;
-                position: absolute;
-                top: 90px;
-                left: 100px;
+                position: relative;
+                top: -90px;
+                left: 110px;
             }
             .text{
-                position: absolute;
-                top: 120px;
-                left: 100px;
-                right: 20px;
+                width: 200px;
+                position: relative;
+                top: -90px;
+                left: 110px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
         }
         .wz{
+            width: 360px;
+            height: 110px;
+            border: darkgray 1px solid;
             .img1{
                 width: 85px;
                 height: 85px;
-                position: absolute;
-                top: 50px;
+                position: relative;
+                top: 10px;
                 left: 10px;
             }
-            .name{
-                position: absolute;
-                top: 70px;
-                left: 100px;
+            .name{ 
+                position: relative;
+                top: -82px;
+                left: 110px;
             }
             .time{
                 color: darkgray;
-                position: absolute;
-                top: 90px;
-                left: 100px;
+                position: relative;
+                top: -90px;
+                left: 110px;
             }
             .text{
-                position: absolute;
-                top: 120px;
-                left: 100px;
-                right: 20px;
+                width: 200px;
+                position: relative;
+                top: -90px;
+                left: 110px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
         }
     }  

@@ -44,8 +44,12 @@ import { ChoosePage } from '../pages/choose/choose';
 import { AuthoritPage } from '../pages/authorit/authorit';
 import { VidioPage } from '../pages/vidio/vidio';
 import { ArticlePage } from '../pages/article/article';
+import { MessagePage } from '../pages/message/message';
 import { ApiProvider } from '../providers/api/api';
 import { HttpModule }from '@angular/http';
+import { StorageProvider } from '../providers/storage/storage';
+import { SeetouxiangPage } from '../pages/seetouxiang/seetouxiang';
+import { PhotoPage } from '../pages/photo/photo';
 
 @NgModule({
   declarations: [
@@ -86,6 +90,9 @@ import { HttpModule }from '@angular/http';
     VidioPage,
     ArticlePage,
     CommunityPage,
+    SeetouxiangPage,
+    MessagePage,
+    PhotoPage,
   ],
   imports: [
     BrowserModule,
@@ -138,12 +145,16 @@ import { HttpModule }from '@angular/http';
     VidioPage,
     ArticlePage,
     CommunityPage,
+    SeetouxiangPage,
+    MessagePage,
+    PhotoPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
+    StorageProvider,
   ]
 })
 export class AppModule {}

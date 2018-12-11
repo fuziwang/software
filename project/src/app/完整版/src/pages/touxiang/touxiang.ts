@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { XingquPage } from '../xingqu/xingqu';
+import { StorageProvider } from '../../providers/storage/storage';
+import { SeetouxiangPage } from '../seetouxiang/seetouxiang';
 
 /**
  * Generated class for the TouxiangPage page.
@@ -16,11 +18,15 @@ import { XingquPage } from '../xingqu/xingqu';
 })
 export class TouxiangPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private storage:StorageProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TouxiangPage');
+    
+  }
+  seetouxiang(){
+    this.navCtrl.push(SeetouxiangPage);
   }
   xingqu(){
     this.navCtrl.push(XingquPage);

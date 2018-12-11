@@ -19,6 +19,7 @@ import { ResetPwdPage}  from '../pages/reset-pwd/reset-pwd';
 import { XieyiPage} from '../pages/xieyi/xieyi';
 import { TouxiangPage } from '../pages/touxiang/touxiang';
 import { XingquPage } from '../pages/xingqu/xingqu';
+import { TieziPageModule } from '../pages/tiezi/tiezi.module';
 
 import { ShequPage } from '../pages/shequ/shequ';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -43,13 +44,15 @@ import { ChoosePage } from '../pages/choose/choose';
 import { AuthoritPage } from '../pages/authorit/authorit';
 import { VidioPage } from '../pages/vidio/vidio';
 import { ArticlePage } from '../pages/article/article';
+import { MessagePage } from '../pages/message/message';
 import { ApiProvider } from '../providers/api/api';
 import { HttpModule }from '@angular/http';
+import { PhotoPage } from '../pages/photo/photo';
 
 @NgModule({
   declarations: [
     MyApp,
-    
+    ContactPage,
    
     AboutPage,
     ContactPage,
@@ -65,7 +68,7 @@ import { HttpModule }from '@angular/http';
     XieyiPage,
     TouxiangPage,
     XingquPage,
-    TieziPage,
+    //TieziPage,
     AccountPage,
     AlbumPage,
     VideoPage,
@@ -85,10 +88,13 @@ import { HttpModule }from '@angular/http';
     VidioPage,
     ArticlePage,
     CommunityPage,
+    MessagePage,
+    PhotoPage,
   ],
   imports: [
     BrowserModule,
    HttpModule,
+   TieziPageModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: 'true',
       backButtonText: '',
@@ -136,6 +142,8 @@ import { HttpModule }from '@angular/http';
     VidioPage,
     ArticlePage,
     CommunityPage,
+    MessagePage,
+    PhotoPage,
   ],
   providers: [
     StatusBar,

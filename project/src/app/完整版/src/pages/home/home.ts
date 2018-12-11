@@ -41,14 +41,14 @@ export class HomePage {
       this.list=<any>data;
     });
     //测试post请求
-    let data=JSON.stringify({
-      title: 'foo',
-      body: 'bar',
-      userId: 1
-    });
-    this.api.postData(data).then(data=>{
-      console.dir(data);
-    });
+    // let data=JSON.stringify({
+    //   title: 'foo',
+    //   body: 'bar',
+    //   userId: 1
+    // });
+    // this.api.postData(data).then(data=>{
+    //   console.dir(data);
+    // });
   }
   
   
