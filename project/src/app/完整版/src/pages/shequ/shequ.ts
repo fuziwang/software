@@ -39,23 +39,12 @@ export class ShequPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShequPage');
   }
-<<<<<<< HEAD
   fenXiang(){
     this.isCheck=1;
    }
    pL(){
      this.isPl=1;
     }
-=======
-  
-  fenXiang(){
-   this.isCheck=1;
-  }
-  pL(){
-    this.isPl=1;
-   }
-
->>>>>>> df4c3de261f576e37661a6a75696aaaf8977b6f9
   getList(){
     //获取list用于显示
     this.api.getSay().then(data=>{
