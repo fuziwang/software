@@ -46,6 +46,8 @@ import { VidioPage } from '../pages/vidio/vidio';
 import { ArticlePage } from '../pages/article/article';
 import { ApiProvider } from '../providers/api/api';
 import { HttpModule }from '@angular/http';
+import { StorageProvider } from '../providers/storage/storage';
+import { SeetouxiangPage } from '../pages/seetouxiang/seetouxiang';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,7 @@ import { HttpModule }from '@angular/http';
     VidioPage,
     ArticlePage,
     CommunityPage,
+    SeetouxiangPage
   ],
   imports: [
     BrowserModule,
@@ -138,12 +141,14 @@ import { HttpModule }from '@angular/http';
     VidioPage,
     ArticlePage,
     CommunityPage,
+    SeetouxiangPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
+    StorageProvider,
   ]
 })
 export class AppModule {}

@@ -24,6 +24,8 @@ interface  ArticleComment{
   atime:string;
   aimage:string;
   uid:string;
+  uimage:string;
+  uname:string;
 }
 @IonicPage()
 @Component({
@@ -41,11 +43,19 @@ export class TieziPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public api:ApiProvider) {
     this.id=navParams.get('id');
     this.getList();
+    this.getarticlecomment();
     console.log(this.id);
   }
   list:Array<Tiezi>=[];
-
+  commont:Array<ArticleComment>=[];
   content;
+  getarticlecomment(){
+    //获取list用于显示
+    this.api.getArticleComment_next(this.id).then(data=>{
+      console.dir(data);
+      this.commont=<any>data;
+    });
+  }
   getList(){
     //获取list用于显示
     this.api.getList_next(this.id).then(data=>{
