@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, Content } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 
@@ -44,14 +44,18 @@ import { ChoosePage } from '../pages/choose/choose';
 import { AuthoritPage } from '../pages/authorit/authorit';
 import { VidioPage } from '../pages/vidio/vidio';
 import { ArticlePage } from '../pages/article/article';
-import { MessagePage } from '../pages/message/message';
 import { ApiProvider } from '../providers/api/api';
 import { HttpModule }from '@angular/http';
+<<<<<<< HEAD
 import { StorageProvider } from '../providers/storage/storage';
 import { SeetouxiangPage } from '../pages/seetouxiang/seetouxiang';
 import { PhotoPage } from '../pages/photo/photo';
 import { TransmitPage } from '../pages/transmit/transmit';
 
+=======
+import { ContentPage } from '../pages/content/content';
+import { TransmitPage } from '../pages/transmit/transmit';
+>>>>>>> df4c3de261f576e37661a6a75696aaaf8977b6f9
 
 @NgModule({
   declarations: [
@@ -93,9 +97,8 @@ import { TransmitPage } from '../pages/transmit/transmit';
     VidioPage,
     ArticlePage,
     CommunityPage,
-    SeetouxiangPage,
-    MessagePage,
-    PhotoPage,
+    ContentPage,
+    TransmitPage
   ],
   imports: [
     BrowserModule,
@@ -149,16 +152,14 @@ import { TransmitPage } from '../pages/transmit/transmit';
     VidioPage,
     ArticlePage,
     CommunityPage,
-    SeetouxiangPage,
-    MessagePage,
-    PhotoPage,
+    ContentPage,
+    TransmitPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
-    StorageProvider,
   ]
 })
 export class AppModule {}

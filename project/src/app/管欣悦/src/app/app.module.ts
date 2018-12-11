@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, Content } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 
@@ -46,6 +46,8 @@ import { VidioPage } from '../pages/vidio/vidio';
 import { ArticlePage } from '../pages/article/article';
 import { ApiProvider } from '../providers/api/api';
 import { HttpModule }from '@angular/http';
+import { ContentPage } from '../pages/content/content';
+import { TransmitPage } from '../pages/transmit/transmit';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,8 @@ import { HttpModule }from '@angular/http';
     VidioPage,
     ArticlePage,
     CommunityPage,
+    ContentPage,
+    TransmitPage
   ],
   imports: [
     BrowserModule,
@@ -138,6 +142,8 @@ import { HttpModule }from '@angular/http';
     VidioPage,
     ArticlePage,
     CommunityPage,
+    ContentPage,
+    TransmitPage
   ],
   providers: [
     StatusBar,

@@ -7,12 +7,14 @@ import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { FirstPage } from '../pages/first/first';
 import { AboutPage } from '../pages/about/about';
+import { ShequPage } from '../pages/shequ/shequ';
+import { TouxiangPage } from '../pages/touxiang/touxiang';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any =FirstPage;
+  rootPage:any =TouxiangPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
