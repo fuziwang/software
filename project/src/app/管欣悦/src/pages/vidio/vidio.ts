@@ -18,7 +18,7 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'vidio.html',
 })
 export class VidioPage {
-arr=[1,2,3];
+arr=[1,2,3,4,5];
   constructor(public navCtrl: NavController, public navParams: NavParams,private app:App) {
   }
   edit(){
