@@ -98,7 +98,18 @@ public getArticleComment_next(id){
     });
   });
 }
-
+  //实例get 相册 请求
+  public getPhotos(){
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url+'photos')
+        .subscribe((res:Response)=>{
+          resolve(res.json())
+        },err=>{
+          console.dir(err)
+          reject()
+      });
+    });
+  }
   //实例post请求
   public postLogin(data){
     return new Promise((resolve, reject) => {
