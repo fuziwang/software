@@ -124,11 +124,37 @@ public getArticleComment_next(id){
   }
 
 
-  public postZhuze(data){
+  //实例post 忘记密码请求
+  public postForget(data){
     return new Promise((resolve, reject) => {
-      this.http.post('https://jsonplaceholder.typicode.com/posts',data,{headers:this.headers})
+      this.http.post(this.url+'user/forget',data,{headers:this.headers})
+        .subscribe((res:Response)=>{
+          console.log(res);
+        },err=>{
+          console.dir(err)
+          reject()
+        });
+    });
+  }
+
+  //实例post 兴趣性别请求
+  public postXingqu(data){
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url+'user/sexhobby',data,{headers:this.headers})
         .subscribe((res:Response)=>{
           resolve(res.json())
+        },err=>{
+          console.dir(err)
+          reject()
+        });
+    });
+  }
+//实例POST注册
+  public postZhuze(data){
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url+'user/reg',data,{headers:this.headers})
+        .subscribe((res:Response)=>{
+          console.log(res);
         },err=>{
           console.dir(err)
           reject()
