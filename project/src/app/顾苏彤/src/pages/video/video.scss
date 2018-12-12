@@ -1,3 +1,36 @@
+// page-video {
+//     ion-header{
+//         ion-title{
+//             position: absolute;
+//             top: 16px;
+//             left: 130px;
+//         }
+//     }
+//     ion-content{ 
+//         button{
+//             position: absolute;
+//             top: 25px;
+//             left: 80px;
+//             width: 200px!important;
+//             border-color: #2FBD7B!important;
+//             span{
+//                 color: #2FBD7B;
+//             }
+//         }
+//         ion-grid{
+//             position: absolute;
+//             top: 80px;
+//             left: 2px;
+//             img{
+//                 width: 115px;
+//                 height: 100px;
+//             }
+//             p{
+//                 text-align: left;
+//             }
+//         }
+//     }
+// }
 page-video {
     ion-header{
         ion-title{
@@ -6,28 +39,24 @@ page-video {
             left: 130px;
         }
     }
-    ion-content{ 
-        button{
-            position: absolute;
-            top: 25px;
-            left: 80px;
-            width: 200px!important;
-            border-color: #2FBD7B!important;
-            span{
-                color: #2FBD7B;
-            }
-        }
+    ion-content{
         ion-grid{
             position: absolute;
-            top: 80px;
-            left: 2px;
-            img{
-                width: 115px;
-                height: 100px;
+            top: 20px;
+            left: 15px;
+            button{
+                width: 130px!important;
+                height: 100px!important;
+                border-color: #2FBD7B!important;
+                span{
+                    color: #2FBD7B;
+                }
             }
-            p{
-                text-align: left;
+            img{
+                width: 130px;
+                height: 100px;
             }
         }
     }
 }
+

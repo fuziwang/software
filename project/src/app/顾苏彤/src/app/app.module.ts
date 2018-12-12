@@ -52,6 +52,7 @@ import { StorageProvider } from '../providers/storage/storage';
 import { SeetouxiangPage } from '../pages/seetouxiang/seetouxiang';
 import { PhotoPage } from '../pages/photo/photo';
 
+
 @NgModule({
   declarations: [
     MyApp,
