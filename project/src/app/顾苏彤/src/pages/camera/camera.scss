@@ -37,6 +37,13 @@ page-camera {
                 height: 95%;
                 width:30%;
                 background-color:#E5E5E5;
+                position: relative;
+                input{
+                    position: absolute;
+                    top: 6px;
+                    left:88px;
+                }
+                
             }
         }
     }

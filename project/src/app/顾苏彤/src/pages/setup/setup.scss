@@ -3,7 +3,7 @@ page-setup {
         ion-title{
             position: absolute;
             top: 16px;
-            left: 140px;
+            left: 150px;
         }
     }
     ion-content{
@@ -14,7 +14,11 @@ page-setup {
             top: 12px;
             left: 0px;
         }
+        .item1{
+            letter-spacing:1px;
+        }
         .item2{
+            letter-spacing:1px;
             color: darkgray;
         }
     }

@@ -4,7 +4,7 @@
         
       
      
-      <ion-title>首页</ion-title>
+      <ion-title class="title">首页</ion-title>
      
     </ion-navbar>
     
@@ -27,22 +27,22 @@
           <!-- 轮播图 -->
           <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
           <ion-slide>
-            <img src="../../assets/imgs/lunbo1.png" alt="">
+            <img src="../../assets/imgs/lunbo1.jpg" alt="">
           </ion-slide>
           <ion-slide>
-            <img src="../../assets/imgs/lunbo2.png" alt="">
+            <img src="../../assets/imgs/lunbo2.jpg" alt="">
           </ion-slide>
           <ion-slide>
-            <img src="../../assets/imgs/lunbo3.png" alt="">
+            <img src="../../assets/imgs/lunbo3.jpg" alt="">
           </ion-slide>
           </ion-slides>
           <div>
             <ul class="tiezi">
-              <li *ngFor='let item of list;let idx=index'>
-                <div class="all" (click)="tiezi()">
+              <li *ngFor='let item of list;let idx=index'  (click)="next(item.aid)">
+                <div class="all">
                   <div class="text">
-                    <div id="title">{{item?.title}}</div>
-                    <div>作者{{item?.id}}</div>
+                    <div id="title">{{item?.atitle}}</div>
+                    <div id="uname">{{item?.uname}}</div>
                     <div id="pinglun">
                       <ul>
                         <li><ion-icon name="md-eye"></ion-icon><span>12</span></li>
@@ -51,7 +51,7 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="img"><img [src]="item?.url"></div>
+                  <div class="img"><img src="{{'http://192.168.140.144:8080/content/'+item?.aimage}}"></div>
                 </div>
               </li>
             </ul>
@@ -63,11 +63,11 @@
           
           <div>
             <ul class="tiezi">
-              <li *ngFor='let item of list;let idx=index'>
-                <div class="all" (click)="tiezi()">
+              <li *ngFor='let item of list;let idx=index' (click)="next(item?.aid)">
+                <div class="all" >
                   <div class="text">
-                    <div id="title">{{item?.title}}</div>
-                    <div>作者{{item?.id}}</div>
+                    <div id="title">{{item?.atitle}}</div>
+                    <div id="uname">{{item?.uname}}</div>
                     <div id="pinglun">
                       <ul>
                         <li><ion-icon name="md-eye"></ion-icon><span>12</span></li>
@@ -76,7 +76,7 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="img">图片<img [src]="item?.url"></div>
+                  <div class="img"><img src="{{'http://192.168.140.144:8080/content/'+item?.aimage}}"></div>
                 </div>
               </li>
             </ul>

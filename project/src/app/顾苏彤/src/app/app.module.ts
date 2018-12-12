@@ -22,6 +22,7 @@ import { XingquPage } from '../pages/xingqu/xingqu';
 import { TieziPageModule } from '../pages/tiezi/tiezi.module';
 
 import { ShequPage } from '../pages/shequ/shequ';
+import { AboutusPage } from '../pages/aboutus/aboutus';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TieziPage } from '../pages/tiezi/tiezi';
@@ -47,6 +48,8 @@ import { ArticlePage } from '../pages/article/article';
 import { MessagePage } from '../pages/message/message';
 import { ApiProvider } from '../providers/api/api';
 import { HttpModule }from '@angular/http';
+import { StorageProvider } from '../providers/storage/storage';
+import { SeetouxiangPage } from '../pages/seetouxiang/seetouxiang';
 import { PhotoPage } from '../pages/photo/photo';
 
 @NgModule({
@@ -88,8 +91,10 @@ import { PhotoPage } from '../pages/photo/photo';
     VidioPage,
     ArticlePage,
     CommunityPage,
+    SeetouxiangPage,
     MessagePage,
     PhotoPage,
+    AboutusPage,
   ],
   imports: [
     BrowserModule,
@@ -142,14 +147,17 @@ import { PhotoPage } from '../pages/photo/photo';
     VidioPage,
     ArticlePage,
     CommunityPage,
+    SeetouxiangPage,
     MessagePage,
     PhotoPage,
+    AboutusPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
+    StorageProvider,
   ]
 })
 export class AppModule {}

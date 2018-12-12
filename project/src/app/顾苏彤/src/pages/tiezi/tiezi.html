@@ -1,7 +1,7 @@
 <ion-content>
     <div class="al">
         <div class="img">
-          <img id="img" src="{{'http://192.168.92.144:8080/content/'+list[0]?.aimage}}">
+          <img id="img" src="{{'http://192.168.140.144:8080/content/'+list[0]?.aimage}}">
           <i class="iconfont icon-2fanhui" color="primary" (click)="last()"></i>
           <i class="iconfont icon-fenxiang" color="primary" (click)="fenxiang()"></i>
         </div>
@@ -16,18 +16,18 @@
         <div class="bottom">
           <div class="pl">所有评论</div>
             <ul class="tiezi">
-                <li *ngFor='let item of arr;let idx=index'>
+                <li *ngFor='let item1 of commont;let idx=index' class="one">
                   <div>
-                      <ul>
-                        <li>头像</li>
-                        <li>作者</li>
-                        <li>时间</li>
-                        <li><ion-icon name="md-eye"></ion-icon><span>12</span></li>
-                        <li><ion-icon name="md-eye"></ion-icon><span>12</span></li>
+                      <ul class="pinlun">
+                        <li class="img"><img  src="{{'http://192.168.140.144:8080/user/'+item1?.uimage}}"></li>
+                        <li class="name">{{item1?.uname}}</li>
+                        <li class="time">{{item1?.actime}}</li>
+                        <li class="icon"><ion-icon name="md-eye"><span>12</span></ion-icon></li>
+                        <li class="icon"><ion-icon name="md-eye"><span>12</span></ion-icon></li>
                       </ul>
                   </div>
-                  <div class="comment">
-                    评论文字
+                  <div class="content">
+                    {{item1?.accontent}}
                   </div>
                 </li>
             </ul>

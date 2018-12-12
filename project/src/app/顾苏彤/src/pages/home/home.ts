@@ -6,13 +6,15 @@ import { App } from 'ionic-angular';
 import { ApiProvider } from "../../providers/api/api";//引入服务
 
 //定义首页格式接口
-interface Shouye {
-  albumId: number;
-  id:number;
-  title:string;
-  url:string;
-  thumbnailUrl:string;
+interface Article {
+  aid: number;
+  atitle:string;
+  aimage:string;
+  uid:string;
+  
 }
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -20,7 +22,7 @@ interface Shouye {
 export class HomePage {
   msg:string;//提示信息
   isLogin:boolean=true;//是否登录
-  list:Array<Shouye>=[];
+  list:Array<Article>=[];
 
   isActive=true;
   isClick(i){
@@ -39,22 +41,26 @@ export class HomePage {
       this.list=<any>data;
     });
     //测试post请求
-    let data=JSON.stringify({
-      title: 'foo',
-      body: 'bar',
-      userId: 1
-    });
-    this.api.postData(data).then(data=>{
-      console.dir(data);
-    });
+    // let data=JSON.stringify({
+    //   title: 'foo',
+    //   body: 'bar',
+    //   userId: 1
+    // });
+    // this.api.postData(data).then(data=>{
+    //   console.dir(data);
+    // });
   }
   
   
   last(){
     this.app.getRootNav().push(XingquPage);
   }
-  tiezi(){
-    this.app.getRootNav().push(TieziPage);
+  next(index){
+    this.navCtrl.push(TieziPage,{
+      id : index
+    });
+    console.log(index);
+
   }
   doRefresh(refresher) {
     console.log('Begin async       operation', refresher);
