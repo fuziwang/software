@@ -117,16 +117,16 @@ router.post('/reg',(req,res,next)=>{
       res.statusCode = 500;
     }
     var uid = JSON.parse(JSON.stringify(result))[0].c;
-    console.log(uid);
     obj.uid = uid;
   });
-  console.log(obj);
-  user.insertItem(obj,(err,result)=>{
-    if(err){
-      res.statusCode = 500;
-    }
-    res.send('已成功');// 字符串
-  })
+  if(obj.uid){
+    user.insertItem(obj,(err,result)=>{
+      if(err){
+        res.statusCode = 500;
+      }
+      res.send('已成功');// 字符串
+    });
+  }
 });
 
 router.post('/login',(req,res,next)=>{
