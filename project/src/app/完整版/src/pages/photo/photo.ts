@@ -22,16 +22,18 @@ interface Photo{
   templateUrl: 'photo.html',
 })
 export class PhotoPage {
-
+id;
   constructor(public navCtrl: NavController, public navParams: NavParams, public api:ApiProvider) {
+    this.id=navParams.get('id');
     this.getList();
+    console.log(this.id);
   }
   list:Array<Photo>=[];
 
   content;
   getList(){
     //获取list用于显示
-    this.api.getPhoto().then(data=>{
+    this.api.getPhoto(this.id).then(data=>{
       console.dir(data);
       this.list=<any>data;
       console.dir(this.list);

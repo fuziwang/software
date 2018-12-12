@@ -9,7 +9,7 @@
   <ion-grid>
     <ion-row>
       <ion-col col-4 *ngFor='let item of list;let idx=index'>
-        <img class="st" src="../../assets/imgs/hot01.png">
+        <img class="st" src="{{'http://192.168.140.144:8080/photo/'+list[0]?.uimage}}">
         <p>{{item?.pname}}</p>
       </ion-col>
     </ion-row>

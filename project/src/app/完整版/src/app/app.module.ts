@@ -22,7 +22,6 @@ import { XingquPage } from '../pages/xingqu/xingqu';
 import { TieziPageModule } from '../pages/tiezi/tiezi.module';
 
 import { ShequPage } from '../pages/shequ/shequ';
-import { AboutusPage } from '../pages/aboutus/aboutus';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TieziPage } from '../pages/tiezi/tiezi';
@@ -52,6 +51,8 @@ import { StorageProvider } from '../providers/storage/storage';
 import { SeetouxiangPage } from '../pages/seetouxiang/seetouxiang';
 import { PhotoPage } from '../pages/photo/photo';
 import { TransmitPage } from '../pages/transmit/transmit';
+import { AboutusPage } from '../pages/aboutus/aboutus';
+import { PhotoPageModule } from '../pages/photo/photo.module';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { TransmitPage } from '../pages/transmit/transmit';
     MyPage,
     ShequPage,
     LoginPage,
+    AboutusPage,
     ZhucePage,
     FirstPage,
     SetPwdPage,
@@ -96,13 +98,13 @@ import { TransmitPage } from '../pages/transmit/transmit';
     CommunityPage,
     SeetouxiangPage,
     MessagePage,
-    PhotoPage,
-    AboutusPage,
+    //PhotoPageModule,
   ],
   imports: [
     BrowserModule,
    HttpModule,
    TieziPageModule,
+   PhotoPageModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: 'true',
       backButtonText: '',
@@ -126,6 +128,7 @@ import { TransmitPage } from '../pages/transmit/transmit';
     ZhucePage ,
     TransmitPage,
     FirstPage,
+    AboutusPage,
     SetPwdPage,
     ResetPwdPage,
     XieyiPage,
@@ -154,7 +157,6 @@ import { TransmitPage } from '../pages/transmit/transmit';
     SeetouxiangPage,
     MessagePage,
     PhotoPage,
-    AboutusPage,
   ],
   providers: [
     StatusBar,
