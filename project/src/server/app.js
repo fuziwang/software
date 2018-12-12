@@ -33,6 +33,11 @@ var apiarticle = require('./routes/api/article');
 var apiuser = require('./routes/api/user');
 var apiback = require('./routes/api/back');
 var apisay = require('./routes/api/say');
+var apiphotos=require('./routes/api/photos');
+var apiphoto=require('./routes/api/photo');
+var apivideo=require('./routes/api/video');
+var apiarticlecomment=require('./routes/api/articlecomment.js');
+var apisaycomment=require('./routes/api/saycomment.js');
 var app = express();
 
 // view engine setup
@@ -75,6 +80,11 @@ app.use('/api/article',apiarticle);
 app.use('/api/user',apiuser);
 app.use('/api/back',apiback);
 app.use('/api/say',apisay);
+app.use('/api/articlecomment',apiarticlecomment);
+app.use('/api/saycomment',apisaycomment);
+app.use('/api/photos',apiphotos);
+app.use('/api/photo',apiphoto);
+app.use('/api/video',apivideo);
 app.use(express.static('./public/static'));
 
 // catch 404 and forward to error handler

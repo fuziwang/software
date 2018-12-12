@@ -34,8 +34,9 @@ router.get('/', function (req, res, next) {
         }
       });
     } else if(req.query.data){
-      //console.log(1);
+      console.log(req.query.data);
       var data = req.query.data.split(',');
+      console.log(data);
       data.forEach((e)=>{
         /*
         users.getImage(e,(err,result)=>{

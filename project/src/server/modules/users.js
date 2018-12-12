@@ -36,7 +36,7 @@ Users.prototype.addItem = function(obj,cb){
 }
 
 Users.prototype.addTopic = function(id,topic,cb){
-  const sql = 'insert into User values(?,?)';
+  const sql = 'insert into UserHobby values(?,?)';
   db.query(sql,[id,topic],function(err,result){
     if(err){
       cb(true);

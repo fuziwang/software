@@ -85,7 +85,7 @@ router.get('/myconcern/:uid',(req,res,next)=>{
   })
 })
 
-router.get('/myfans/:uid',(req,res,next)=>{
+router.get('/myfans/:upid',(req,res,next)=>{
   var obj = req.params;
   user.getFans(obj,(err,result)=>{
     if(err){
@@ -119,12 +119,14 @@ router.post('/reg',(req,res,next)=>{
     var uid = JSON.parse(JSON.stringify(result))[0].c;
     obj.uid = uid;
   });
-  user.insertItem(obj,(err,result)=>{
-    if(err){
-      res.statusCode = 500;
-    }
-    res.send('已成功');// 字符串
-  })
+  if(obj.uid){
+    user.insertItem(obj,(err,result)=>{
+      if(err){
+        res.statusCode = 500;
+      }
+      res.send('已成功');// 字符串
+    });
+  }
 });
 
 router.post('/login',(req,res,next)=>{

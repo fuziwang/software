@@ -31,7 +31,9 @@ router.get('/', function (req, res, next) {
     } else if(req.query.data){
       console.log(req.query.data);
       var data = req.query.data.split(',');
+      console.log(data);
       data.forEach((e)=>{
+        console.log(e);
         artile.deleteColumn(e,(err,result)=>{
           if(err) res.statusCode = 500;
         });

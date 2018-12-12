@@ -4,9 +4,30 @@ var multer = require('multer');
 var Back = require('../../modules/api/back.js');
 
 var back = new Back();
+router.get('/',(req,res,next)=>{
+  back.getAll((err,result)=>{
+    if(err){res.statusCode=500;}
+    else{
+      var obj=JSON.parse(JSON.stringify(result));
+      res.json(obj);
+    }
+  });
+});
+router.get('/:rid',(req,res,next)=>{
+  var obj=req.params;
+  console.log(obj);
+  back.getBack(obj,(err,result)=>{
+    if(err){
+      res.statusCode = 500;  
+    } else {
+      var obj=JSON.parse(JSON.stringify(result));
+      res.json(obj);
+    }
+  })
+})
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/staticimage/apiback');          
+    cb(null, 'public/static/back');          
   },
   filename: function (req, file, cb) {
       cb(null, req.body.rtel + "-" + file.originalname);        
