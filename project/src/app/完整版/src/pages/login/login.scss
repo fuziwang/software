@@ -1,5 +1,11 @@
 page-login {
     ion-content{
+        .error{
+            margin-left: 70px;
+            margin-top: -135px;
+            letter-spacing: 8px;
+            color: red;
+        }
         img{
             width: 170px;
             height: 80px;

@@ -22,5 +22,7 @@ export class ArticlePage {
   openModal(){
     this.navCtrl.push(ShequPage)
   }
-
+  goCamera(){
+    
+  }
 }
