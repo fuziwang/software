@@ -45,7 +45,6 @@ import { ChoosePage } from '../pages/choose/choose';
 import { AuthoritPage } from '../pages/authorit/authorit';
 import { VidioPage } from '../pages/vidio/vidio';
 import { ArticlePage } from '../pages/article/article';
-import { MessagePage } from '../pages/message/message';
 import { ApiProvider } from '../providers/api/api';
 import { HttpModule }from '@angular/http';
 import { StorageProvider } from '../providers/storage/storage';
@@ -93,7 +92,6 @@ import { PhotoPage } from '../pages/photo/photo';
     ArticlePage,
     CommunityPage,
     SeetouxiangPage,
-    MessagePage,
     PhotoPage,
     AboutusPage,
   ],
@@ -149,7 +147,6 @@ import { PhotoPage } from '../pages/photo/photo';
     ArticlePage,
     CommunityPage,
     SeetouxiangPage,
-    MessagePage,
     PhotoPage,
     AboutusPage,
   ],

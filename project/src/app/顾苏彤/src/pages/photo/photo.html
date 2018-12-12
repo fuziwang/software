@@ -6,13 +6,12 @@
 
 <ion-content>
   <button ion-button block outline><span>上传照片</span></button>
-<ion-grid>
-  <ion-row  *ngFor='let item of list;let idx=index'>
-    <ion-col col-4>
-      <img class="st" src="../../assets/imgs/hot01.png">
-      <p>{{item?.pname}}</p>
-    </ion-col>
-  </ion-row>
-  
-</ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor='let item of list;let idx=index'>
+        <img class="st" src="../../assets/imgs/hot01.png">
+        <p>{{item?.pname}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

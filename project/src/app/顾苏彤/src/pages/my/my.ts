@@ -10,7 +10,6 @@ import { FollowPage } from '../follow/follow';
 import { FansPage } from '../fans/fans';
 import { HomepagePage } from '../homepage/homepage';
 import { EditPage } from '../edit/edit';
-import { MessagePage } from '../message/message';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { App } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
@@ -91,9 +90,6 @@ export class MyPage {
   }
   edit(){
     this.app.getRootNav().push(EditPage);
-  }
-  message(){
-    this.app.getRootNav().push(MessagePage);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyPage');
