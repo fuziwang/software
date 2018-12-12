@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ResetPwdPage } from '../reset-pwd/reset-pwd';
-import { XieyiPage } from '../xieyi/xieyi';
+
 /**
- * Generated class for the SetupPage page.
+ * Generated class for the AboutusPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,21 +10,16 @@ import { XieyiPage } from '../xieyi/xieyi';
 
 @IonicPage()
 @Component({
-  selector: 'page-setup',
-  templateUrl: 'setup.html',
+  selector: 'page-aboutus',
+  templateUrl: 'aboutus.html',
 })
-export class SetupPage {
+export class AboutusPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-  resetpwd(){
-    this.navCtrl.push(ResetPwdPage);
-  }
-  xieyi(){
-    this.navCtrl.push(XieyiPage);
-  }
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SetupPage');
+    console.log('ionViewDidLoad AboutusPage');
   }
 
 }

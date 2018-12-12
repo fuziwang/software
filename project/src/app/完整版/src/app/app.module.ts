@@ -22,6 +22,7 @@ import { XingquPage } from '../pages/xingqu/xingqu';
 import { TieziPageModule } from '../pages/tiezi/tiezi.module';
 
 import { ShequPage } from '../pages/shequ/shequ';
+import { AboutusPage } from '../pages/aboutus/aboutus';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TieziPage } from '../pages/tiezi/tiezi';
@@ -96,6 +97,7 @@ import { TransmitPage } from '../pages/transmit/transmit';
     SeetouxiangPage,
     MessagePage,
     PhotoPage,
+    AboutusPage,
   ],
   imports: [
     BrowserModule,
@@ -152,6 +154,7 @@ import { TransmitPage } from '../pages/transmit/transmit';
     SeetouxiangPage,
     MessagePage,
     PhotoPage,
+    AboutusPage,
   ],
   providers: [
     StatusBar,
