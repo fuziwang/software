@@ -36,7 +36,7 @@ id;
     this.api.getPhoto(this.id).then(data=>{
       console.dir(data);
       this.list=<any>data;
-      console.dir(this.list);
+      console.dir('图片',this.list);
     });
     
   }
