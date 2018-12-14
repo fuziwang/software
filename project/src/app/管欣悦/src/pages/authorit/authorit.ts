@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'authorit.html',
 })
 export class AuthoritPage {
-  // let gk=document.getElementById('gk');
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CameraPage } from '../camera/camera';
 import { AuthoritPage } from '../authorit/authorit';
-import { CommunityPage } from '../community/community';
 import { ShequPage } from '../shequ/shequ';
+import { ApiProvider } from '../../providers/api/api';
 
 /**
  * Generated class for the FeelPage page.
@@ -11,6 +11,14 @@ import { ShequPage } from '../shequ/shequ';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+interface Say{
+  sid:number;
+  scontent:string;
+  stime:string;
+  simage:string;
+  status:number;
+  uid:number;
+}
 
 @IonicPage()
 @Component({
@@ -18,8 +26,19 @@ import { ShequPage } from '../shequ/shequ';
   templateUrl: 'feel.html',
 })
 export class FeelPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  text;
+  constructor(public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider) {
+  }
+  getList(){
+    let data=JSON.stringify({
+      scontent:this.text,
+    });
+    this.api.postSay(data).then(data=>{
+      console.dir(data);
+    });
+  }
+  tijiao(){
+    this.getList();
   }
 
   goCamera(){

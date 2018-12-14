@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler, Content } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 
@@ -44,10 +44,16 @@ import { ChoosePage } from '../pages/choose/choose';
 import { AuthoritPage } from '../pages/authorit/authorit';
 import { VidioPage } from '../pages/vidio/vidio';
 import { ArticlePage } from '../pages/article/article';
+import { MessagePage } from '../pages/message/message';
 import { ApiProvider } from '../providers/api/api';
 import { HttpModule }from '@angular/http';
-import { ContentPage } from '../pages/content/content';
+import { StorageProvider } from '../providers/storage/storage';
+import { SeetouxiangPage } from '../pages/seetouxiang/seetouxiang';
+import { PhotoPage } from '../pages/photo/photo';
 import { TransmitPage } from '../pages/transmit/transmit';
+import { AboutusPage } from '../pages/aboutus/aboutus';
+import { PhotoPageModule } from '../pages/photo/photo.module';
+
 
 @NgModule({
   declarations: [
@@ -57,10 +63,12 @@ import { TransmitPage } from '../pages/transmit/transmit';
     AboutPage,
     ContactPage,
     HomePage,
+    TransmitPage,
     TabsPage,
     MyPage,
     ShequPage,
     LoginPage,
+    AboutusPage,
     ZhucePage,
     FirstPage,
     SetPwdPage,
@@ -88,13 +96,15 @@ import { TransmitPage } from '../pages/transmit/transmit';
     VidioPage,
     ArticlePage,
     CommunityPage,
-    ContentPage,
-    TransmitPage
+    SeetouxiangPage,
+    MessagePage,
+    //PhotoPageModule,
   ],
   imports: [
     BrowserModule,
    HttpModule,
    TieziPageModule,
+   PhotoPageModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: 'true',
       backButtonText: '',
@@ -116,7 +126,9 @@ import { TransmitPage } from '../pages/transmit/transmit';
     ShequPage,
     LoginPage,
     ZhucePage ,
+    TransmitPage,
     FirstPage,
+    AboutusPage,
     SetPwdPage,
     ResetPwdPage,
     XieyiPage,
@@ -142,14 +154,16 @@ import { TransmitPage } from '../pages/transmit/transmit';
     VidioPage,
     ArticlePage,
     CommunityPage,
-    ContentPage,
-    TransmitPage
+    SeetouxiangPage,
+    MessagePage,
+    PhotoPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
+    StorageProvider,
   ]
 })
 export class AppModule {}
