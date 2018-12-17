@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
-var Back = require('../../modules/api/back.js');
+var Fruit = require('../../modules/api/fruit.js');
 
-var back = new Back();
+var fruit = new Fruit();
 router.get('/',(req,res,next)=>{
-  back.getAll((err,result)=>{
+  fruit.getAll((err,result)=>{
     if(err){res.statusCode=500;}
     else{
       var obj=JSON.parse(JSON.stringify(result));
@@ -13,10 +13,10 @@ router.get('/',(req,res,next)=>{
     }
   });
 });
-router.get('/:rid',(req,res,next)=>{
+router.get('/:tid',(req,res,next)=>{
   var obj=req.params;
   console.log(obj);
-  back.getBack(obj,(err,result)=>{
+  fruit.getFruit(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;  
     } else {
@@ -25,31 +25,30 @@ router.get('/:rid',(req,res,next)=>{
     }
   })
 })
+/*
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/static/back');          
   },
   filename: function (req, file, cb) {
-    cb(null, req.body.rid + "-" + file.originalname);        
+      cb(null, req.body.rtel + "-" + file.originalname);        
   }
 });
 
 var upload = multer({ storage: storage   });
-
-router.post('/',upload.single('rimage'),(req,res,next)=>{
+*/
+router.post('/',(req,res,next)=>{
   var obj = {};
-  back.selectRid((err,result)=>{
+  fruit.selectFid((err,result)=>{
     if(err){
       res.statusCode = 500;        
     }
-    var rid = JSON.parse(JSON.stringify(result))[0].c;
-    obj.rid = rid;
-    if(obj.rid){
-      obj.rimage = req.file.filename;
-      obj.uid = null;
-      obj.rcontent = req.body.rcontent;
-      obj.rtel = req.body.rtel;
-      back.insertItem(obj,(err,result)=>{
+    var fid = JSON.parse(JSON.stringify(result))[0].c;
+    obj.fid = fid;
+    if(obj.fid){
+      obj.fname = req.body.fname,
+      obj.tid = req.body.tid;
+      fruit.insertItem(obj,(err,result)=>{
         if(err){
           res.statusCode = 500;
           res.send('error');
