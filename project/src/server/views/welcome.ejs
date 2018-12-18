@@ -1,51 +1,216 @@
-<!-- 头部开始 -->
-<!-- title为传进去的标题，也可以传其他参数进去 -->
-<%- include('templet/_blank_header', {title: "空白页"}) %>
-<!-- 头部结束 -->
-
-<!DOCTYPE html>
+﻿<!DOCTYPE HTML>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-  </head>
-  <body>
-    <link rel="stylesheet" type="text/css" href="/css/H-ui.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/H-ui.admin.css" />
-    <link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.8/iconfont.css" />
-    <link rel="stylesheet" type="text/css" href="/skin/default/skin.css" id="skin" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
-    <div  id="container">
-      <div id="users">
-        <img src="/images/hou/hou3.png" alt="" id="imgs">
-      </div>
-      <div id="says">
-        <img src="/images/hou/hou4.png" alt="" id="imgs">
-      </div>
-      <div id="articles">
-        <img src="/images/hou/hou5.png" alt="" id="imgs">
-      </div>
-    </div>
-    <div id="container">
-      <div id="container1">
-        <div id="article">
-          <img src="/images/hou/hou6.png" alt="" >
-        </div>
-        <div id="say">
-          <img src="/images/hou/hou7.png" alt="" >
-        </div>
-      </div>
-      <div id="user">
-          <img src="/images/hou/hou8.png" alt="">
-      </div>
-    </div>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<script src="//cdn.bootcss.com/Chart.js/2.1.6/Chart.bundle.js"></script>
+<style type="text/css">
+	.title{
+		padding-left:35px;
+		margin-top:20px;
+	}
+	ul,li{
+		list-style:none;
+	}
+	.head{
+		display: flex;
+	}
+	.head li{
+		width:30%;
+		height: 100px;
+		padding:10px;
+		display: flex;
+		color:#fff;
+	}
+	.head li .left p{
+		letter-spacing: 1.1px;
+		margin-top:18px;
+	}
+	.head li .right p{
+		letter-spacing: 1.1px;
+		margin-top:12px;
+		font-weight:bold;
+		font-family: "Consolas";
+	}
+	.head li h3{
+		font-size: 22px;
+		margin-top:15px;
+	}
+	.head li .left{
+		width:65%;
+		padding-left:50px;
+	}
+	.head li .right{
+		width:35%;
+		text-align: center;
+	}
+	.head li .right img{
+		display: block;
+		width:37px;
+		height: 37px;
+		margin:13px auto;
+	}
+	.head li:nth-child(1) .left{
+		background-color: rgb(96,184,246);
+	}
+	.head li:nth-child(1) .right{
+		background-color: rgb(91,175,233);
+	}
+	.head li:nth-child(2) .left{
+		background-color: rgb(206,132,222);
+	}
+	.head li:nth-child(2) .right{
+		background-color: rgb(195,125,211);
+	}
+	.head li:nth-child(3) .left{
+		background-color: rgb(25,169,123);
+	}
+	.head li:nth-child(3) .right{
+		background-color: rgb(24,160,117);
+	}
+	.chart{
+		display: flex;
+	}
+	.charts{
+		text-align: center;
+	}
+	.age{
+		margin-top:35px;
+	}
+	footer{
+		width:100%;
+		color:#333;
+		font-size:14px;
+		padding-top:20px;
+		margin-bottom: 20px;
+	}
+	footer p{
+		margin-top:-5px;
+		text-align:center;
+	}
+	footer p a{
+		text-decoration:none;
+		color:#333;
+	}
+	footer p a:hover{
+		text-decoration: underline;
+		color:rgb(25,169,123);
+	}
+</style>
+<title>我的桌面</title>
+</head>
+<body>
+	<img src="images/title.png" class="title">
+	<ul class="head">
+		<li>
+			<div class="left">
+				<p>悦成长用户总量</p>
+				<h3><%- obj.user -%></h3>
+			</div>
+			<div class="right">
+				<img src="images/diqiu.png">
+				<p>+33.3%</p>
+			</div>
+		</li>
+		<li>
+			<div class="left">
+				<p>悦成长说说发布总量</p>
+				<h3><%- obj.say -%></h3>
+			</div>
+			<div class="right">
+				<img src="images/say.png">
+				<p>+33.3%</p>
+			</div>
+		</li>
+		<li>
+			<div class="left">
+				<p>悦成长文章发布总量</p>
+				<h3><%- obj.article -%></h3>
+			</div>
+			<div class="right">
+				<img src="images/wenzhang.png">
+				<p>+33.3%</p>
+			</div>
+		</li>
+	</ul>
+	<!-- 展示canvas -->
+	<div class="chart">
+		<div style="width: 500px;padding-left:18px;" class="charts">
+			<canvas id="myChart" style="width:400px; height:800px;"></canvas>
+			<h4 class="age">悦成长用户年龄段分布图</h4>
+		</div>
+		<div style="width: 500px;padding-left:18px;">
+			<canvas id="canvas" height="450" width="600"></canvas>
+		</div>
+	</div>
+	<footer>
+		<div>
+			<p>Copyright  &copy;2018-2019  pleasing_growth  v1.0  All Rights Reserved.</p><p>本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
+		</div>
+	</footer>
+
+	<script type="text/javascript">
+		<%- obj.user -%>
+		 // 设置参数
+		 var data = {
+		    labels: [
+		        "20岁-30岁",
+		        "30岁-45岁",
+		        "45岁-60岁",
+		        "60岁以上"
+		    ],
+		    datasets: [{
+		        data: [<%- obj.oneage -%>,<%- obj.twoage -%>, <%- obj.threeage -%>,<%- obj.fourage -%>],
+		        backgroundColor: [
+		            "#CCBBFF",
+		            "#FFEE99",
+		            "#CCEEFF",
+		            "#CCFF99"
+		        ],
+		        hoverBackgroundColor: [
+		            "#CCBBFF",
+		            "#FFEE99",
+		            "#CCEEFF",
+		            "#CCFF99"
+		        ]
+		    }]
+		};
+		var lineChartData = {
+			labels : ["January","February","March","April","May","June","July","August","September","October","November","December"],
+			datasets : [
+				{
+					label: '文章数量变化',
+					backgroundColor: "rgba(255,255,255,0)", //背景填充色
+                	borderColor: "rgba(25,169,123,1)", //路径颜色
+                	pointBackgroundColor: "rgba(25,169,123,1)", //数据点颜色
+                	pointBorderColor: "rgba(25,169,123,1)", //数据点边框颜色
+					data : [65,59,90,81,56,55,40,57,65,58,75,89]
+				},
+				{
+					label: '说说数量变化',
+					backgroundColor: "rgba(255,255,255,0)", //背景填充色
+                	borderColor: "rgba(206,132,222,1)", //路径颜色
+                	pointBackgroundColor: "rgba(206,132,222,1)", //数据点颜色
+                	pointBorderColor: "rgba(206,132,222,1)", //数据点边框颜色
+					data : [28,48,40,19,96,57,68,89,56,67,93,78]
+				},
+				{
+					label : '用户数量变化',
+					backgroundColor : "rgba(255,255,255,0)",
+					borderColor : "rgba(96,184,246,1)",
+					pointBackgroundColor : "rgba(96,184,246,1)",
+					pointBorderColor : "rgba(96,184,246,1)",
+					data : [34,36,41,29,47,38,36,54,49,47,52,78]
+				}
+			]
+			
+		}
+	    var ctx = document.getElementById("myChart").getContext("2d");
+	    var myBarChart = new Chart(ctx, {type: 'pie',data: data});
+	    var myLine = new Chart(document.getElementById("canvas").getContext("2d"), { type:'line', data: lineChartData});
+	</script>
+</body>
 </html>
-
-<!-- <div class="pd-20">
-  //这是一个空白页,如果想添加页面，可以直接考走这个文件，替换掉这里的文代码
-  <img src="/images/11.jpg">
-</div> -->
-
-<!-- 尾部开始 -->
-<%- include templet/_blank_footer %>
-<!-- 尾部结束 -->

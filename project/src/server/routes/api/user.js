@@ -6,7 +6,7 @@ var User = require('../../modules/api/user.js');
 var user = new User();
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/staticimage/apiuser');          
+    cb(null, 'public/static/user');          
   },
   filename: function (req, file, cb) {
       cb(null, req.body.utel + "-" + file.originalname);        
@@ -16,10 +16,10 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage   });
 
 
-router.get('/sexhobby',(req,res,next)=>{
+router.post('/sexhobby',(req,res,next)=>{
   var obj = {
-    uid:req.query.uid,
-    usex:req.query.usex
+    uid:req.body.uid,
+    usex:req.body.usex
   }
   user.updateSex(obj,(err,result)=>{
     if(err){
@@ -29,8 +29,8 @@ router.get('/sexhobby',(req,res,next)=>{
       res.send('ok');
     }
   });
-  req.query.topic.forEach((e)=>{
-    user.insertHobby(req.uid,e,(err,result)=>{
+  req.body.topic.forEach((e)=>{
+    user.insertHobby(req.body.uid,e,(err,result)=>{
       if(err){
         res.statusCode = 500;
         res.send('error');
@@ -117,16 +117,16 @@ router.post('/reg',(req,res,next)=>{
       res.statusCode = 500;
     }
     var uid = JSON.parse(JSON.stringify(result))[0].c;
-    obj.uid = uid;
+    obj.uid = uidv;
+    if(obj.uid){
+      user.insertItem(obj,(err,result)=>{
+        if(err){
+          res.statusCode = 500;
+        }
+        res.send('已成功');
+      });
+    }
   });
-  if(obj.uid){
-    user.insertItem(obj,(err,result)=>{
-      if(err){
-        res.statusCode = 500;
-      }
-      res.send('已成功');// 字符串
-    });
-  }
 });
 
 router.post('/login',(req,res,next)=>{
@@ -167,4 +167,66 @@ router.post('/image',upload.single('uimage'),(req,res,next)=>{
   });
 });
 
+router.post('/update',upload.single('uimage'),(req,res,next)=>{
+  var obj = {
+    uimage:req.file.filename,
+    uid:req.body.uid,
+    uname:req.body.uname,
+    usex:req.body.usex,
+    uage:req.body.uage,
+    uwhere:req.body.uwhere,
+    udescribe:req.body.udescribe,
+    topic:req.body.topic
+  };
+  user.getAll(obj,(err,result)=>{
+    if(err){
+      res.statusCode = 500;
+    } else {
+      var o = JSON.parse(JSON.stringify(result));
+      obj.ufans = o[0].ufans;
+      obj.uconcern = o[0].uconcern;
+      obj.utel = o[0].utel;
+      obj.upass = o[0].upass;
+      res.send('select OK!');
+    }
+  });
+  user.deleteUser(obj.uid,(err,result)=>{
+    if(err){
+      res.statusCode = 500;
+    } else {
+      res.send('delete OK!');
+    }
+  });
+  user.deleteHobby(obj.uid,(err,result)=>{
+    if(err){
+      res.statusCode = 500;
+    } else {
+      res.send('delete hobby ok!');
+    }
+  });
+  user.insertUser(obj,(err,result)=>{
+    if(err){
+      res.statusCode = 500;
+    } else {
+      res.send('insert ok!');
+    }
+  });
+  obj.topic.forEach((e)=>{
+    user.insertHobby(obj.uid,e,(err,result)=>{
+      if(err){
+        res.statusCode = 500;
+      } else {
+        res.send('insert hobby ok!');
+      }
+    });
+  });
+  user.getAll(obj.uid,(err,result)=>{
+    if(err){
+      res.statusCode = 500;
+    } else {
+      var json = JSON.parse(JSON.stringify(result));
+      res.json(json);
+    }
+  })
+});
 module.exports = router;

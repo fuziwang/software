@@ -14,7 +14,7 @@ export class PicturePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private app:App) {
   }
-  arr=[1,2,3,4,5];
+  arr=[1,2,3];
   edit(){
     this.navCtrl.pop();
   }
