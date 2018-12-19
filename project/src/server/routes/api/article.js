@@ -47,22 +47,26 @@ router.post('/',upload.single('aimage'),(req,res,next)=>{
         res.statusCode = 500;
       }
       var aid = JSON.parse(JSON.stringify(result))[0].c;
-      obj.aid = aid;            
-    });
-    obj.aimage = req.file.filename;
-    obj.uid = req.body.uid;
-    obj.atitle = req.body.atitle;
-    obj.acomment = req.body.acomment;
-    obj.acontent = req.body.acontent;
-    obj.rtel = req.body.rtel;
-    obj.aprivate = req.body.aprivate;
-    article.insertItem(obj,(err,result)=>{
-      if(err){
-        res.statusCode = 500;
-        res.send('error');
-      }else{
-        res.send('ok');
-      }
+      obj.aid = aid;
+      obj.aimage = null;
+      obj.uid = req.body.uid;
+      obj.atitle = req.body.atitle;
+      obj.acomment = req.body.acomment;
+      obj.acontent = req.body.acontent;
+      obj.aprivate = req.body.aprivate;
+      article.insertItem(obj,(err,result)=>{
+        if(err){
+          res.statusCode = 500;
+        } else {
+          article.insertColumn(obj,(err,result)=>{
+            if(err){
+              res.statusCode = 500;
+            } else {
+              res.end('OK');
+            }
+          })
+        }
+      });
     });
 });
 

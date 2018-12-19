@@ -21,23 +21,21 @@ router.post('/sexhobby',(req,res,next)=>{
     uid:req.body.uid,
     usex:req.body.usex
   }
+  console.log(req.body);
   user.updateSex(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;
-      res.send('error');
     } else {
-      res.send('ok');
+      req.body.topic.forEach((e)=>{
+        user.insertHobby(req.body.uid,e,(err,result)=>{
+          if(err){
+            res.statusCode = 500;
+          } else{
+            res.end('ok');
+          }
+        });
+      });
     }
-  });
-  req.body.topic.forEach((e)=>{
-    user.insertHobby(req.body.uid,e,(err,result)=>{
-      if(err){
-        res.statusCode = 500;
-        res.send('error');
-      } else{
-        res.send('ok');
-      }
-    });
   });
 });
 
@@ -117,7 +115,7 @@ router.post('/reg',(req,res,next)=>{
       res.statusCode = 500;
     }
     var uid = JSON.parse(JSON.stringify(result))[0].c;
-    obj.uid = uidv;
+    obj.uid = uid;
     if(obj.uid){
       user.insertItem(obj,(err,result)=>{
         if(err){
@@ -152,24 +150,36 @@ router.post('/forget',(req,res,next)=>{
   });
 });
 
-router.post('/image',upload.single('uimage'),(req,res,next)=>{
+router.post('/image',(req,res,next)=>{
   var obj = {
-    uimage:req.file.filename,
+    uimage:req.body.uimage,
     uid:req.body.uid
   };
-  user.updateImage(obj,(err,result)=>{
+  var ext = obj.uimage.slice(obj.uimage.length-4,obj.uimage.length);
+  // console.log(obj);
+  var base64Data = obj.uimage.replace(/^data:image\/\w+;base64,/, "");
+  var dataBuffer = new Buffer(base64Data, 'base64');
+  // console.log(dataBuffer);
+  obj.uimage = obj.uid + '-' + obj.uid + ext;
+  fs.writeFile( "public/static/user/" + obj.uid + "-" + obj.uid + ext, dataBuffer, function(err) {
+    console.log(error);
     if(err){
-      res.statusCode = 500;
       res.send('error');
     }else{
-      res.send('ok');
+      user.updateImage(obj,(err,result)=>{
+        if(err){
+          res.statusCode = 500;
+        }else{
+          res.send('OK');
+        }
+      });
     }
   });
 });
 
 router.post('/update',upload.single('uimage'),(req,res,next)=>{
   var obj = {
-    uimage:req.file.filename,
+    uimage:null,
     uid:req.body.uid,
     uname:req.body.uname,
     usex:req.body.usex,
@@ -187,46 +197,41 @@ router.post('/update',upload.single('uimage'),(req,res,next)=>{
       obj.uconcern = o[0].uconcern;
       obj.utel = o[0].utel;
       obj.upass = o[0].upass;
-      res.send('select OK!');
+      user.deleteUser(obj.uid,(err,result)=>{
+        if(err){
+          res.statusCode = 500;
+        } else {
+          user.deleteHobby(obj.uid,(err,result)=>{
+            if(err){
+              res.statusCode = 500;
+            } else {
+              user.insertUser(obj,(err,result)=>{
+                if(err){
+                  res.statusCode = 500;
+                } else {
+                  obj.topic.forEach((e)=>{
+                    user.insertHobby(obj.uid,e,(err,result)=>{
+                      if(err){
+                        res.statusCode = 500;
+                      } else {
+                        user.getAll(obj.uid,(err,result)=>{
+                          if(err){
+                            res.statusCode = 500;
+                          } else {
+                            var json = JSON.parse(JSON.stringify(result));
+                            res.json(json);
+                          }
+                        });
+                      }
+                    });
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
     }
   });
-  user.deleteUser(obj.uid,(err,result)=>{
-    if(err){
-      res.statusCode = 500;
-    } else {
-      res.send('delete OK!');
-    }
-  });
-  user.deleteHobby(obj.uid,(err,result)=>{
-    if(err){
-      res.statusCode = 500;
-    } else {
-      res.send('delete hobby ok!');
-    }
-  });
-  user.insertUser(obj,(err,result)=>{
-    if(err){
-      res.statusCode = 500;
-    } else {
-      res.send('insert ok!');
-    }
-  });
-  obj.topic.forEach((e)=>{
-    user.insertHobby(obj.uid,e,(err,result)=>{
-      if(err){
-        res.statusCode = 500;
-      } else {
-        res.send('insert hobby ok!');
-      }
-    });
-  });
-  user.getAll(obj.uid,(err,result)=>{
-    if(err){
-      res.statusCode = 500;
-    } else {
-      var json = JSON.parse(JSON.stringify(result));
-      res.json(json);
-    }
-  })
 });
 module.exports = router;

@@ -47,19 +47,19 @@ router.post('/',upload.single('vlocal'),(req,res,next)=>{
         res.statusCode = 500;
       }
       var vid = JSON.parse(JSON.stringify(result))[0].c;
-      obj.vid = vid;            
-    });
-    obj.plocal = req.file.filename;
-    obj.uid = req.body.uid;
-    obj.vname = req.body.vname;
-    obj.vtype = req.body.vtype;
-    video.insertItem(obj,(err,result)=>{
-      if(err){
-        res.statusCode = 500;
-        res.send('error');
-      }else{
-        res.send('ok');
-      }
+      obj.vid = vid;
+      obj.vlocal = req.file.filename;
+      obj.uid = req.body.uid;
+      obj.vname = req.body.vname;
+      obj.vtype = req.body.vtype;
+      video.insertItem(obj,(err,result)=>{
+        if(err){
+          res.statusCode = 500;
+          res.send('error');
+        } else {
+          res.send('ok');
+        }
+      })
     });
 });
 

@@ -20,7 +20,7 @@ router.get('/:scid',(req,res,next)=>{
   //console.log(req.params);
   var obj =req.params;
   //console.log(obj);
-  saycomment.getArticleComment(obj,(err,result)=>{
+  saycomment.getSayComment(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;
     } else {
@@ -48,18 +48,18 @@ router.post('/',(req,res,next)=>{
         res.statusCode = 500;
       }
       var scid = JSON.parse(JSON.stringify(result))[0].c;
-      obj.scid = scid;            
-    });
-    obj.uid = req.body.uid;
-    obj.sid = req.body.sid;
-    obj.sccontent = req.body.sccontent;
-    saycomment.insertItem(obj,(err,result)=>{
-      if(err){
-        res.statusCode = 500;
-        res.send('error');
-      }else{
-        res.send('ok');
-      }
+      obj.scid = scid;
+      obj.uid = req.body.uid;
+      obj.sid = req.body.sid;
+      obj.sccontent = req.body.sccontent;
+      saycomment.insertItem(obj,(err,result)=>{
+        if(err){
+          res.statusCode = 500;
+          res.send('error');
+        }else{
+          res.send('ok');
+        }
+      });
     });
 });
 
