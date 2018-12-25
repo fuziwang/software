@@ -1,17 +1,29 @@
-<ion-content>
+<ion-header no-border>
+  <ion-navbar color='zhuti'>
+    <ion-title>
+      文章详情
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding-left  padding-right>
   <div class="al">
       <div class="img">
+        <div class="title">{{list[0]?.atitle}}</div>
+        <div class="top">
+          <ul>
+            <li class="first">{{list[0]?.uname}}</li>
+            <li class="atime">{{list[0]?.atime}}</li>
+            <li>阅读：{{seenum}}</li>
+          </ul>
+        </div>
+        <div class="xian"></div>
         <img id="img" src="{{'http://192.168.80.144:8080/content/'+list[0]?.aimage}}">
-        <i class="iconfont icon-2fanhui" color="primary" (click)="last()"></i>
-        <i class="iconfont icon-fenxiang" color="primary" (click)="fenxiang()"></i>
+        <!-- <i class="iconfont icon-2fanhui" color="primary" (click)="last()"></i>
+        <i class="iconfont icon-fenxiang" color="primary" (click)="fenxiang()"></i> -->
       </div>
+     
       <div class="content">
-        <ul>
-          <li class="atitle">{{list[0]?.atitle}}</li>
-          <li>{{list[0]?.uname}}</li>
-          <li class="atime">{{list[0]?.atime}}</li>
-          <li id="neirong"><pre>{{content}}</pre></li>
-        </ul>
+          <pre>{{content}}</pre>
       </div>
       <div class="bottom">
         <div class="pl">所有评论</div>
@@ -22,8 +34,7 @@
                       <li class="img"><img  src="{{'http://192.168.80.144:8080/user/'+item1?.uimage}}"></li>
                       <li class="name">{{item1?.uname}}</li>
                       <li class="time">{{item1?.actime}}</li>
-                      <li class="icon" (click)="dianzan()"><ion-icon name="md-heart-outline"><span>&nbsp;{{dianzannum}}</span></ion-icon></li>
-                      <li class="icon" (click)="chakan()"><ion-icon name="md-eye"><span>&nbsp;{{seenum}}</span></ion-icon></li>
+                     
                     </ul>
                 </div>
                 <div class="content">
@@ -42,4 +53,34 @@
         </ul>
       </div>
     </div>
+    <div class="comment">
+      <h6>添加评论</h6>
+      <textarea [(ngModel)]="value" (keyup)="len(value)"> </textarea>
+      <span class="len"> {{length}}<span>/20</span></span>
+      <button (click)="comment()">发送</button>
+    </div>
+    <!-- 评论信息列表 -->
+    <div class="reply">
+      <h6>回复列表</h6>
+      <!-- <ul>
+        <li *ngFor="let n of reply">
+          <p class="info">
+            <img [src]="{{n.author.avatar_url}}" alt="">
+            <span class="msg">
+              <span class="login_name">{{n.author.loginname}}</span>
+              <span class="login_time">{{n.create_at|timeGo}}</span>
+              <i class="icon"></i>
+            </span>
+          </p>
+          <div class="content" ng-bind-html="n.content|htmled">2</div>
+        </li>
+      </ul> -->
+    </div>
   </ion-content>
+  <ion-footer >
+      <ul>
+          <li class="icon" ><ion-icon name="md-open"><span>&nbsp;{{seenum}}</span></ion-icon></li>
+          <li class="icon"><ion-icon name="md-text"><span>&nbsp;{{seenum}}</span></ion-icon></li>
+          <li class="icon" (click)="dianzan()"><ion-icon name="md-heart-outline"><span>&nbsp;{{dianzannum}}</span></ion-icon></li>
+        </ul>
+  </ion-footer>
