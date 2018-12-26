@@ -25,7 +25,7 @@ import { ShequPage } from '../pages/shequ/shequ';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TieziPage } from '../pages/tiezi/tiezi';
-import { EditPage } from '../pages/edit/edit';
+
 import { CreationPage } from '../pages/creation/creation';
 import { FollowPage } from '../pages/follow/follow';
 import { AccountPage } from '../pages/account/account';
@@ -51,13 +51,11 @@ import { StorageProvider } from '../providers/storage/storage';
 import { SeetouxiangPage } from '../pages/seetouxiang/seetouxiang';
 import { PhotoPage } from '../pages/photo/photo';
 import { TransmitPage } from '../pages/transmit/transmit';
-import { AboutusPage } from '../pages/aboutus/aboutus';
-import { PhotoPageModule } from '../pages/photo/photo.module';
-import { ContentPage } from '../pages/content/content';
+
 import {Camera} from "@ionic-native/camera";
 import {ImagePicker} from "@ionic-native/image-picker";
-
-
+import { EditPage } from '../pages/edit/edit';
+import { Base64 } from '@ionic-native/base64';
 
 @NgModule({
   declarations: [
@@ -70,11 +68,8 @@ import {ImagePicker} from "@ionic-native/image-picker";
     TransmitPage,
     TabsPage,
     MyPage,
-    ContentPage,
     ShequPage,
     LoginPage,
-    AboutusPage,
-    EditPage,
     ZhucePage,
     FirstPage,
     SetPwdPage,
@@ -104,13 +99,14 @@ import {ImagePicker} from "@ionic-native/image-picker";
     CommunityPage,
     SeetouxiangPage,
     MessagePage,
-    //PhotoPageModule,
+    PhotoPage,
+
+    EditPage
   ],
   imports: [
     BrowserModule,
    HttpModule,
    TieziPageModule,
-   PhotoPageModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: 'true',
       backButtonText: '',
@@ -134,7 +130,6 @@ import {ImagePicker} from "@ionic-native/image-picker";
     ZhucePage ,
     TransmitPage,
     FirstPage,
-    AboutusPage,
     SetPwdPage,
     ResetPwdPage,
     XieyiPage,
@@ -142,7 +137,6 @@ import {ImagePicker} from "@ionic-native/image-picker";
     XingquPage,
     TieziPage,
     AccountPage,
-    ContentPage,
     AlbumPage,
     VideoPage,
     FeedbackPage,
@@ -164,6 +158,8 @@ import {ImagePicker} from "@ionic-native/image-picker";
     SeetouxiangPage,
     MessagePage,
     PhotoPage,
+
+    EditPage
   ],
   providers: [
     StatusBar,
@@ -172,7 +168,8 @@ import {ImagePicker} from "@ionic-native/image-picker";
     ApiProvider,
     StorageProvider,
     Camera,
-    ImagePicker
+    ImagePicker,
+    Base64
   ]
 })
 export class AppModule {}

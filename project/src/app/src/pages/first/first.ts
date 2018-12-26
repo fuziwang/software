@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
-import { StorageProvider } from '../../providers/storage/storage';
 /**
  * Generated class for the FirstPage page.
  *
@@ -16,12 +15,9 @@ import { StorageProvider } from '../../providers/storage/storage';
 })
 export class FirstPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private storage:StorageProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
    
   }
-  tel=this.storage.setItem('tel','');
-  pwd=this.storage.setItem('pwd','');
-
   next(){
     this.navCtrl.push(LoginPage);
   }

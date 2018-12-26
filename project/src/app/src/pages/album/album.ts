@@ -41,11 +41,8 @@ export class AlbumPage {
     });
     
   }
-  photo(xid){
-    this.navCtrl.push(PhotoPage,
-      {
-        id : xid
-      });
+  photo(){
+    this.navCtrl.push(PhotoPage);
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad AlbumPage');

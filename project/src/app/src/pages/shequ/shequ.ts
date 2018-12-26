@@ -40,14 +40,7 @@ export class ShequPage {
     console.log('ionViewDidLoad ShequPage');
   }
   fenXiang(){
-    this.isCheck++;
-    if(this.isCheck%2==0){
-     
-      this.isCheck=this.isCheck%2;
-    }else{
-      this.isCheck=1;
-    }
-   
+    this.isCheck=1;
    }
    pL(){
      this.isPl=1;

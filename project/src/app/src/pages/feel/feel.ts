@@ -4,8 +4,7 @@ import { CameraPage } from '../camera/camera';
 import { AuthoritPage } from '../authorit/authorit';
 import { ShequPage } from '../shequ/shequ';
 import { ApiProvider } from '../../providers/api/api';
-import { StorageProvider } from '../../providers/storage/storage';
-
+import { EditPage } from '../edit/edit';
 
 /**
  * Generated class for the FeelPage page.
@@ -29,29 +28,27 @@ interface Say{
 })
 export class FeelPage {
   text;
-  uid=this.storage.getItem('uid');
-  constructor(public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider,private storage:StorageProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private api:ApiProvider) {
   }
-  getList(){
-    let data=JSON.stringify({
-      scontent:this.text,
-      simage:null,
-      uid:this.uid
-    });
-    this.api.postSay(data).then(data=>{
-      console.dir(data);
-    });
-  }
+  // getList(){
+  //   let data=JSON.stringify({
+  //     scontent:this.text,
+  //   });
+  //   this.api.postSay(data).then(data=>{
+  //     console.dir(data);
+  //   });
+  // }
+  // tijiao(){
+  //   this.getList();
+  // }
 
   goCamera(){
     this.navCtrl.push(CameraPage);
   }
   goAuthority(){
-    this.navCtrl.push(AuthoritPage);
+    this.navCtrl.push(EditPage);
   }
   openModal(){
-    this.getList();
-    this.navCtrl.setRoot(ShequPage);
+    this.navCtrl.push(ShequPage);
   }
 }
-

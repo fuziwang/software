@@ -14,7 +14,6 @@ import { MessagePage } from '../message/message';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { App } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
-import { StorageProvider } from '../../providers/storage/storage';
 // import { ModalPage } from './ModalPage';
 /**
  * Generated class for the MyPage page.
@@ -45,16 +44,15 @@ interface user{
 })
 export class MyPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public api:ApiProvider,private app:App,private storage:StorageProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public api:ApiProvider,private app:App) {
    
-    //this.getList();
+    this.getList();
     
   }
-  id=this.storage.getItem('uid');
   list:Array<user>=[];
   getList(){
     //获取list用于显示
-    this.api.getMy(this.id).then(data=>{
+    this.api.getMy().then(data=>{
       //console.dir(data);
       this.list=<any>data;
       //console.dir(this.list);
@@ -62,43 +60,42 @@ export class MyPage {
     
   }
   account(){
-    this.navCtrl.push(AccountPage);
+    this.app.getRootNav().push(AccountPage);
   }
   album(){
-    this.navCtrl.push(AlbumPage);
+    this.app.getRootNav().push(AlbumPage);
   }
   video(){
-    this.navCtrl.push(VideoPage);
+    this.app.getRootNav().push(VideoPage);
   }
   feedback(){
-    this.navCtrl.push(FeedbackPage);
+    this.app.getRootNav().push(FeedbackPage);
   }
   share(){
-    this.navCtrl.push(SharePage);
+    this.app.getRootNav().push(SharePage);
   }
   setup(){
-    this.navCtrl.push(SetupPage);
+    this.app.getRootNav().push(SetupPage);
   }
   creation(){
-    this.navCtrl.push(CreationPage);
+    this.app.getRootNav().push(CreationPage);
   }
   follow(){
-    this.navCtrl.push(FollowPage);
+    this.app.getRootNav().push(FollowPage);
   }
   fans(){
-    this.navCtrl.push(FansPage);
+    this.app.getRootNav().push(FansPage);
   }
   homepage(){
-    this.navCtrl.push(HomepagePage);
+    this.app.getRootNav().push(HomepagePage);
   }
   edit(){
-    this.navCtrl.push(EditPage);
+    this.app.getRootNav().push(EditPage);
   }
   message(){
-    this.navCtrl.push(MessagePage);
+    this.app.getRootNav().push(MessagePage);
   }
   ionViewDidLoad() {
-    this.getList();
     console.log('ionViewDidLoad MyPage');
   }
 

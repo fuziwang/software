@@ -4,7 +4,6 @@ import { StorageProvider } from '../../providers/storage/storage';
 import { TouxiangPage } from '../touxiang/touxiang';
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
-import { XingquPage } from '../xingqu/xingqu';
 
 /**
  * Generated class for the SeetouxiangPage page.
@@ -29,6 +28,6 @@ export class SeetouxiangPage {
    
   }
   touxiang(){
-   this.navCtrl.push(XingquPage);
+   this.app.getRootNavs()[0].setRoot(TabsPage);
   }
 }
