@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SharePage } from '../share/share';
+import { FeelPage } from '../feel/feel';
 
 /**
  * Generated class for the CommunityPage page.
@@ -16,11 +17,13 @@ import { SharePage } from '../share/share';
 })
 export class CommunityPage {
   arr=[1,2,3,4,5];
+  modalCtrl: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   goShare(){
     this.navCtrl.push(SharePage);
   }
+  
 
 }

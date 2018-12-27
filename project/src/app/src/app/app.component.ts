@@ -7,12 +7,15 @@ import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { FirstPage } from '../pages/first/first';
 import { AboutPage } from '../pages/about/about';
+import { MyPage } from '../pages/my/my';
+import { XingquPage } from '../pages/xingqu/xingqu';
+import { ContactPage } from '../pages/contact/contact';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any =FirstPage;
+  rootPage:any =XingquPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

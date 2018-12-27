@@ -32,5 +32,7 @@ page-authorit {
             float: left;
         }
     }
+    .item-radio input:checked + .radio-content .item-content {  background: #5cbaf0;
+    }
         
 }

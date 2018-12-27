@@ -25,7 +25,7 @@ import { ShequPage } from '../pages/shequ/shequ';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TieziPage } from '../pages/tiezi/tiezi';
-
+import { EditPage } from '../pages/edit/edit';
 import { CreationPage } from '../pages/creation/creation';
 import { FollowPage } from '../pages/follow/follow';
 import { AccountPage } from '../pages/account/account';
@@ -51,11 +51,14 @@ import { StorageProvider } from '../providers/storage/storage';
 import { SeetouxiangPage } from '../pages/seetouxiang/seetouxiang';
 import { PhotoPage } from '../pages/photo/photo';
 import { TransmitPage } from '../pages/transmit/transmit';
-
+import { AboutusPage } from '../pages/aboutus/aboutus';
+import { PhotoPageModule } from '../pages/photo/photo.module';
+import { ContentPage } from '../pages/content/content';
 import {Camera} from "@ionic-native/camera";
 import {ImagePicker} from "@ionic-native/image-picker";
-import { EditPage } from '../pages/edit/edit';
-import { Base64 } from '@ionic-native/base64';
+import { AddPage } from '../pages/add/add';
+
+
 
 @NgModule({
   declarations: [
@@ -68,8 +71,11 @@ import { Base64 } from '@ionic-native/base64';
     TransmitPage,
     TabsPage,
     MyPage,
+    ContentPage,
     ShequPage,
     LoginPage,
+    AboutusPage,
+    EditPage,
     ZhucePage,
     FirstPage,
     SetPwdPage,
@@ -99,14 +105,14 @@ import { Base64 } from '@ionic-native/base64';
     CommunityPage,
     SeetouxiangPage,
     MessagePage,
-    PhotoPage,
-
-    EditPage
+    //PhotoPageModule,
+    AddPage
   ],
   imports: [
     BrowserModule,
    HttpModule,
    TieziPageModule,
+   PhotoPageModule,
     IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: 'true',
       backButtonText: '',
@@ -130,6 +136,7 @@ import { Base64 } from '@ionic-native/base64';
     ZhucePage ,
     TransmitPage,
     FirstPage,
+    AboutusPage,
     SetPwdPage,
     ResetPwdPage,
     XieyiPage,
@@ -137,6 +144,7 @@ import { Base64 } from '@ionic-native/base64';
     XingquPage,
     TieziPage,
     AccountPage,
+    ContentPage,
     AlbumPage,
     VideoPage,
     FeedbackPage,
@@ -158,8 +166,7 @@ import { Base64 } from '@ionic-native/base64';
     SeetouxiangPage,
     MessagePage,
     PhotoPage,
-
-    EditPage
+    AddPage
   ],
   providers: [
     StatusBar,
@@ -168,8 +175,7 @@ import { Base64 } from '@ionic-native/base64';
     ApiProvider,
     StorageProvider,
     Camera,
-    ImagePicker,
-    Base64
+    ImagePicker
   ]
 })
 export class AppModule {}

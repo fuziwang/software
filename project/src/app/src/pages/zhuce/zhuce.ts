@@ -33,31 +33,32 @@ interface user{
 export class ZhucePage {
 
   constructor(public navCtrl: NavController,private api:ApiProvider,private storage:StorageProvider) {
-     //this.getList();
+    
   }
   tel;
+  uid=this.storage.getItem('uid');
   pwd;
   userid;
   list:Array<user>=[];
   i;
-  // getList(){
-  //   //获取list用于显示
-  //   this.api.getMy().then(data=>{
-  //     //console.dir(data);
-  //     this.list=<any>data;
-  //     //console.dir(this.list);
-  //   });
+  getList(){
+    //获取list用于显示
+    // this.api.getMy().then(data=>{
+    //   //console.dir(data);
+    //   this.list=<any>data;
+    //   //console.dir(this.list);
+    // });
     
-  //   let data=JSON.stringify({
-  //     upass:this.pwd,
-  //     utel:this.tel
+    let data=JSON.stringify({
+      upass:this.pwd,
+      utel:this.tel
      
-  //   });
-  //   this.api.postZhuze(data).then(data=>{
-  //     console.dir(data);
-  //   });
+    });
+    this.api.postZhuze(data).then(data=>{
+      console.dir(data);
+    });
     
-  // }
+  }
   
   verifyCode: any = {
     verifyCodeTips: "获取验证码",
@@ -69,9 +70,13 @@ export class ZhucePage {
     console.log('ionViewDidLoad ZhucePage');
   }
   getCode() {
-    //点击按钮后开始倒计时
-    this.verifyCode.disable = false;
-    this.settime();
+    //点击按钮后开始倒计时\
+
+    if( this.verifyCode.disable){
+      this.settime();
+      this.api.getduanxin();
+      this.verifyCode.disable = false;
+    }
    }
    settime() {
     if (this.verifyCode.countdown == 1) {
@@ -88,12 +93,28 @@ export class ZhucePage {
       this.settime();
     }, 1000);
    }
+   
   logIn(){
     this.storage.setItem('tel',this.tel);
     this.storage.setItem('pwd',this.pwd);
     console.log('电话是',this.tel);
     console.log('密码是',this.pwd);
+   
+    this.getList();
+    this.posttree();
     this.navCtrl.push(LoginPage);
+  }
+  posttree() {
+    //获取list用于显示
+
+    let data = JSON.stringify({
+      uid: this.uid,
+    });
+    this.api.postTree(data).then(data => {
+      console.dir(data);
+    });
+
+
   }
   xieyi(){
     this.navCtrl.push(XieyiPage);

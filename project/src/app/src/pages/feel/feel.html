@@ -1,7 +1,7 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar color="gre">
     <button ion-button icon-only menuToggle>
-      <ion-icon name="ios-arrow-round-back"></ion-icon>
+      <ion-icon name="ios-arrow-round-back" ></ion-icon>
     </button>
 
     <ion-title>
@@ -17,25 +17,26 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content style="background-color:#FAFAFA!important">
 <div class="list1">
   <label class="item item-input">
-    <textarea placeholder="分享孩子的美好瞬间" [(ngModel)]="text"></textarea>
+    <textarea placeholder="分享孩子的美好瞬间"  [(ngModel)]="text" ></textarea>
   </label>
 </div>
-<div class="list2">
-    <button ion-botton block (click)="goCamera()" style="background-color:transparent">
-        <img src="../../assets/imgs/camera.jpg">
-    </button>
-</div>
-<div class="list3">
- <div class="inside" (click)="goAuthority()"> <!-- 权限 -->
-   <ion-icon name="md-ionitron" color="gre"></ion-icon> <!-- ios-ionitron-outline -->
-   <span>私密</span>
+<div class="under"  style="background-color:white!important" >
+  <div class="list2">
+      <button ion-botton block (click)="goCamera()" style="background-color:transparent">
+          <ion-icon name="md-camera" ></ion-icon>
+          <p>照片/视频</p>
+      </button>
+  </div>
+  <div class="list3">
+    <div class="inside" (click)="goAuthority()"> <!-- 权限 -->
+      <ion-icon name="md-ionitron" color="gre"></ion-icon> <!-- ios-ionitron-outline -->
+      <span>私密</span>
+    </div>
   </div>
 </div>
 </ion-content>
-
-
 
  
