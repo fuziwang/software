@@ -22,6 +22,7 @@ import { XingquPage } from '../pages/xingqu/xingqu';
 import { TieziPageModule } from '../pages/tiezi/tiezi.module';
 
 import { ShequPage } from '../pages/shequ/shequ';
+import { ContentPageModule } from '../pages/content/content.module';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TieziPage } from '../pages/tiezi/tiezi';
@@ -44,7 +45,7 @@ import { ChoosePage } from '../pages/choose/choose';
 import { AuthoritPage } from '../pages/authorit/authorit';
 import { VidioPage } from '../pages/vidio/vidio';
 import { ArticlePage } from '../pages/article/article';
-import { MessagePage } from '../pages/message/message';
+// import { MessagePage } from '../pages/message/message';
 import { ApiProvider } from '../providers/api/api';
 import { HttpModule }from '@angular/http';
 import { StorageProvider } from '../providers/storage/storage';
@@ -56,7 +57,6 @@ import { PhotoPageModule } from '../pages/photo/photo.module';
 import { ContentPage } from '../pages/content/content';
 import {Camera} from "@ionic-native/camera";
 import {ImagePicker} from "@ionic-native/image-picker";
-import { AddPage } from '../pages/add/add';
 
 
 
@@ -71,7 +71,7 @@ import { AddPage } from '../pages/add/add';
     TransmitPage,
     TabsPage,
     MyPage,
-    ContentPage,
+    // ContentPage,
     ShequPage,
     LoginPage,
     AboutusPage,
@@ -104,12 +104,12 @@ import { AddPage } from '../pages/add/add';
     ArticlePage,
     CommunityPage,
     SeetouxiangPage,
-    MessagePage,
+    // MessagePage,
     //PhotoPageModule,
-    AddPage
   ],
   imports: [
     BrowserModule,
+    ContentPageModule,
    HttpModule,
    TieziPageModule,
    PhotoPageModule,
@@ -164,9 +164,8 @@ import { AddPage } from '../pages/add/add';
     ArticlePage,
     CommunityPage,
     SeetouxiangPage,
-    MessagePage,
+    // MessagePage,
     PhotoPage,
-    AddPage
   ],
   providers: [
     StatusBar,

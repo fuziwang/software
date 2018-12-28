@@ -36,12 +36,17 @@ export class ZhucePage {
     
   }
   tel;
+  yanzhengma;
   uid=this.storage.getItem('uid');
   pwd;
+  text;
   userid;
+  check='checked';
+  isCheck=0;
   list:Array<user>=[];
   i;
-  getList(){
+  n = "";
+  postList(){
     //获取list用于显示
     // this.api.getMy().then(data=>{
     //   //console.dir(data);
@@ -55,11 +60,23 @@ export class ZhucePage {
      
     });
     this.api.postZhuze(data).then(data=>{
+      console.log('zhuce');
       console.dir(data);
     });
     
   }
   
+  getList(){
+    //获取list用于显示
+    this.api.getMy(11).then(data=>{
+      //console.dir(data);
+      this.list=<any>data;
+      //console.dir(this.list);
+    });
+    
+  }
+
+
   verifyCode: any = {
     verifyCodeTips: "获取验证码",
     countdown: 60,
@@ -71,10 +88,13 @@ export class ZhucePage {
   }
   getCode() {
     //点击按钮后开始倒计时\
-
+    this.n = "";
+    for (var i = 0; i < 6; i++) {
+      this.n += Math.floor(Math.random() * 10);
+    }
     if( this.verifyCode.disable){
       this.settime();
-      this.api.getduanxin();
+      this.api.getduanxin(this.tel,this.n);
       this.verifyCode.disable = false;
     }
    }
@@ -95,28 +115,129 @@ export class ZhucePage {
    }
    
   logIn(){
+    this.storage.setItem('status', false);
+    if(this.check==''){
+      this.text='您还没有同意用户协议';
+      this.isCheck=1;
+    }
     this.storage.setItem('tel',this.tel);
     this.storage.setItem('pwd',this.pwd);
     console.log('电话是',this.tel);
     console.log('密码是',this.pwd);
    
-    this.getList();
+    this.getUID();
     this.posttree();
+    if(this.isCheck!=1){
+      this.postList();
+      this.navCtrl.push(LoginPage);
+    }
+  }
+
+  getUID(){
+    //往后台传的数据
+        let data=JSON.stringify({
+          upass:this.pwd,
+          utel:this.tel,
+        });
+    
+        this.api.postLogin(data).then(data=>{
+          console.log(data);
+          // if(data[0].uid){
+          //     this.storage.setItem('uid',data[0].uid);
+          //     this.storage.setItem('pwd',data[0].upwd);
+          //     this.storage.setItem('tel',data[0].utel);
+          // }
+        });
+      }
+
+
+
+  logIn1(){
     this.navCtrl.push(LoginPage);
   }
   posttree() {
-    //获取list用于显示
-
     let data = JSON.stringify({
       uid: this.uid,
     });
     this.api.postTree(data).then(data => {
       console.dir(data);
     });
-
-
   }
   xieyi(){
     this.navCtrl.push(XieyiPage);
+  }
+
+  checkPhone(){ 
+    if(!(/^1[34578]\d{9}$/.test(this.tel))){ 
+      //console.log('lalala')
+        return false; 
+    }else{
+      return true;
+    }
+}
+
+//校验密码：只能输入6-20个字母、数字、下划线  
+  isPasswd(s){  
+  var patrn=/^(\w){6,20}$/;  
+  if (!patrn.exec(s)) return false
+      return true
+ }  
+
+ onchange_pwd(){
+  if(!this.isPasswd(this.pwd)){
+    this.text='';
+    this.isCheck=0;
+  }
+ }
+
+ onchange_yanzhengma(){
+  if(this.yanzhengma==0){
+    this.text=''; 
+    this.isCheck=0;
+  }
+ }
+
+onchange_tel(){
+  if(this.checkPhone()==true){
+    this.text=''; 
+    this.isCheck=0;
+  }
+}
+
+  onBlur_tel(){
+    if(this.tel==''){
+      this.text='手机号码不能为空哦！';
+      this.isCheck=1;
+    }else{
+      if(this.checkPhone()==false){
+        this.text='手机号码格式不正确哦！'; 
+        this.isCheck=1;
+      }
+    }
+  }
+
+  onBlur_yanzhengma(){
+    if(this.yanzhengma==''){
+      this.text='验证码不能为空哦！';
+      this.isCheck=1;
+    }else{
+      if(this.yanzhengma!= this.n){
+        this.text='验证码错误了哦！';
+        this.isCheck=1;
+      }
+    }
+  }
+
+  onBlur_pwd(){
+    if(this.pwd==''){
+      this.text='密码不能为空哦！';
+      this.isCheck=1;
+    }else{
+      if(!this.isPasswd(this.pwd)){
+        this.text='请输入6-20个字符'; 
+        this.isCheck=1;
+      }
+    }
+    
   }
 }

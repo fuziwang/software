@@ -23,6 +23,17 @@ export class ApiProvider {
       });
     });
   }
+  public getNewList() {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url + 'article/new')
+        .subscribe((res: Response) => {
+          resolve(res.json())
+        }, err => {
+          console.dir(err)
+          reject()
+        });
+    });
+  }
 
   //实例get Tiezi请求
   public getList_next(id){
@@ -37,7 +48,43 @@ export class ApiProvider {
       });
     });
   }
+  //实例post 说说评论请求
+  public postSayComment(data) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url + 'saycomment', data, { headers: this.headers })
+        .subscribe((res: Response) => {
+          console.log(res);
+        }, err => {
+          console.dir(err)
+          reject()
+        });
+    });
+  }
+  //实例get 说说——next 请求
+  public getSay_next(id) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url + 'say/' + id)
+        .subscribe((res: Response) => {
+          resolve(res.json())
+        }, err => {
+          console.dir(err)
+          reject()
+        });
+    });
+  }
 
+  //实例get 说说评论 请求
+  public getSaycomment(id) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url + 'saycomment/' + id)
+        .subscribe((res: Response) => {
+          resolve(res.json())
+        }, err => {
+          console.dir(err)
+          reject()
+        });
+    });
+  }
    //实例get 照片 请求
    public getPhoto(id){
     return new Promise((resolve, reject) => {
@@ -117,11 +164,28 @@ export class ApiProvider {
       });
     });
   }
+
+public createCode(len){
+  var seed = new Array(
+    'abcdefghijklmnopqrstuvwxyz',
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      '0123456789'
+            ); //创建需要的数据数组
+    var idx,i;
+    var result = ''; //返回的结果变量
+    for (i=0; i<len; i++) //根据指定的长度
+    {
+        idx = Math.floor(Math.random()*3); //获得随机数据的整数部分-获取一个随机整数
+        result += seed[idx].substr(Math.floor(Math.random()*(seed[idx].length)), 1);//根据随机数获取数据中一个值
+    }
+          return result; //返回随机结果
+  }
+
 //实例get 短信验证
-public getduanxin(){
+public getduanxin(tel,n){
   return new Promise((resolve, reject) => {
     this.http.get
-    ('http://v.juhe.cn/sms/send?mobile=15227126880&tpl_id=121373&tpl_value=%23code%23%3D654654&key=db8f4b0b792944f817725742bc63fa80')
+      ('http://v.juhe.cn/sms/send?mobile=' + tel + '&tpl_id=123006&tpl_value=%23code%23%3D' + n + '&key=149e26daec051814e94a4fa7b5cc7c2b')
       .subscribe((res:Response)=>{
         resolve(res.json())
       },err=>{
@@ -158,15 +222,41 @@ public getArticleComment_next(id){
   });
 }
   //实例get 相册 请求
-  public getPhotos(){
+  public getPhotos(id){
     return new Promise((resolve, reject) => {
-      this.http.get(this.url+'photos')
+      this.http.get(this.url+'photos/' + id)
         .subscribe((res:Response)=>{
           resolve(res.json())
         },err=>{
           console.dir(err)
           reject()
       });
+    });
+  }
+
+  //实例get 关注 请求
+  public getFollow(id) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url + 'userconcern/' + id)
+        .subscribe((res: Response) => {
+          resolve(res.json())
+        }, err => {
+          console.dir(err)
+          reject()
+        });
+    });
+  }
+
+  //实例get 粉丝 请求
+  public getFans(id) {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.url + 'userconcern/fans/' + id)
+        .subscribe((res: Response) => {
+          resolve(res.json())
+        }, err => {
+          console.dir(err)
+          reject()
+        });
     });
   }
 
@@ -182,6 +272,43 @@ public getArticleComment_next(id){
         });
     });
   }
+  //实例post 新建相册请求
+  public postNewAlbum(data) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url + 'photos', data, { headers: this.headers })
+        .subscribe((res: Response) => {
+          console.log(res);
+        }, err => {
+          console.dir(err)
+          reject()
+        });
+    });
+  }
+  //实例post 评论请求
+  public postPinglun(data) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url + 'articlecomment', data, { headers: this.headers })
+        .subscribe((res: Response) => {
+          console.log(res);
+        }, err => {
+          console.dir(err)
+          reject()
+        });
+    });
+  }
+
+  public postConcern(data) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.url + 'userconcern', data, { headers: this.headers })
+        .subscribe((res: Response) => {
+          console.log(res);
+        }, err => {
+          console.dir(err)
+          reject()
+        });
+    });
+  }
+
   //实例post tree请求
   public postTree(data) {
     return new Promise((resolve, reject) => {

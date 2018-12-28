@@ -41,6 +41,8 @@ var apisaycomment=require('./routes/api/saycomment.js');
 var login = require('./routes/login');
 var apitree = require('./routes/api/tree');
 var apifruit = require('./routes/api/fruit');
+var bannerarticle = require('./routes/api/bannerarticle.js');
+var userconcern = require('./routes/api/userconcern.js');
 var app = express();
 
 // view engine setup
@@ -91,6 +93,8 @@ app.use('/api/photo',apiphoto);
 app.use('/api/video',apivideo);
 app.use('/api/tree',apitree);
 app.use('/api/fruit',apifruit);
+app.use('/api/bannerarticle',bannerarticle);
+app.use('/api/userconcern',userconcern);
 
 app.use(express.static('./public/static'));
 

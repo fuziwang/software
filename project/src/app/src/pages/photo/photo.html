@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <button ion-button block outline><span>上传照片</span></button>
+  <button ion-button block outline (click)="presentActionSheet()"><span>上传照片</span></button>
   <ion-grid>
     <ion-row>
       <ion-col col-4 *ngFor='let item of list;let idx=index'>

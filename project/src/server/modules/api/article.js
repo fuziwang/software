@@ -14,7 +14,7 @@ Article.prototype.selectAid = function(cb){
 }
 
 Article.prototype.getAll = function(cb){
-  const sql = 'select aid,atitle,acontent,atime,acomment,aimage,uname from Article,User where Article.uid = User.uid';
+  const sql = 'select aid,atitle,acontent,atime,acomment,aimage,User.uid,uname from Article,User where Article.uid = User.uid order by acomment desc';
   db.query(sql,(err,result)=>{
     if(err){
       cb(true);
@@ -24,8 +24,20 @@ Article.prototype.getAll = function(cb){
   });
 }
 
+Article.prototype.getNew = function(cb){
+  const sql = 'select aid,atitle,acontent,atime,acomment,aimage,uname from Article,User where Article.uid = User.uid order by atime desc';
+  db.query(sql,(err,result)=>{
+    if(err){
+      cb(true);
+      return;
+    } else {
+      cb(false,result);
+    }
+  });
+}
+
 Article.prototype.getArtile = function(obj,cb){
-  const sql = 'select aid,atitle,acontent,atime,acomment,aimage,uname from Article,User where Article.uid = User.uid and aid = ?';
+  const sql = 'select aid,atitle,acontent,atime,acomment,aimage,User.uid,uname from Article,User where Article.uid = User.uid and aid = ?';
   db.query(sql,[obj.aid],(err,result)=>{
     if(err){
       cb(true);
@@ -54,5 +66,16 @@ Article.prototype.insertColumn =function(obj,cb){
     }
     cb(false,result);
   });
+}
+Article.prototype.updateArticle = function(obj,cb){
+  const sql = 'update Article set acomment = acomment + 1 where aid = ?';
+  db.query(sql,[obj.aid],(err,result)=>{
+    if(err){
+      cb(true);
+      return;
+    } else{
+      cb(false,result);
+    }
+  })
 }
 module.exports = Article;

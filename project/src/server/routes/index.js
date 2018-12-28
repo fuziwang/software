@@ -18,7 +18,7 @@ router.post('/',function(req,res,next){
       var o = JSON.parse(JSON.stringify(result));
       console.log(o);
       if(o.length !== 0){
-        res.render('index');
+        res.render('index',{o:o});
       } else {
         res.send('error');
       }

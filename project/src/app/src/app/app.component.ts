@@ -8,14 +8,13 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { FirstPage } from '../pages/first/first';
 import { AboutPage } from '../pages/about/about';
 import { MyPage } from '../pages/my/my';
-import { XingquPage } from '../pages/xingqu/xingqu';
-import { ContactPage } from '../pages/contact/contact';
+import { TouxiangPage } from '../pages/touxiang/touxiang';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any =XingquPage;
+  rootPage:any =FirstPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

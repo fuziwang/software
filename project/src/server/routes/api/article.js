@@ -15,7 +15,16 @@ router.get('/',(req,res,next)=>{
     }
   });
 });
-
+router.get('/new',(req,res,next)=>{
+  article.getNew((err,result)=>{
+    if(err){
+      res.statusCode = 500;
+    } else {
+      var obj = JSON.parse(JSON.stringify(result));
+      res.json(obj);
+    }
+  });
+});
 router.get('/:aid',(req,res,next)=>{
   var obj = req.params;
   console.log(obj);
@@ -48,7 +57,7 @@ router.post('/',upload.single('aimage'),(req,res,next)=>{
       }
       var aid = JSON.parse(JSON.stringify(result))[0].c;
       obj.aid = aid;
-      obj.aimage = null;
+      obj.aimage = '7-07.jpg';
       obj.uid = req.body.uid;
       obj.atitle = req.body.atitle;
       obj.acomment = req.body.acomment;

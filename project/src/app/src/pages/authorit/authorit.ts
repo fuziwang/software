@@ -14,26 +14,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'authorit.html',
 })
 export class AuthoritPage {
-  status = true;
-  length = 0;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
+  status = true;
   ionViewDidLoad() {
     console.log('ionViewDidLoad AuthoritPage');
   }
-  changestatus(){
-    // if(this.status == true && this.length == 1){
-    //   this.status = !this.status;
-    //   this.length = 0;
-    //   return;
-    // }else if(this.status == false && this.length == 0){
-    //   this.status = !this.status;
-    //   this.length=1;
-    //   return;
-    // }else{
-    //   return;
-    // }
+
+  change(){
     this.status = !this.status;
   }
 }

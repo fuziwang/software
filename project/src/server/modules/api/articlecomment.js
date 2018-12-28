@@ -25,8 +25,8 @@ ArticleComment.prototype.getAll = function(cb){
 }
 
 ArticleComment.prototype.getArticleComment = function(obj,cb){
-  const sql = 'select acid,accontent,actime,uname,uimage,aid from ArticleComment,User where ArticleComment.uid = User.uid and acid = ?';
-  db.query(sql,[obj.acid],(err,result)=>{
+  const sql = 'select acid,accontent,actime,uname,uimage,aid from ArticleComment,User where ArticleComment.uid = User.uid and aid = ?';
+  db.query(sql,[obj.aid],(err,result)=>{
     if(err){
       cb(true);
       return;

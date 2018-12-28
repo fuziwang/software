@@ -22,7 +22,7 @@
 <ion-content padding>
   <p>谁能看我的文章</p>
 
-  <ion-item detail-push  (click)="changestatus()">
+  <ion-item detail-push (click)="change()">
     <div class="tu">
       <ion-icon name="md-checkmark" *ngIf="status"></ion-icon>
     </div>
@@ -31,8 +31,8 @@
         <p style="font-size:12px">所有朋友可见</p>
     </div>
     
-  </ion-item >
-      <ion-item detail-push  (click)="changestatus()">
+  </ion-item>
+      <ion-item detail-push (click)="change()">
     <div class="tu">
       <ion-icon name="md-checkmark" *ngIf="!status"></ion-icon>
     </div>
@@ -41,6 +41,6 @@
       <p style="font-size:12px">仅自己可见</p>
     </div>
   </ion-item>
-   
+  
 
 </ion-content>

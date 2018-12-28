@@ -48,7 +48,7 @@ router.post('/',upload.single('simage'),(req,res,next)=>{
       }
       var sid = JSON.parse(JSON.stringify(result))[0].c;
       obj.sid = sid;
-      obj.simage = null;
+      obj.simage = '3-ss_03.jpg';
       obj.uid = req.body.uid;
       obj.scontent = req.body.scontent;
       console.log(obj);

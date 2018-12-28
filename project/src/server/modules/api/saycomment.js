@@ -25,8 +25,8 @@ SayComment.prototype.getAll = function(cb){
 }
 
 SayComment.prototype.getSayComment = function(obj,cb){
-  const sql = 'select scid,sccontent,sctime,uname,uimage,sid from SayComment,User where SayComment.uid = User.uid and scid = ?';
-  db.query(sql,[obj.scid],(err,result)=>{
+  const sql = 'select scid,sccontent,sctime,uname,uimage,sid from SayComment,User where SayComment.uid = User.uid and sid = ?';
+  db.query(sql,[obj.sid],(err,result)=>{
     if(err){
       cb(true);
       return;

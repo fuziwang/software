@@ -16,7 +16,7 @@ router.get('/',(req,res,next)=>{
   });
 });
 
-router.get('/:xid',(req,res,next)=>{
+router.get('/:uid',(req,res,next)=>{
   var obj = req.params;
   console.log(obj);
   photos.getPhotos(obj,(err,result)=>{
@@ -40,7 +40,7 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage    });
 
-router.post('/',upload.single('xlocal'),(req,res,next)=>{
+router.post('/',(req,res,next)=>{
     var obj = {};
     photos.selectXid((err,result)=>{
       if(err){
@@ -49,10 +49,10 @@ router.post('/',upload.single('xlocal'),(req,res,next)=>{
       var xid = JSON.parse(JSON.stringify(result))[0].c;
       obj.xid = xid;
       if(obj.xid){
-        obj.xlocal = req.file.filename;
+        obj.xlocal = 'public/static/photos/photos11';
         obj.uid = req.body.uid;
         obj.xname = req.body.xname;
-        obj.xcount = req.body.xcount;
+        obj.xcount = 0;
         photos.insertItem(obj,(err,result)=>{
           if(err){
             res.statusCode = 500;

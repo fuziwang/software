@@ -32,7 +32,8 @@ Back.prototype.getBack=function(obj,cb){
     cb(false,result);
   });
 }
-Back.prototype.insertItem = function(cb){
+
+Back.prototype.insertItem = function(obj,cb){
   const sql='insert into Back values(?,?,?,?,?,?,?)';
   db.query(sql,[obj.rid,obj.rcontent,obj.rtel,Date().slice(0,24),obj.rimage,1,obj.uid],(err,result)=>{
     if(err){

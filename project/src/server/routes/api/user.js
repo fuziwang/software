@@ -5,6 +5,8 @@ var crypto = require("crypto");
 
 var user = new User();
 
+const fs = require('fs');
+
 router.post('/sexhobby',(req,res,next)=>{
   var obj = {
     uid:req.body.uid,
@@ -99,6 +101,9 @@ router.get('/:uid',(req,res,next)=>{
 router.post('/reg',(req,res,next)=>{
   var obj = req.body;
   console.log(obj);
+  obj.ufans = 0;
+  obj.uconcern = 0;
+  obj.uimage = '2-5.png';
   var md5 = crypto.createHash("md5");
   obj.upass = md5.update(obj.upass).digest("hex");
   user.selectUid((err,result)=>{
@@ -135,6 +140,8 @@ router.post('/login',(req,res,next)=>{
 
 router.post('/forget',(req,res,next)=>{
   var obj = req.body;
+  var md5 = crypto.createHash("md5");
+  obj.upass = md5.update(obj.upass).digest("hex");
   user.updatePass(obj,(err,result)=>{
     if(err){
       res.statusCode = 500;
@@ -150,14 +157,15 @@ router.post('/image',(req,res,next)=>{
     uimage:req.body.uimage,
     uid:req.body.uid
   };
-  var ext = obj.uimage.slice(obj.uimage.length-4,obj.uimage.length);
+  console.log(obj);
   // console.log(obj);
   var base64Data = obj.uimage.replace(/^data:image\/\w+;base64,/, "");
   var dataBuffer = new Buffer(base64Data, 'base64');
-  // console.log(dataBuffer);
-  obj.uimage = obj.uid + '-' + obj.uid + ext;
-  fs.writeFile( "public/static/user/" + obj.uid + "-" + obj.uid + ext, dataBuffer, function(err) {
-    console.log(error);
+  console.log(dataBuffer);
+  obj.uimage = obj.uid + '-' + obj.uid + '.jpg';
+  console.log(obj);
+  fs.writeFile( "public/static/user/" + obj.uid + "-" + obj.uid + '.jpg', dataBuffer, function(err) {
+    console.log(err);
     if(err){
       res.send('error');
     }else{
@@ -189,7 +197,7 @@ router.post('/tel',(req,res,next)=>{
 */
 router.post('/update',(req,res,next)=>{
   var obj = {
-    uimage:'11-11.jpg',
+    uimage:'2-5.png',
     uid:req.body.uid,
     uname:req.body.uname,
     usex:req.body.usex,
