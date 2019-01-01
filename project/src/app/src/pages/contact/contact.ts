@@ -5,8 +5,6 @@ import { PicturePage } from '../picture/picture';
 import { VidioPage } from '../vidio/vidio';
 import { ArticlePage } from '../article/article';
 import { App } from 'ionic-angular';
-import { AlbumPage } from '../album/album';
-import { VideoPage } from '../video/video';
 
 @Component({
   selector: 'page-contact',
@@ -21,10 +19,10 @@ export class ContactPage {
     this.navCtrl.push(FeelPage);
   }
   goPicture(){
-    this.navCtrl.push(AlbumPage);
+    this.navCtrl.push(PicturePage);
   }
   goVidio(){
-   this.navCtrl.push(VideoPage);
+   this.navCtrl.push(VidioPage);
   }
   goArticle(){
     this.navCtrl.push(ArticlePage);
