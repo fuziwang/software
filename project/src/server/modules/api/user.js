@@ -101,8 +101,8 @@ User.prototype.selectUid = function(cb){
 }
 
 User.prototype.insertItem = function(obj,cb){
-  const sql = 'insert into User(uid,uimage,utel,upass,ustatus,ufans,uconcern) values(?,?,?,?,1,?,?)';
-  db.query(sql,[obj.uid,obj.uimage,obj.utel,obj.upass,obj.ufans,obj.uconcern],(err,result)=>{
+  const sql = 'insert into User(uid,uimage,utel,upass,ustatus) values(?,?,?,?,1)';
+  db.query(sql,[obj.uid,obj.uimage,obj.utel,obj.upass],(err,result)=>{
     if(err){
       cb(true);
       return;
@@ -141,28 +141,6 @@ User.prototype.updateSex = function(obj,cb){
       return;
     }
     cb(false,result);
-  });
-}
-
-User.prototype.updateConcern = function(obj,cb){
-  const sql = 'update User set uconcern = uconcern + 1 where uid =?';
-  db.query(sql,[obj.uid],(err,result)=>{
-    if(err){
-      cb(true);
-      return;                  
-    }
-    cb(false,result);
-  });
-}
-
-User.prototype.updateFans = function(obj,cb){
-  const sql = 'update User set ufans = ufans + 1 where uid =?';
-  db.query(sql,[obj.upid],(err,result)=>{
-    if(err){
-      cb(true);
-      return;                  
-    }
-    cb(false,result);        
   });
 }
 

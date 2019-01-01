@@ -16,7 +16,7 @@ router.get('/',(req,res,next)=>{
   });
 });
 
-router.get('/:sid',(req,res,next)=>{
+router.get('/:scid',(req,res,next)=>{
   //console.log(req.params);
   var obj =req.params;
   //console.log(obj);

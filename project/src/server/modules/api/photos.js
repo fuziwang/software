@@ -25,8 +25,8 @@ Photos.prototype.getAll = function(cb){
 }
 
 Photos.prototype.getPhotos = function(obj,cb){
-  const sql = 'select xid,xname,xcount,xtime,uid from Photos where uid = ?';
-  db.query(sql,[obj.uid],(err,result)=>{
+  const sql = 'select xid,xname,xcount,xtime,uid from Photos where xid = ?';
+  db.query(sql,[obj.xid],(err,result)=>{
     if(err){
       cb(true);
       return;
@@ -34,7 +34,6 @@ Photos.prototype.getPhotos = function(obj,cb){
     cb(false,result);
   });
 }
-
 Photos.prototype.insertItem =function(obj,cb){
   const sql = 'insert into Photos values(?,?,?,?,?,?,?)';
   db.query(sql,[obj.xid,obj.xname,obj.xcount,obj.xlocal,Date().slice(0,24),1,obj.uid],(err,result)=>{
@@ -45,7 +44,6 @@ Photos.prototype.insertItem =function(obj,cb){
     cb(false,result);
   });
 }
-
 Photos.prototype.updateItem = function(obj,cb){
   const sql = 'update Photos set xcount = xcount+1 where xid= ?';
   db.query(sql,[obj.xid],(err,result)=>{

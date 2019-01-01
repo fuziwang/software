@@ -45,14 +45,12 @@ router.post('/',upload.single('rimage'),(req,res,next)=>{
       res.statusCode = 500;        
     }
     var rid = JSON.parse(JSON.stringify(result))[0].c;
-    console.log(rid);
     obj.rid = rid;
     if(obj.rid){
-      obj.rimage = null;
+      obj.rimage = req.file.filename;
       obj.uid = null;
       obj.rcontent = req.body.rcontent;
       obj.rtel = req.body.rtel;
-      console.log(obj);
       back.insertItem(obj,(err,result)=>{
         if(err){
           res.statusCode = 500;

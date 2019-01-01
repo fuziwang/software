@@ -14,7 +14,7 @@ Say.prototype.selectSid = function(cb){
 }
 
 Say.prototype.getAll = function(cb){
-  const sql = 'select sid,scontent,stime,simage,uname,uimage,User.uid from Say,User where Say.uid = User.uid';
+  const sql = 'select sid,scontent,stime,simage,uname,uimage from Say,User where Say.uid = User.uid';
   db.query(sql,(err,result)=>{
     if(err){
       cb(true);
@@ -25,7 +25,7 @@ Say.prototype.getAll = function(cb){
 }
 
 Say.prototype.getSay = function(obj,cb){
-  const sql = 'select sid,scontent,stime,simage,User.uid,uname,uimage from Say,User where Say.uid = User.uid and sid = ?';
+  const sql = 'select sid,scontent,stime,simage,uname from Say,User where Say.uid = User.uid and sid = ?';
   db.query(sql,[obj.sid],(err,result)=>{
     if(err){
       cb(true);

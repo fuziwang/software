@@ -7,6 +7,18 @@ var multer = require('multer');
 var photo = new Photo();
 var photos = new Photos();
 
+router.get('/',(req,res,next)=>{
+  photo.getAll((err,result)=>{
+    if(err){res.statusCode = 500;}
+    else{
+      //console.log(result);
+      var obj = JSON.parse(JSON.stringify(result));
+      //console.log(obj);
+      res.json(obj);
+    }
+  });
+});
+
 router.get('/:xid',(req,res,next)=>{
   var obj = req.params;
   console.log(obj);
@@ -20,7 +32,18 @@ router.get('/:xid',(req,res,next)=>{
   });
 });
 
-router.post('/',(req,res,next)=>{
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/static/photos/photos');
+  },
+  filename: function (req, file, cb) {
+    cb(null, req.body.pid + "-" + file.originalname);            
+  }
+});
+
+var upload = multer({ storage: storage    });
+
+router.post('/',upload.single('plocal'),(req,res,next)=>{
     var obj = {};
     photo.selectPid((err,result)=>{
       if(err){
@@ -29,12 +52,10 @@ router.post('/',(req,res,next)=>{
       var pid = JSON.parse(JSON.stringify(result))[0].c;
       obj.pid = pid;
       if(obj.pid){
-        var base64Data = obj.pname.replace(/^data:image\/\w+;base64,/, "");
-        var dataBuffer = new Buffer(base64Data, 'base64');
-        obj.pname = obj.xid + '-' + obj.pid + '.jpg';
-        obj.plocal = obj.pname;
+        obj.pname = req.body.pname;
+        obj.plocal = req.file.filename;
         obj.xid = req.body.xid;
-        obj.ptype = '.jpg';
+        obj.ptype = req.body.ptype;
         photo.insertItem(obj,(err,result)=>{
           if(err){
             res.statusCode = 500;
@@ -45,13 +66,7 @@ router.post('/',(req,res,next)=>{
                 res.statusCode = 500;
                 res.send('error');
               } else {
-                fs.writeFile('public/static/photos/photo' + obj.xid + '/' + obj.pname,dataBuffer,function(err){
-                  if(err){
-                    res.send('error');
-                  } else {
-                    res.send('ok!');
-                  }
-                })
+                res.send('OK');
               }
             });
           }

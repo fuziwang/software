@@ -79,17 +79,5 @@ Article.prototype.deleteColumn = function(id,cb){
       cb(false,result);
     });
 }
-Article.prototype.updateArticle = function(obj,cb){
-  const sql = 'update Article set acomment = acomment - 1 where aid = ?';
-  db.query(sql,[obj.aid],(err,result)=>{
-      if(err){
-        cb(true);
-        return;                
-      } else{
-        cb(false,result);          
-      }
-  });
-}
-
 
 module.exports = Article;
