@@ -25,8 +25,8 @@
   - Email：[715586415@qq.com](mailto://715586415@qq.com)
   - Github：[https://github.com/wan2banwangcen](https://github.com/wan2banwangcen)
 - 管欣悦（前端工程师，UI设计师）
-  - Email：[2622860598@qq.com](mailto://2622860598@qq.com)
-  - Github：[https://github.com/fuziwang](https://github.com/fuziwang)
+  - Email：[778799700@qq.com](mailto://778799700@qq.com)
+  - Github：[https://github.com/guanxinyue](https://github.com/guanxinyue)
 
 ### 运行效果
 
