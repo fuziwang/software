@@ -4,25 +4,28 @@
   </ion-navbar>
 </ion-header>
 <ion-content >
-   <div class="out"  *ngFor='let item of list;let idx=index' (click)='goTiezi_next(item?.sid)'>
-     <div class="inside1">
-          <div class="com1" ><img class="img1" src="{{'http://192.168.80.144:8080/user/'+item?.uimage}}" alt="" style="width:60px;
+   <div class="out"  *ngFor='let item of list;let idx=index' >
+     <div (click)='goTiezi_next(item?.sid,item?.uid)'>
+      <div class="inside1">
+        
+          <div class="com1" ><img class="img1" src="{{'http://120.79.153.10:80/user/' + userTouxiang}}" alt="" style="width:60px;
             height: 50px; border-radius: 50%;">
-            </div> <!-- img-->
-         <div class="com2">
-           <span style="font-size:18px">{{item?.uname}}</span><br>
-           <span style="font-size:12px;color:#BFBFBF">{{item?.stime}}</span>
-         </div>
-     </div>
-     <div class="inside2">
+          </div> <!-- img-->
+          <div class="com2">
+            <span style="font-size:18px">{{userName}}</span><br>
+            <span style="font-size:12px;color:#BFBFBF">{{item?.stime}}</span>
+          </div>
+      </div>
+      <div class="inside2">
          <div class="com3">{{item?.scontent}}</div>
-         <div class="com4"><img id="img" src="{{'http://192.168.80.144:8080/say/'+item?.simage}}" ></div>
-     </div>
-     <div class="inside3">
-      <div class="com"><a><ion-icon name="ios-heart-outline"></ion-icon></a><span>赞同</span></div>
-      <div class="com" (click)="pL()"><a><ion-icon name="ios-chatboxes-outline"></ion-icon></a><span>评论</span></div>
-      <div class="com" (click)="goTransmit()"><ion-icon name="ios-create-outline"></ion-icon><span>转发</span></div>
-   </div>
+         <div class="com4"><img id="img" src="{{'http://120.79.153.10:80/say/'+item?.simage}}" ></div>
+      </div>
+    </div>
+      <div class="inside3">
+        <div class="com"><a><ion-icon name="md-heart-outline" (click)="dianzan()" [ngStyle]="{'color': isSColor== 1  ? 'red' : ''}"></ion-icon></a><span>赞同</span></div>
+        <div class="com" (click)="pL()"><a><ion-icon name="ios-chatboxes-outline"></ion-icon></a><span>评论</span></div>
+        <div class="com" (click)="goTransmit()"><ion-icon name="ios-create-outline"></ion-icon><span>转发</span></div>
+      </div>
    </div>
   
  

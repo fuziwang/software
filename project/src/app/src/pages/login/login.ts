@@ -6,8 +6,6 @@ import { SetPwdPage } from '../set-pwd/set-pwd';
 import { TouxiangPage } from '../touxiang/touxiang';
 import { ApiProvider } from '../../providers/api/api';
 import { StorageProvider } from '../../providers/storage/storage';
-import { App } from 'ionic-angular';
-import { HomePage } from '../home/home';
 
 /**
  * Generated class for the LoginPage page.
@@ -37,7 +35,8 @@ interface user{
 })
 export class LoginPage {
  
-  constructor(public navCtrl: NavController, private api: ApiProvider, private storage: StorageProvider, private app: App) {
+  constructor(public navCtrl: NavController,private api:ApiProvider,private storage:StorageProvider) {
+    
   }
   bo;
   uid;
@@ -46,6 +45,7 @@ export class LoginPage {
   tel=this.storage.getItem('tel');
   pwd=this.storage.getItem('pwd');
   status = this.storage.getItem('status');
+ 
   getList(){
 //往后台传的数据
     let data=JSON.stringify({
@@ -54,24 +54,25 @@ export class LoginPage {
     });
 
     this.api.postLogin(data).then(data=>{
-      if(data[0].uid){
-          // console.log(data[0].uid)
-          // console.dir(data);
-          this.storage.setItem('uid',data[0].uid);
-          this.storage.setItem('pwd',data[0].upwd);
-          this.storage.setItem('tel',data[0].utel);
-      }
+      console.log(data);
+      // if(data[0].uid){
+      //     // console.log(data[0].uid)
+      //     // console.dir(data);
+      //     this.storage.setItem('uid',data[0].uid);
+      //     this.storage.setItem('pwd',data[0].upwd);
+      //     this.storage.setItem('tel',data[0].utel);
+
+      // }
      
       this.bo =Array.isArray(data)&& data.length==0;
       console.log(this.bo);
       console.log(this.isCheck);
-      console.log(this.status);
       if(this.bo!==true&&this.isCheck==0){
         if(this.status == false){
           this.navCtrl.push(TouxiangPage);
         }
         else{
-          this.app.getRootNavs()[0].setRoot(TabsPage);
+          this.navCtrl.push(TabsPage);
         }
       }
      

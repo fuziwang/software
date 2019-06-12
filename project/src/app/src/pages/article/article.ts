@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController,AlertController } from 'ionic-angular';
+import { CameraPage } from '../camera/camera';
 import { ShequPage } from '../shequ/shequ';
 import { ApiProvider } from '../../providers/api/api';
-import { Camera, CameraOptions } from "@ionic-native/camera";
+import {CommunityPage} from '../community/community';
 import { StorageProvider } from '../../providers/storage/storage';
-import { ImagePicker, ImagePickerOptions } from "@ionic-native/image-picker";
-import { HomePage } from '../home/home';
-import { TabsPage } from '../tabs/tabs';
+import { Camera, CameraOptions } from "@ionic-native/camera";
+import { App } from 'ionic-angular';
+import { AuthoritPage } from '../authorit/authorit';
 
 interface Article{
   aid:number;
@@ -35,33 +36,36 @@ interface Article{
   templateUrl: 'article.html',
 })
 export class ArticlePage {
-  title;
   text;
-  uid = this.storage.getItem('uid');
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: StorageProvider, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public imagePicker: ImagePicker, private camera: Camera, private api: ApiProvider) {
+  title;
+  uid=this.storage.getItem('uid');
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: StorageProvider, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, private camera: Camera, private api: ApiProvider, private app: App) {
   }
   getList(){
     let data=JSON.stringify({
       atitle:this.title,
       acontent:this.text,
-      acomment:0,
-      aprivate:1,
-      uid:this.uid,
     });
     this.api.postArticle(data).then(data=>{
       console.dir(data);
     });
   }
+  goAuthority(){
+    this.navCtrl.push(AuthoritPage);
+  }
   presentAlert() {
     let alert = this.alertCtrl.create({ title: "发布成功", buttons: ["确定"] });
     alert.present().then(value => {
+      // this.navCtrl.setRoot(ShequPage);
       return value;
     });
   }
+
   openModal(){
     this.getList();
     this.presentAlert();
     this.navCtrl.pop();
+    // this.navCtrl.setRoot(ShequPage);
   }
   takephoto_image = "";
   chooseFromAlbum_image;
@@ -165,6 +169,9 @@ export class ArticlePage {
     }, error => {
       alert(error);
     });
+  }
+  chengGong(){
+    this.navCtrl.push(CommunityPage);
   }
 }
 

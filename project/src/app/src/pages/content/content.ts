@@ -42,6 +42,8 @@ export class ContentPage {
     this.getList();
     this.getsaycomment()
     console.log('sid',this.id);
+    console.log('upid',this.upid);
+    this.IsConcern();
   }
   id;
   upid;
@@ -50,6 +52,9 @@ export class ContentPage {
   length = 0;
   list:Array<Say>=[];
   commont:Array<SayComment>=[];
+  isConcern;
+  isAbled;
+  concerns=[];
   
   //get说说的详情
   getList(){
@@ -72,7 +77,7 @@ export class ContentPage {
     this.api.postSayComment(data).then(data => {
       console.log(data);
       console.log(this);
-      // this.getarticlecomment();
+      this.getsaycomment();
     });
   }
 
@@ -86,14 +91,17 @@ export class ContentPage {
   }
 
   concern(){
+    console.log(this.uid,this.upid);
     let data = JSON.stringify({
       uid: this.uid,
       upid:this.upid
     });
+    console.log(data);
     this.api.postConcern(data).then(data=>{
       console.dir(data);
     })
     document.querySelector('.concern').textContent = "已关注";
+    document.querySelector('.concern').setAttribute('disabled','true');
   }
 
   comment(){
@@ -108,5 +116,24 @@ export class ContentPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContentPage');
   }
-
+  IsConcern(){
+    this.api.concerns(this.uid).then(data=>{
+      console.log(data);
+      this.concerns =<any>data;
+      console.log(this.concerns);
+      for(var i = 0;i<this.concerns.length;i++){
+        console.log(this.concerns.length,i);
+        console.log(this.concerns[i].upid);
+        if(this.upid === this.concerns[i].upid){
+          console.log('bbh');
+          this.isAbled = false;
+          this.isConcern = false;
+          console.log(this.isAbled,this.isConcern);
+        }else{
+          this.isAbled = true;
+          this.isConcern = true;
+        }
+      }
+    })
+  }
 }

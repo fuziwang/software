@@ -45,7 +45,6 @@ export class ZhucePage {
   isCheck=0;
   list:Array<user>=[];
   i;
-  n = "";
   postList(){
     //获取list用于显示
     // this.api.getMy().then(data=>{
@@ -88,13 +87,10 @@ export class ZhucePage {
   }
   getCode() {
     //点击按钮后开始倒计时\
-    this.n = "";
-    for (var i = 0; i < 6; i++) {
-      this.n += Math.floor(Math.random() * 10);
-    }
+
     if( this.verifyCode.disable){
       this.settime();
-      this.api.getduanxin(this.tel,this.n);
+      this.api.getduanxin();
       this.verifyCode.disable = false;
     }
    }
@@ -115,7 +111,6 @@ export class ZhucePage {
    }
    
   logIn(){
-    this.storage.setItem('status', false);
     if(this.check==''){
       this.text='您还没有同意用户协议';
       this.isCheck=1;
@@ -139,7 +134,7 @@ export class ZhucePage {
           upass:this.pwd,
           utel:this.tel,
         });
-    
+        console.log(data);
         this.api.postLogin(data).then(data=>{
           console.log(data);
           // if(data[0].uid){
@@ -221,7 +216,7 @@ onchange_tel(){
       this.text='验证码不能为空哦！';
       this.isCheck=1;
     }else{
-      if(this.yanzhengma!= this.n){
+      if(this.yanzhengma!=0){
         this.text='验证码错误了哦！';
         this.isCheck=1;
       }

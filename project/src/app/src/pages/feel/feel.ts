@@ -6,7 +6,7 @@ import { ShequPage } from '../shequ/shequ';
 import { ApiProvider } from '../../providers/api/api';
 import { StorageProvider } from '../../providers/storage/storage';
 import { Camera, CameraOptions } from "@ionic-native/camera";
-import { ImagePicker, ImagePickerOptions } from "@ionic-native/image-picker";
+//import { ImagePicker, ImagePickerOptions } from "@ionic-native/image-picker";
 import { App } from 'ionic-angular';
 
 
@@ -33,7 +33,7 @@ interface Say{
 export class FeelPage {
   text;
   uid=this.storage.getItem('uid');
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: StorageProvider, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, public imagePicker: ImagePicker, private camera: Camera, private api: ApiProvider, private app: App) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: StorageProvider, public actionSheetCtrl: ActionSheetController, public alertCtrl: AlertController, private camera: Camera, private api: ApiProvider, private app: App) {
   }
   getList(){
     let data=JSON.stringify({

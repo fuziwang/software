@@ -22,33 +22,33 @@
         <!-- 轮播图 -->
         <ion-slides pager="true" autoplay="1000" loop="true" class="sli">
         <ion-slide>
-          <img src="http://192.168.80.144:8080/content/banner01-01.jpg" alt="" (click)="getBanner(0000)">
+          <img src="http://120.79.153.10:80/content/banner01-01.jpg" alt="" (click)="getBanner(1)">
         </ion-slide>
         <ion-slide>
-          <img src="http://192.168.80.144:8080/content/banner02-02.jpg" alt="" (click)="getBanner(1111)">
+          <img src="http://120.79.153.10:80/content/banner02-02.jpg" alt="" (click)="getBanner(2)">
         </ion-slide>
         <ion-slide>
-          <img src="http://192.168.80.144:8080/content/banner03-03.jpg" alt="" (click)="getBanner(2222)">
+          <img src="http://120.79.153.10:80/content/banner03-03.jpg" alt="" (click)="getBanner(3)">
         </ion-slide>
         </ion-slides>
         <div>
           <ul class="tiezi">
-            <li *ngFor='let item of list;let idx=index'  (click)="next(item.aid)">
+            <li *ngFor='let item of list;let idx=index'  (click)="next(item.aid,item.uid)">
               <div class="all">
                 <div class="content">
                     <div class="text">
                         <div id="pinglun">
                             <ul>
-                              <li><ion-icon name="md-eye"></ion-icon><span>{{seenum}}</span></li>
-                              <li><ion-icon name="md-text"></ion-icon><span>12</span></li>
-                              <li><ion-icon name="md-heart-outline"></ion-icon><span>{{dianzannum}}</span></li>
+                              <li><ion-icon name="md-eye"></ion-icon><span>{{item?.aread}}</span></li>
+                              <li><ion-icon name="md-text"></ion-icon><span>{{item?.acomment}}</span></li>
+                              <li><ion-icon name="md-heart-outline"></ion-icon><span>{{item?.adianzan}}</span></li>
                             </ul>
                           </div>
                       <div id="title">{{item?.atitle}}</div>
                       <div id="uname">{{item?.uname}}</div>
                     </div>
                 </div>
-                <div class="img"><img src="{{'http://192.168.80.144:8080/content/'+item?.aimage}}"></div>
+                <div class="img"><img src="{{'http://120.79.153.10:80/content/'+item?.aimage}}"></div>
               </div>
             </li>
           </ul>
@@ -60,20 +60,20 @@
         
         <div>
         <ul class="tiezi">
-          <li *ngFor='let item of list1;let idx=index' (click)="next(item.aid)">
+          <li *ngFor='let item of list1;let idx=index' (click)="next(item.aid,item.uid)">
             <div class="all">
               <div class="content">
                 <div class="text">
                   <div id="pinglun">
                     <ul>
                       <li>
-                        <ion-icon name="md-eye"></ion-icon><span>{{seenum}}</span>
+                        <ion-icon name="md-eye"></ion-icon><span>{{item?.aread}}</span>
                       </li>
                       <li>
-                        <ion-icon name="md-text"></ion-icon><span>12</span>
+                        <ion-icon name="md-text"></ion-icon><span>{{item?.acomment}}</span>
                       </li>
                       <li>
-                        <ion-icon name="md-heart-outline"></ion-icon><span>{{dianzannum}}</span>
+                        <ion-icon name="md-heart-outline"></ion-icon><span>{{item?.adianzan}}</span>
                       </li>
                     </ul>
                   </div>
@@ -81,7 +81,7 @@
                   <div id="uname">{{item?.uname}}</div>
                 </div>
               </div>
-              <div class="img"><img src="{{'http://192.168.80.144:8080/content/'+item?.aimage}}"></div>
+              <div class="img"><img src="{{'http://120.79.153.10:80/content/'+item?.aimage}}"></div>
             </div>
           </li>
         </ul>

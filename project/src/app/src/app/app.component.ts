@@ -9,6 +9,7 @@ import { FirstPage } from '../pages/first/first';
 import { AboutPage } from '../pages/about/about';
 import { MyPage } from '../pages/my/my';
 import { TouxiangPage } from '../pages/touxiang/touxiang';
+import {HomePage} from '../pages/home/home';
 
 @Component({
   templateUrl: 'app.html'

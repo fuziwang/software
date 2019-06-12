@@ -10,33 +10,26 @@ page-article {
         ion-title{
            text-align: center;
            color:#fff;
-           margin-left:3px;
         }
     }
         .list1{
-            ion-input{
-                line-height: 20px;
-                margin-top:2px;
-                margin-left:10px;
-                margin-right:3px;
-                font-size:18px;
+            .title{
+                margin-top:5px;
+                width:100%;
+                height:20px;
+                background-color:#FEFEFE;
+                border-color:#FEFEFE;
             }
             textarea{
                 background-color:#FEFEFE;
                 position: absolute;
                 border-color:#FEFEFE;
                 width:100%;
-                height:300px;
-                line-height: 20px;
-                margin-top:2px;
-                margin-left:12px;
-                margin-right:3px;
-                padding-top:10px;
+                height:500px;
             }
         }
         .list2{
             img{
-                margin-top:60px;
                 position: absolute;
                 top: 150px;
                 left: 15px;
@@ -44,11 +37,10 @@ page-article {
             }
         }
         .list3{
-            margin-top:20px;
             height: 25px;
             width:65px;
             position: relative;
-            top: 198px;
+            top: 230px;
             left:270px;
             border-radius:22px;
             background-color: #F4F4F4;

@@ -5,6 +5,7 @@ import { ContentPage } from "../content/content";
 import { HomepagePage } from "../homepage/homepage";
 import { SharePage} from "../share/share";
 import { TransmitPage } from '../transmit/transmit';
+import { StorageProvider } from '../../providers/storage/storage';
 /**
  * Generated class for the ShequPage page.
  *
@@ -29,11 +30,15 @@ interface Say{
   templateUrl: 'shequ.html',
 })
 export class ShequPage {
+  isSColor = this.storage.getItem('isSColor');;
   isCheck=0;
   isPl=0;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public api:ApiProvider) {
+  userTouxiang="";
+  userName="";
+  constructor(public navCtrl: NavController, public navParams: NavParams,public api:ApiProvider,public storage:StorageProvider) {
     this.getList();
   }
+  id;
   list:Array<Say>=[];
   arr=[1,2,3];
   ionViewDidLoad() {
@@ -58,16 +63,50 @@ export class ShequPage {
     this.api.getSay().then(data=>{
       console.dir(data);
       this.list=<any>data;
+      console.log(this.list);
+      for(var i = this.list[0].uid;i<this.list.length;i--){
+        console.log(i);
+        this.api.getTouxiang(i).then(data=>{
+          // console.dir(data);
+          this.list=<any>data;
+          // console.dir(this.list);
+          console.log(this.list);
+          if(this.list[i].uimage===null){
+            this.userTouxiang="0-0.png";
+            //console.log(1);
+          }else{
+            this.userTouxiang=this.list[i].uimage;
+            //console.log(2);
+          }
+        }); 
+      }
+      for(var j = this.list[0].uid;j<this.list.length;j--){
+        this.api.getuserName(i).then(data=>{
+          // console.dir(data);
+          this.list=<any>data;
+          // console.dir(this.list);
+          console.log(this.list);
+          if(this.list[i].uname===null){
+            this.userName="悦成长用户";
+            //console.log(1);
+          }else{
+            this.userName=this.list[i].uname;
+            //console.log(2);
+          }
+        });
+      }
+      
     });
 
   }
   goShare(){
     this.navCtrl.push(SharePage);
   }
-  goTiezi_next(index){
+  goTiezi_next(index,uid){
+    console.log(index,uid);
     this.navCtrl.push(ContentPage,{
       id : index,
-      upid:this.list[index-1].uid
+      upid: uid
     });
   }
   
@@ -77,5 +116,12 @@ export class ShequPage {
   goTransmit(){
     this.navCtrl.push(TransmitPage);
   }
-
+  dianzan(){
+    console.log('sehun');
+    if(this.isSColor == 1){
+      this.storage.setItem('isSColor',0);
+    } else {
+      this.storage.setItem('isSColor',1);
+    }
+  }
 }

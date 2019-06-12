@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CreationPage } from '../creation/creation';
-import { FollowPage } from '../follow/follow';
-import { FansPage } from '../fans/fans';
+import { AboutPage } from '../about/about';
+import { AlbumPage } from '../album/album';
+import { VideoPage } from '../video/video';
 import { ApiProvider } from '../../providers/api/api';
 import { StorageProvider } from '../../providers/storage/storage';
 
@@ -35,12 +35,16 @@ interface user{
 })
 export class HomepagePage {
 
+  userTouxiang="";
+  userWhere="";
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public api:ApiProvider,private storage:StorageProvider) {
    
     this.getList();
     
   }
   uid=this.storage.getItem('uid');
+  id=this.storage.getItem('uid');
   list:Array<user>=[];
   getList(){
     //获取list用于显示
@@ -49,17 +53,44 @@ export class HomepagePage {
       this.list=<any>data;
       console.dir(this.list);
     });
+
+    this.api.getTouxiang(this.id).then(data=>{
+      // console.dir(data);
+      this.list=<any>data;
+      // console.dir(this.list);
+      console.log(this.list);
+      if(this.list[0].uimage===null){
+        this.userTouxiang="0-0.png";
+        //console.log(1);
+      }else{
+        this.userTouxiang=this.list[0].uimage;
+        //console.log(2);
+      }
+    });
+    this.api.getuserWhere(this.id).then(data=>{
+      // console.dir(data);
+      this.list=<any>data;
+      // console.dir(this.list);
+      console.log(this.list);
+      if(this.list[0].uwhere===null){
+        this.userWhere="中国";
+        //console.log(1);
+      }else{
+        this.userWhere=this.list[0].uwhere;
+        //console.log(2);
+      }
+    });
     
   }
 
-  creation(){
-    this.navCtrl.push(CreationPage);
+  photo(){
+    this.navCtrl.push(AlbumPage);
   }
-  follow(){
-    this.navCtrl.push(FollowPage);
+  about(){
+    this.navCtrl.push(AboutPage);
   }
-  fans(){
-    this.navCtrl.push(FansPage);
+  video(){
+    this.navCtrl.push(VideoPage);
   }
 
   ionViewDidLoad() {

@@ -1,4 +1,4 @@
-<ion-header no-border>
+<ion-header>
   <ion-navbar color="gre">
     <button ion-button icon-only menuToggle>
       <ion-icon name="ios-arrow-round-back"></ion-icon>
@@ -19,13 +19,10 @@
 
 <ion-content>
 <div class="list1">
-  <label class="item item-input">
-  <ion-input placeholder="添加标题" [(ngModel)]="title"></ion-input>
-  </label>
-  <br/>
-  <label class="item item-input">
+  <label class="item item-input" >
+    <input placeholder="文章标题" [(ngModel)]="title" class="title">
     <textarea placeholder="写篇文章吧" [(ngModel)]="text"></textarea>
-    <img src="{{takephoto_image }}" />
+    <img src="{{takephoto_image }}"/>
   </label>
 </div>
 <div class="list2">
@@ -36,7 +33,13 @@
 <div class="list3">
  <div class="inside" (click)="goAuthority()"> <!-- 权限 -->
    <ion-icon name="md-ionitron" color="gre"></ion-icon> <!-- ios-ionitron-outline -->
-   <span>公开</span>
+   <span>私密</span>
   </div>
 </div>
 </ion-content>
+
+
+
+
+
+ 

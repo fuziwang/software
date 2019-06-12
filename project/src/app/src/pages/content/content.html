@@ -10,19 +10,19 @@
       <div class="top">
         <div class="shang">
             <div class="touxiang">
-                <img src="{{'http://192.168.80.144:8080/user/'+list[0]?.uimage}}"/>
-              </div>
-              <div class="title">
-                <span>{{list[0]?.uname}}</span>
-                <span class="time">{{list[0]?.stime}}</span>
-              </div> 
-              <div class="guanzhu"><button ion-button color="zhuti" (click)="concern()" class="concern">关注</button></div>
+              <img src="{{'http://120.79.153.10:80/user/'+list[0]?.uimage}}"/>
+            </div>
+            <div class="title">
+              <span>{{list[0]?.uname}}</span>
+              <span class="time">{{list[0]?.stime}}</span>
+            </div> 
+            <div class="guanzhu"><button ion-button color="zhuti" (click)="concern()" class="concern" [disabled]="isAbled == false ? true:false">{{isConcern == false ? '已关注':'关注'}}</button></div>
         </div>
         <div class="content">
             {{list[0]?.scontent}}
         </div>
         <div class="img">
-            <img src="{{'http://192.168.80.144:8080/say/'+list[0]?.simage}}"/>
+            <img src="{{'http://120.79.153.10:80/say/'+list[0]?.simage}}"/>
         </div>
       </div>
         <div class="comment">
@@ -37,7 +37,7 @@
                 <li *ngFor='let item1 of commont;let idx=index' class="one">
                   <div>
                       <ul class="pinlun">
-                        <li class="img"><img  src="{{'http://192.168.80.144:8080/user/'+item1?.uimage}}"></li>
+                        <li class="img"><img  src="{{'http://120.79.153.10:80/user/'+item1?.uimage}}"></li>
                         <li class="name">{{item1?.uname}}</li>
                         <li class="time">{{item1?.sctime}}</li>
                       </ul>

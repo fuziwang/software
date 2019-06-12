@@ -13,31 +13,39 @@
   </ion-header>
   <ion-content>
     <div class="top">
-      <img src="../../assets/imgs/boy_02.png">
+      <img src="{{'http://120.79.153.10:80/user/' + userTouxiang}}">
       <span>{{num}}颗果子</span>
     </div>
     <div class="apple">
       <ul>
-        <li *ngFor='let item of arr;let idx=index' [ngClass]="{'class0': index==0,'class1': index==1}" (click)="change(item?.fid)"><p>{{item.fname}}</p></li>
+        <li *ngFor='let item of arr;let idx=index' [ngClass]="{'class0': idx==0,'class1': idx==1,'class2': idx==2,'class3': idx==3,'class4': idx==4,'class5': idx==5,'class6': idx==6,'class7': idx==7}" (click)="change(item?.fid,item?.fname)"><p>{{item.fname}}</p></li>
       </ul>
     </div>
     <div class="buttom">
       <ul>
         <li>
-            <div class="tubiao">
-                <button ion-botton block (click)="goVidio()" style="background-color:transparent">
-                    <ion-icon name="ios-videocam-outline"></ion-icon>
-                </button>
-              </div>
-              <span class="c1">视频</span>
+          <div class="tubiao">
+            <button ion-botton block class="selectage" style="background-color:transparent" (click)="showMenu()">
+              <img id="age" src="../../assets/imgs/selectage.png">
+            </button>
+            </div>
+          <span>{{ageselect==undefined?'请选择年龄':ageselect + '岁'}}</span>
         </li>
-        <li>
-            <div class="tubiao">
-            <button ion-botton block (click)="goPicture()" style="background-color:transparent">
-                <ion-icon name="ios-images-outline"></ion-icon>
+        <li class="c2">
+          <div class="tubiao">
+            <button ion-botton block (click)="goVidio()" style="background-color:transparent">
+              <ion-icon name="ios-videocam-outline"></ion-icon>
             </button>
           </div>
-          <span class="c1">图片</span>
+          <span>视频</span>
+        </li>
+        <li class="c3">
+          <div class="tubiao">
+            <button ion-botton block (click)="goAlbum()" style="background-color:transparent">
+              <ion-icon name="ios-images-outline"></ion-icon>
+            </button>
+          </div>
+          <span>图片</span>
         </li>
       </ul>
     </div>
@@ -49,7 +57,7 @@
     <footer [ngStyle]="{'display': isdel== 1  ? 'block' : 'none'}" class="footer">
       <p>你想修改的果实名称是：</p>
       <input type="text" placeholder="修改果实名称（最多4个字）" [(ngModel)]="change_text">
-      <span (click)="change_content()">确定</span><span (click)="quxiao()">取消</span><span (click)="del()">删除果实</span>
+<span (click)="change_content()">确定</span><span (click)="quxiao()">取消</span><span (click)="del()">删除果实</span><span (click)="goPhoto()">进入相册</span>
    </footer>
   
   </ion-content>

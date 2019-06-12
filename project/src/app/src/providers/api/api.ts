@@ -1,5 +1,7 @@
 import { Http,Headers,Response } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
+import { resolveDefinition } from '@angular/core/src/view/util';
 
 @Injectable()
 export class ApiProvider {
@@ -11,10 +13,12 @@ export class ApiProvider {
 
   url:string = "/api/";
 
+
   //实例get Article请求
-  public getList(){
+  public getList(uid){
+    console.log(uid);
     return new Promise((resolve, reject) => {
-      this.http.get(this.url+'article')
+      this.http.get(this.url+'article/sus/'+uid)
         .subscribe((res:Response)=>{
           resolve(res.json())
         },err=>{
@@ -48,8 +52,21 @@ export class ApiProvider {
       });
     });
   }
-  //实例post 说说评论请求
-  public postSayComment(data) {
+  //实例get BannerArticle(id){
+  public getBanArticle(id){
+    return new Promise((resolve,reject)=>{
+      console.log(id);
+      this.http.get(this.url+'bannerarticle/'+id)
+        .subscribe((res:Response)=>{
+          resolve(res.json())
+        },err=>{
+          console.dir(err);
+          reject()
+      });
+    });
+  }
+   //实例post 说说评论请求
+   public postSayComment(data) {
     return new Promise((resolve, reject) => {
       this.http.post(this.url + 'saycomment', data, { headers: this.headers })
         .subscribe((res: Response) => {
@@ -127,7 +144,6 @@ export class ApiProvider {
   //实例get 用户 请求
   public getApple(id){
     return new Promise((resolve, reject) => {
-      
       this.http.get(this.url+'fruit/'+id)
         .subscribe((res:Response)=>{
           resolve(res.json())
@@ -164,7 +180,42 @@ export class ApiProvider {
       });
     });
   }
-
+  //实例get 关注用户upid
+  public concerns(id){
+    return new Promise((resolve,reject)=>{
+      this.http.get(this.url+'/userconcern/concern/'+id)
+        .subscribe((res:Response)=>{
+          resolve(res.json()) 
+        },err=>{
+          console.dir(err);
+          reject()
+        });
+    });
+  }
+//实例get 创作文章请求
+public acreate(id){
+  return new Promise((resolve,reject)=>{
+    this.http.get(this.url+'/article/acreate/'+id)
+      .subscribe((res:Response)=>{
+        resolve(res.json())
+      },err=>{
+        console.dir(err);
+        reject()
+      });
+  });
+}
+ //实例get 创作说说请求
+ public screate(id){
+   return new Promise((resolve,reject)=>{
+     this.http.get(this.url+'say/screate/'+id)
+      .subscribe((res:Response)=>{
+        resolve(res.json())
+      },err=>{
+        console.dir(err);
+        reject()
+      });
+   });
+ }
 public createCode(len){
   var seed = new Array(
     'abcdefghijklmnopqrstuvwxyz',
@@ -182,10 +233,10 @@ public createCode(len){
   }
 
 //实例get 短信验证
-public getduanxin(tel,n){
+public getduanxin(){
   return new Promise((resolve, reject) => {
     this.http.get
-      ('http://v.juhe.cn/sms/send?mobile=' + tel + '&tpl_id=123006&tpl_value=%23code%23%3D' + n + '&key=149e26daec051814e94a4fa7b5cc7c2b')
+    ('http://v.juhe.cn/sms/send?mobile=15226513121&tpl_id=123034&tpl_value=%23code%23%3D654654&key=c7534230547f1a15f64eb302c1312918')
       .subscribe((res:Response)=>{
         resolve(res.json())
       },err=>{
@@ -233,7 +284,6 @@ public getArticleComment_next(id){
       });
     });
   }
-
   //实例get 关注 请求
   public getFollow(id) {
     return new Promise((resolve, reject) => {
@@ -246,20 +296,103 @@ public getArticleComment_next(id){
         });
     });
   }
-
-  //实例get 粉丝 请求
-  public getFans(id) {
-    return new Promise((resolve, reject) => {
-      this.http.get(this.url + 'userconcern/fans/' + id)
+  
+    //实例get 粉丝 请求
+    public getFans(id) {
+      return new Promise((resolve, reject) => {
+        this.http.get(this.url + 'userconcern/fans/' + id)
+          .subscribe((res: Response) => {
+            resolve(res.json())
+          }, err => {
+            console.dir(err)
+            reject()
+          });
+      });
+    }
+    //实例get 获取用户头像信息
+  public getTouxiang(id) {
+    return new Promise((resolve,reject) => {
+      this.http.get(this.url + 'user/' + id)
         .subscribe((res: Response) => {
           resolve(res.json())
-        }, err => {
+        },err => {
           console.dir(err)
           reject()
         });
     });
   }
-
+  //实例get 获取用户名称信息
+  public getuserName(id) {
+    return new Promise((resolve,reject) => {
+      this.http.get(this.url + 'user/' + id)
+        .subscribe((res: Response) => {
+          resolve(res.json())
+        },err => {
+          console.dir(err)
+          reject()
+        });
+    });
+  }
+  //实例get 获取用户简介信息
+  public getuserDescribe(id) {
+    return new Promise((resolve,reject) => {
+      this.http.get(this.url + 'user/' + id)
+        .subscribe((res: Response) => {
+          resolve(res.json())
+        },err => {
+          console.dir(err)
+          reject()
+        });
+    });
+  }
+  //实例get 获取用户地点信息
+  public getuserWhere(id) {
+    return new Promise((resolve,reject) => {
+      this.http.get(this.url + 'user/' + id)
+        .subscribe((res: Response) => {
+          resolve(res.json())
+        },err => {
+          console.dir(err)
+          reject()
+        });
+    });
+  }
+  //实例 阅读量post请求
+  public postRead(data){
+    return new Promise((resolve,reject)=>{
+      this.http.post(this.url+'article/read',data,{headers:this.headers})
+       .subscribe((res:Response)=>{
+        console.log(res);
+       },err=>{
+         console.dir(err);
+         reject()
+       });
+    });
+  }
+  //实例 点赞post请求
+  public postDian(data){
+    return new Promise((resolve,reject)=>{
+      this.http.post(this.url+'article/dian',data,{headers:this.headers})
+       .subscribe((res:Response)=>{
+         console.log(res);
+       },err=>{
+         console.dir(err);
+         reject()
+       });
+    });
+  }
+  //实例 取消点赞post请求
+  public delDian(data){
+    return new Promise((resolve,reject)=>{
+      this.http.post(this.url+'article/deldian',data,{headers:this.headers})
+       .subscribe((res:Response)=>{
+         console.log(res);
+       },err=>{
+         console.dir(err);
+         reject();
+       });
+    });
+  }
   //实例post请求
   public postLogin(data){
     return new Promise((resolve, reject) => {
@@ -267,11 +400,12 @@ public getArticleComment_next(id){
         .subscribe((res:Response)=>{
           resolve(res.json())
         },err=>{
-          console.dir(err)
+          console.dir(err);
           reject()
         });
     });
   }
+
   //实例post 新建相册请求
   public postNewAlbum(data) {
     return new Promise((resolve, reject) => {
@@ -296,7 +430,7 @@ public getArticleComment_next(id){
         });
     });
   }
-
+  //实例 关注post请求
   public postConcern(data) {
     return new Promise((resolve, reject) => {
       this.http.post(this.url + 'userconcern', data, { headers: this.headers })
@@ -335,7 +469,18 @@ public getArticleComment_next(id){
         });
     });
   }
-
+  //实例post 得到所有果实
+  public getFruits(data){
+    return new Promise((resolve,reject)=>{
+      this.http.post(this.url+'fruit/all',data,{headers:this.headers})
+        .subscribe((res:Response)=>{
+          resolve(res.json());
+        },err=>{
+          console.dir(err);
+          reject();
+        });
+    });
+  }
    //实例post 删除果实请求
    public postDeleteApple(data){
     return new Promise((resolve, reject) => {

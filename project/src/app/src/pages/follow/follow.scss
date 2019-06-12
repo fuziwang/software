@@ -23,6 +23,12 @@ page-follow {
                 padding-top: 10px;
                 margin-bottom: -10px;
             }
+            .describe{
+                width: 150px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
         }
         .img1{
             width: 85px;
@@ -32,6 +38,7 @@ page-follow {
             margin-top: 20px;
         }
         .button1{
+            width:75px;
             float: right;
             margin-top: -75px;
             margin-left: 140px;

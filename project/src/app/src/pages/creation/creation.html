@@ -17,19 +17,19 @@
 </ul>
 <div [ngSwitch]="isActive">
   <div *ngSwitchCase="1">
-    <div class="ss" *ngFor='let item of arr;let idx=index'>
-      <img class="img1">
-      <div><p><span class="name">yonghuming</span></p></div>
-      <div><p><span class="time">shijian</span></p></div>
-      <div><p class="text"><span>neirongneirongneirongneirongneirongneirongneirongneirongneirong</span></p></div>
+    <div class="ss" *ngFor='let item of list1;let idx=index'>
+      <img class="img1" src="{{'http://120.79.153.10:80/say/'+item?.simage}}" alt="">
+      <div><p><span class="name">{{item.scontent}}</span></p></div>
+      <div><p><span class="time">{{item.stime}}</span></p></div>
+      <div><p class="text"><span>{{item.uname}}</span></p></div>
     </div>
   </div>
   <div *ngSwitchCase="0">
-    <div class="wz" *ngFor='let item of arr;let idx=index'>
+    <div class="wz" *ngFor='let item of list;let idx=index'>
       <img class="img1">
-      <div><p><span class="name">yonghuming</span></p></div>
-      <div><p><span class="time">shijian</span></p></div>
-      <div><p class="text"><span>neirong</span></p></div>
+      <div><p><span class="name">{{item.atitle}}</span></p></div>
+      <div><p><span class="time">{{item.atime}}</span></p></div>
+      <div><p class="text"><span>{{item.atitle}}</span></p></div>
     </div>
   </div>
 </div>

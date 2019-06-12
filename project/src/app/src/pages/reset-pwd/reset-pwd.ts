@@ -112,7 +112,6 @@ export class ResetPwdPage {
     if(this,this.isCheck==0){
       this.getList();
       this.navCtrl.push(LoginPage);
-      this.storage.setItem('status',true);
     }
    
   }
